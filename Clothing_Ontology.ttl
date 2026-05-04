@@ -1,141 +1,405 @@
-@prefix : <http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3/> .
+@prefix : <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix untitled-ontology-3: <http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#> .
-@base <http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3/> .
+@base <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/> .
 
-<http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3> rdf:type owl:Ontology .
+<http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#hasColor
-untitled-ontology-3:hasColor rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf owl:topObjectProperty ;
-                             rdfs:range untitled-ontology-3:Color .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasColor
+:hasColor rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:range :Color .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#hasMaterial
-untitled-ontology-3:hasMaterial rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf owl:topObjectProperty ;
-                                rdfs:range untitled-ontology-3:Material .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasMaterial
+:hasMaterial rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:range :Material .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#hasSize
-untitled-ontology-3:hasSize rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf owl:topObjectProperty ;
-                            rdfs:range untitled-ontology-3:Size .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasSize
+:hasSize rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:range :Size .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#isSuitableFor
-untitled-ontology-3:isSuitableFor rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf owl:topObjectProperty ;
-                                  rdfs:range untitled-ontology-3:Gender .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isAppropriateForOccasion
+:isAppropriateForOccasion rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:range :Occasion .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isAppropriateForSeason
+:isAppropriateForSeason rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty ;
+                        rdfs:range :Season .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isSuitableFor
+:isSuitableFor rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:range :Gender .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#brandName
-untitled-ontology-3:brandName rdf:type owl:DatatypeProperty ;
-                              rdfs:subPropertyOf owl:topDataProperty ;
-                              rdfs:range xsd:string .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#brandName
+:brandName rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#hasPrice
-untitled-ontology-3:hasPrice rdf:type owl:DatatypeProperty ;
-                             rdfs:subPropertyOf owl:topDataProperty ;
-                             rdfs:range xsd:float .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasPrice
+:hasPrice rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isMachineWashable
+:isMachineWashable rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:range xsd:boolean .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Attribute
-untitled-ontology-3:Attribute rdf:type owl:Class .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Accessory
+:Accessory rdf:type owl:Class ;
+           rdfs:subClassOf :ClothingItem .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Bottom
-untitled-ontology-3:Bottom rdf:type owl:Class ;
-                           rdfs:subClassOf untitled-ontology-3:ClothingItem .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Attribute
+:Attribute rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#ClothingItem
-untitled-ontology-3:ClothingItem rdf:type owl:Class .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Belt
+:Belt rdf:type owl:Class ;
+      rdfs:subClassOf :Accessory .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Color
-untitled-ontology-3:Color rdf:type owl:Class ;
-                          rdfs:subClassOf untitled-ontology-3:Attribute .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Blouse
+:Blouse rdf:type owl:Class ;
+        rdfs:subClassOf :Top .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Footwear
-untitled-ontology-3:Footwear rdf:type owl:Class ;
-                             rdfs:subClassOf untitled-ontology-3:ClothingItem .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Boots
+:Boots rdf:type owl:Class ;
+       rdfs:subClassOf :Footwear .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Gender
-untitled-ontology-3:Gender rdf:type owl:Class ;
-                           rdfs:subClassOf untitled-ontology-3:Attribute .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Bottom
+:Bottom rdf:type owl:Class ;
+        rdfs:subClassOf :ClothingItem .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Material
-untitled-ontology-3:Material rdf:type owl:Class ;
-                             rdfs:subClassOf untitled-ontology-3:Attribute .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#ClothingItem
+:ClothingItem rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Outerwear
-untitled-ontology-3:Outerwear rdf:type owl:Class ;
-                              rdfs:subClassOf untitled-ontology-3:ClothingItem .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Coat
+:Coat rdf:type owl:Class ;
+      rdfs:subClassOf :Outerwear .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Size
-untitled-ontology-3:Size rdf:type owl:Class ;
-                         rdfs:subClassOf untitled-ontology-3:Attribute .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Color
+:Color rdf:type owl:Class ;
+       rdfs:subClassOf :Attribute .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Top
-untitled-ontology-3:Top rdf:type owl:Class ;
-                        rdfs:subClassOf untitled-ontology-3:ClothingItem .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Footwear
+:Footwear rdf:type owl:Class ;
+          rdfs:subClassOf :ClothingItem .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#FormalShoes
+:FormalShoes rdf:type owl:Class ;
+             rdfs:subClassOf :Footwear .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Gender
+:Gender rdf:type owl:Class ;
+        rdfs:subClassOf :Attribute .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Hat
+:Hat rdf:type owl:Class ;
+     rdfs:subClassOf :Accessory .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Hoodie
+:Hoodie rdf:type owl:Class ;
+        rdfs:subClassOf :Top .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Jacket
+:Jacket rdf:type owl:Class ;
+        rdfs:subClassOf :Outerwear .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Jean
+:Jean rdf:type owl:Class ;
+      rdfs:subClassOf :Bottom .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Material
+:Material rdf:type owl:Class ;
+          rdfs:subClassOf :Attribute .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Occasion
+:Occasion rdf:type owl:Class ;
+          rdfs:subClassOf :Attribute .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Outerwear
+:Outerwear rdf:type owl:Class ;
+           rdfs:subClassOf :ClothingItem .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Sandals
+:Sandals rdf:type owl:Class ;
+         rdfs:subClassOf :Footwear .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Scarf
+:Scarf rdf:type owl:Class ;
+       rdfs:subClassOf :Accessory .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Season
+:Season rdf:type owl:Class ;
+        rdfs:subClassOf :Attribute .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Short
+:Short rdf:type owl:Class ;
+       rdfs:subClassOf :Bottom .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Size
+:Size rdf:type owl:Class ;
+      rdfs:subClassOf :Attribute .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Skirt
+:Skirt rdf:type owl:Class ;
+       rdfs:subClassOf :Bottom .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#SportsShoes
+:SportsShoes rdf:type owl:Class ;
+             rdfs:subClassOf :Footwear .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Sweater
+:Sweater rdf:type owl:Class ;
+         rdfs:subClassOf :Top .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#T-Shirt
+:T-Shirt rdf:type owl:Class ;
+         rdfs:subClassOf :Top .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Top
+:Top rdf:type owl:Class ;
+     rdfs:subClassOf :ClothingItem .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Trouser
+:Trouser rdf:type owl:Class ;
+         rdfs:subClassOf :Bottom .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Watch
+:Watch rdf:type owl:Class ;
+       rdfs:subClassOf :Accessory .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Blue
-untitled-ontology-3:Blue rdf:type owl:NamedIndividual ,
-                                  untitled-ontology-3:Color .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Autumn
+:Autumn rdf:type owl:NamedIndividual ,
+                 :Season .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Blue_Cotton_Shirt
-untitled-ontology-3:Blue_Cotton_Shirt rdf:type owl:NamedIndividual ,
-                                               untitled-ontology-3:Top ;
-                                      untitled-ontology-3:hasColor untitled-ontology-3:Blue ;
-                                      untitled-ontology-3:hasMaterial untitled-ontology-3:Cotton ;
-                                      untitled-ontology-3:hasPrice "25.0"^^xsd:float .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Black
+:Black rdf:type owl:NamedIndividual ,
+                :Color .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#Cotton
-untitled-ontology-3:Cotton rdf:type owl:NamedIndividual ,
-                                    untitled-ontology-3:Material .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Blue
+:Blue rdf:type owl:NamedIndividual ,
+               :Color .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#White
-untitled-ontology-3:White rdf:type owl:NamedIndividual ,
-                                   untitled-ontology-3:Color .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Blue_Cotton_Shirt
+:Blue_Cotton_Shirt rdf:type owl:NamedIndividual ,
+                            :Top ;
+                   :hasColor :Blue ;
+                   :hasMaterial :Cotton ;
+                   :hasPrice "25.0"^^xsd:float ;
+                   :isMachineWashable "true"^^xsd:boolean .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#White_Sneakers
-untitled-ontology-3:White_Sneakers rdf:type owl:NamedIndividual ,
-                                            untitled-ontology-3:Footwear ;
-                                   untitled-ontology-3:hasColor untitled-ontology-3:White .
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Brown
+:Brown rdf:type owl:NamedIndividual ,
+                :Color .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Casual
+:Casual rdf:type owl:NamedIndividual ,
+                 :Occasion .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Cotton
+:Cotton rdf:type owl:NamedIndividual ,
+                 :Material .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Female
+:Female rdf:type owl:NamedIndividual ,
+                 :Gender .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Formal
+:Formal rdf:type owl:NamedIndividual ,
+                 :Occasion .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Green
+:Green rdf:type owl:NamedIndividual ,
+                :Color .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#L
+:L rdf:type owl:NamedIndividual ,
+            :Size .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#M
+:M rdf:type owl:NamedIndividual ,
+            :Size .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Male
+:Male rdf:type owl:NamedIndividual ,
+               :Gender .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Nylon
+:Nylon rdf:type owl:NamedIndividual ,
+                :Material .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Orange
+:Orange rdf:type owl:NamedIndividual ,
+                 :Color .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Polyester
+:Polyester rdf:type owl:NamedIndividual ,
+                    :Material .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Purple
+:Purple rdf:type owl:NamedIndividual ,
+                 :Color .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Red
+:Red rdf:type owl:NamedIndividual ,
+              :Color .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#S
+:S rdf:type owl:NamedIndividual ,
+            :Size .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Silk
+:Silk rdf:type owl:NamedIndividual ,
+               :Material .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Sport
+:Sport rdf:type owl:NamedIndividual ,
+                :Occasion .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Spring
+:Spring rdf:type owl:NamedIndividual ,
+                 :Season .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Summer
+:Summer rdf:type owl:NamedIndividual ,
+                 :Season .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Unisex
+:Unisex rdf:type owl:NamedIndividual ,
+                 :Gender .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#White
+:White rdf:type owl:NamedIndividual ,
+                :Color .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#White_Sneakers
+:White_Sneakers rdf:type owl:NamedIndividual ,
+                         :Footwear ;
+                :hasColor :White .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Winter
+:Winter rdf:type owl:NamedIndividual ,
+                 :Season .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Wool
+:Wool rdf:type owl:NamedIndividual ,
+               :Material .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Work
+:Work rdf:type owl:NamedIndividual ,
+               :Occasion .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#XL
+:XL rdf:type owl:NamedIndividual ,
+             :Size .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#XS
+:XS rdf:type owl:NamedIndividual ,
+             :Size .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#XXL
+:XXL rdf:type owl:NamedIndividual ,
+              :Size .
+
+
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Yellow
+:Yellow rdf:type owl:NamedIndividual ,
+                 :Color .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
