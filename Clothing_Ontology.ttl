@@ -4,402 +4,913 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix untitled-ontology-3: <http://www.semanticweb.org/g911/ontologies/2026/3/untitled-ontology-3#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
 @base <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/> .
 
-<http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Ontology Metadata
+#################################################################
+
+<http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology>
+    rdf:type owl:Ontology ;
+    owl:versionIRI <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology/v2> ;
+    owl:versionInfo "2.0"^^xsd:string ;
+    owl:priorVersion <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology/v1> ;
+    dcterms:title "Clothing Ontology for Outfit Combination Engine"@en ;
+    dcterms:description "An OWL 2 ontology that models clothing items, their attributes (color, material, size, formality), and outfit-level compatibility relations. The ontology is designed to support a rule-based outfit combination engine that recommends harmonious outfits based on color theory, material compatibility, occasion, season, and personalized user preferences."@en ;
+    dcterms:creator "g911"@en ;
+    dcterms:issued "2026-04-01"^^xsd:date ;
+    dcterms:modified "2026-05-11"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    vann:preferredNamespacePrefix "clo" ;
+    vann:preferredNamespaceUri "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/" ;
+    rdfs:comment "Version 2 extends v1 with: an Outfit module (Outfit class and part-of properties), a richer Attribute module (ColorScheme, ColorUndertone, FormalityLevel), a User module for personalization, schema.org alignment, and SWRL rules encoding color-harmony, formality-consistency, season-coherence and material-conflict heuristics."@en .
+
+
+#################################################################
+#    Annotation Properties
+#################################################################
+
+dcterms:title rdf:type owl:AnnotationProperty .
+dcterms:description rdf:type owl:AnnotationProperty .
+dcterms:creator rdf:type owl:AnnotationProperty .
+dcterms:issued rdf:type owl:AnnotationProperty .
+dcterms:modified rdf:type owl:AnnotationProperty .
+dcterms:license rdf:type owl:AnnotationProperty .
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasColor
+###  hasColor
 :hasColor rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf owl:topObjectProperty ;
-          rdfs:range :Color .
+          rdfs:domain :ClothingItem ;
+          rdfs:range :Color ;
+          owl:equivalentProperty schema:color ;
+          rdfs:label "has color"@en ;
+          rdfs:comment "Associates a clothing item with one or more colors that appear on it."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasMaterial
+###  hasMaterial
 :hasMaterial rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf owl:topObjectProperty ;
-             rdfs:range :Material .
+             rdfs:domain :ClothingItem ;
+             rdfs:range :Material ;
+             owl:equivalentProperty schema:material ;
+             rdfs:label "has material"@en ;
+             rdfs:comment "Associates a clothing item with its primary fabric or material composition."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasSize
-:hasSize rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf owl:topObjectProperty ;
-         rdfs:range :Size .
+###  hasSize
+:hasSize rdf:type owl:ObjectProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :ClothingItem ;
+         rdfs:range :Size ;
+         owl:equivalentProperty schema:size ;
+         rdfs:label "has size"@en ;
+         rdfs:comment "Associates a clothing item with a single size value drawn from a standard size scale."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isAppropriateForOccasion
+###  isAppropriateForOccasion
 :isAppropriateForOccasion rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf owl:topObjectProperty ;
-                          rdfs:range :Occasion .
+                          rdfs:domain :ClothingItem ;
+                          rdfs:range :Occasion ;
+                          rdfs:label "is appropriate for occasion"@en ;
+                          rdfs:comment "States that a clothing item or outfit is suitable for a particular social occasion."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isAppropriateForSeason
+###  isAppropriateForSeason
 :isAppropriateForSeason rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf owl:topObjectProperty ;
-                        rdfs:range :Season .
+                        rdfs:domain :ClothingItem ;
+                        rdfs:range :Season ;
+                        rdfs:label "is appropriate for season"@en ;
+                        rdfs:comment "States that a clothing item or outfit is suitable for a particular season."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isSuitableFor
+###  isSuitableFor
 :isSuitableFor rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
-               rdfs:range :Gender .
+               rdfs:domain :ClothingItem ;
+               rdfs:range :Gender ;
+               rdfs:label "is suitable for gender"@en ;
+               rdfs:comment "Indicates that the clothing item is designed or commonly worn for a given gender presentation. Use :Unisex when no preference applies."@en .
+
+
+###  hasUndertone   (Attribute module — new in v2)
+:hasUndertone rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Color ;
+              rdfs:range :ColorUndertone ;
+              rdfs:label "has undertone"@en ;
+              rdfs:comment "The undertone (warm, cool, or neutral) of a color. Used by the color harmony rules of the outfit engine."@en .
+
+
+###  hasFormality   (Attribute module — new in v2)
+:hasFormality rdf:type owl:ObjectProperty ;
+              rdfs:domain :ClothingItem ;
+              rdfs:range :FormalityLevel ;
+              rdfs:label "has formality"@en ;
+              rdfs:comment "The dress-code formality level of a clothing item (Casual, SmartCasual, BusinessCasual, FormalDress)."@en .
+
+
+###  hasColorScheme   (Outfit module — new in v2)
+:hasColorScheme rdf:type owl:ObjectProperty ;
+                rdfs:domain :Outfit ;
+                rdfs:range :ColorScheme ;
+                rdfs:label "has color scheme"@en ;
+                rdfs:comment "The overall color scheme of an outfit (e.g., Monochromatic, Complementary, Analogous)."@en .
+
+
+###  hasTop   (Outfit module — new in v2)
+:hasTop rdf:type owl:ObjectProperty ;
+        rdfs:domain :Outfit ;
+        rdfs:range :Top ;
+        rdfs:label "has top"@en ;
+        rdfs:comment "Relates an Outfit to the Top garment it contains."@en .
+
+
+###  hasBottom   (Outfit module — new in v2)
+:hasBottom rdf:type owl:ObjectProperty ;
+           rdfs:domain :Outfit ;
+           rdfs:range :Bottom ;
+           rdfs:label "has bottom"@en ;
+           rdfs:comment "Relates an Outfit to the Bottom garment it contains."@en .
+
+
+###  hasFootwear   (Outfit module — new in v2)
+:hasFootwear rdf:type owl:ObjectProperty ;
+             rdfs:domain :Outfit ;
+             rdfs:range :Footwear ;
+             rdfs:label "has footwear"@en ;
+             rdfs:comment "Relates an Outfit to its footwear component."@en .
+
+
+###  hasOuterwear   (Outfit module — new in v2)
+:hasOuterwear rdf:type owl:ObjectProperty ;
+              rdfs:domain :Outfit ;
+              rdfs:range :Outerwear ;
+              rdfs:label "has outerwear"@en ;
+              rdfs:comment "Optional outerwear component of an Outfit (jacket, coat, etc.)."@en .
+
+
+###  hasAccessory   (Outfit module — new in v2)
+:hasAccessory rdf:type owl:ObjectProperty ;
+              rdfs:domain :Outfit ;
+              rdfs:range :Accessory ;
+              rdfs:label "has accessory"@en ;
+              rdfs:comment "Optional accessory(ies) included in an Outfit (belt, hat, watch, scarf)."@en .
+
+
+###  pairsWellWith   (Outfit module — new in v2)
+:pairsWellWith rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty ;
+               rdfs:domain :ClothingItem ;
+               rdfs:range :ClothingItem ;
+               rdfs:label "pairs well with"@en ;
+               rdfs:comment "Symmetric compatibility relation between two clothing items, inferred by the SWRL outfit-compatibility rules."@en .
+
+
+###  clashesWith   (Outfit module — new in v2)
+:clashesWith rdf:type owl:ObjectProperty ,
+                      owl:SymmetricProperty ;
+             rdfs:domain :ClothingItem ;
+             rdfs:range :ClothingItem ;
+             owl:propertyDisjointWith :pairsWellWith ;
+             rdfs:label "clashes with"@en ;
+             rdfs:comment "Symmetric incompatibility relation between two clothing items (e.g., conflicting formality or clashing colors)."@en .
+
+
+###  colorHarmonizesWith   (Outfit module — new in v2)
+:colorHarmonizesWith rdf:type owl:ObjectProperty ,
+                              owl:SymmetricProperty ;
+                     rdfs:domain :Color ;
+                     rdfs:range :Color ;
+                     rdfs:label "color harmonizes with"@en ;
+                     rdfs:comment "Symmetric relation between two colors that form an aesthetically pleasing pair according to color-theory heuristics (complementary, analogous, neutral pairing)."@en .
+
+
+###  isComplementaryTo   (Outfit module — new in v2)
+:isComplementaryTo rdf:type owl:ObjectProperty ,
+                            owl:SymmetricProperty ;
+                   rdfs:subPropertyOf :colorHarmonizesWith ;
+                   rdfs:domain :Color ;
+                   rdfs:range :Color ;
+                   rdfs:label "is complementary to"@en ;
+                   rdfs:comment "Specialization of colorHarmonizesWith for the complementary case (opposite hues on the color wheel)."@en .
+
+
+###  prefersColor   (User module — new in v2)
+:prefersColor rdf:type owl:ObjectProperty ;
+              rdfs:domain :User ;
+              rdfs:range :Color ;
+              rdfs:label "prefers color"@en ;
+              rdfs:comment "Records a color the user reports as a preference. Used by the personalization layer when ranking recommended outfits."@en .
+
+
+###  prefersStyle   (User module — new in v2)
+:prefersStyle rdf:type owl:ObjectProperty ;
+              rdfs:domain :User ;
+              rdfs:range :StyleCategory ;
+              rdfs:label "prefers style"@en ;
+              rdfs:comment "Records a style category the user reports as a preference (Minimalist, Classic, Streetwear, etc.)."@en .
+
+
+###  hasBodyType   (User module — new in v2)
+:hasBodyType rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :User ;
+             rdfs:range :BodyType ;
+             rdfs:label "has body type"@en ;
+             rdfs:comment "Body type of the user, used by future fit-aware recommendations."@en .
+
+
+###  ownsItem   (User module — new in v2)
+:ownsItem rdf:type owl:ObjectProperty ;
+          rdfs:domain :User ;
+          rdfs:range :ClothingItem ;
+          rdfs:label "owns item"@en ;
+          rdfs:comment "Associates a user with the clothing items currently in their wardrobe."@en .
+
+
+###  recommendedOutfit   (User module — new in v2)
+:recommendedOutfit rdf:type owl:ObjectProperty ;
+                   rdfs:domain :User ;
+                   rdfs:range :Outfit ;
+                   rdfs:label "recommended outfit"@en ;
+                   rdfs:comment "Outfit that the engine has produced as a recommendation for the user."@en .
 
 
 #################################################################
-#    Data properties
+#    Data Properties
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#brandName
+###  brandName
 :brandName rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:range xsd:string .
+           rdfs:domain :ClothingItem ;
+           rdfs:range xsd:string ;
+           owl:equivalentProperty schema:brand ;
+           rdfs:label "brand name"@en ;
+           rdfs:comment "Free-text brand or manufacturer name of the clothing item."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#hasPrice
-:hasPrice rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf owl:topDataProperty ;
-          rdfs:range xsd:float .
+###  hasPrice
+:hasPrice rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :ClothingItem ;
+          rdfs:range xsd:float ;
+          owl:equivalentProperty schema:price ;
+          rdfs:label "has price"@en ;
+          rdfs:comment "Retail price of the clothing item, expressed as a decimal value. Currency is not encoded at the property level."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#isMachineWashable
-:isMachineWashable rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf owl:topDataProperty ;
-                   rdfs:range xsd:boolean .
+###  isMachineWashable
+:isMachineWashable rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :ClothingItem ;
+                   rdfs:range xsd:boolean ;
+                   rdfs:label "is machine washable"@en ;
+                   rdfs:comment "Boolean flag stating whether the item can be machine-washed."@en .
+
+
+###  userName   (User module — new in v2)
+:userName rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :User ;
+          rdfs:range xsd:string ;
+          rdfs:label "user name"@en ;
+          rdfs:comment "Display name of the user."@en .
+
+
+###  hasAge   (User module — new in v2)
+:hasAge rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain :User ;
+        rdfs:range xsd:integer ;
+        rdfs:label "has age"@en ;
+        rdfs:comment "Age of the user in completed years."@en .
 
 
 #################################################################
-#    Classes
+#    Classes — Item module
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Accessory
-:Accessory rdf:type owl:Class ;
-           rdfs:subClassOf :ClothingItem .
+###  ClothingItem
+:ClothingItem rdf:type owl:Class ;
+              owl:equivalentClass schema:Product ;
+              rdfs:label "Clothing Item"@en ;
+              rdfs:comment "Top-level class for any wearable article. Direct subclasses partition garments by body region (Top, Bottom, Outerwear, Footwear, Accessory)."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Attribute
-:Attribute rdf:type owl:Class .
+###  Attribute
+:Attribute rdf:type owl:Class ;
+           rdfs:label "Attribute"@en ;
+           rdfs:comment "Abstract grouping class for properties used to describe a ClothingItem (Color, Material, Size, Season, Occasion, Gender, FormalityLevel, ColorScheme, ColorUndertone)."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Belt
-:Belt rdf:type owl:Class ;
-      rdfs:subClassOf :Accessory .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Blouse
-:Blouse rdf:type owl:Class ;
-        rdfs:subClassOf :Top .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Boots
-:Boots rdf:type owl:Class ;
-       rdfs:subClassOf :Footwear .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Bottom
-:Bottom rdf:type owl:Class ;
-        rdfs:subClassOf :ClothingItem .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#ClothingItem
-:ClothingItem rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Coat
-:Coat rdf:type owl:Class ;
-      rdfs:subClassOf :Outerwear .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Color
-:Color rdf:type owl:Class ;
-       rdfs:subClassOf :Attribute .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Footwear
-:Footwear rdf:type owl:Class ;
-          rdfs:subClassOf :ClothingItem .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#FormalShoes
-:FormalShoes rdf:type owl:Class ;
-             rdfs:subClassOf :Footwear .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Gender
-:Gender rdf:type owl:Class ;
-        rdfs:subClassOf :Attribute .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Hat
-:Hat rdf:type owl:Class ;
-     rdfs:subClassOf :Accessory .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Hoodie
-:Hoodie rdf:type owl:Class ;
-        rdfs:subClassOf :Top .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Jacket
-:Jacket rdf:type owl:Class ;
-        rdfs:subClassOf :Outerwear .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Jean
-:Jean rdf:type owl:Class ;
-      rdfs:subClassOf :Bottom .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Material
-:Material rdf:type owl:Class ;
-          rdfs:subClassOf :Attribute .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Occasion
-:Occasion rdf:type owl:Class ;
-          rdfs:subClassOf :Attribute .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Outerwear
-:Outerwear rdf:type owl:Class ;
-           rdfs:subClassOf :ClothingItem .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Sandals
-:Sandals rdf:type owl:Class ;
-         rdfs:subClassOf :Footwear .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Scarf
-:Scarf rdf:type owl:Class ;
-       rdfs:subClassOf :Accessory .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Season
-:Season rdf:type owl:Class ;
-        rdfs:subClassOf :Attribute .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Short
-:Short rdf:type owl:Class ;
-       rdfs:subClassOf :Bottom .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Size
-:Size rdf:type owl:Class ;
-      rdfs:subClassOf :Attribute .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Skirt
-:Skirt rdf:type owl:Class ;
-       rdfs:subClassOf :Bottom .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#SportsShoes
-:SportsShoes rdf:type owl:Class ;
-             rdfs:subClassOf :Footwear .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Sweater
-:Sweater rdf:type owl:Class ;
-         rdfs:subClassOf :Top .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#T-Shirt
-:T-Shirt rdf:type owl:Class ;
-         rdfs:subClassOf :Top .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Top
+###  Top
 :Top rdf:type owl:Class ;
-     rdfs:subClassOf :ClothingItem .
+     rdfs:subClassOf :ClothingItem ;
+     rdfs:label "Top"@en ;
+     rdfs:comment "Upper-body garment (T-Shirt, Blouse, Sweater, Hoodie, ...)."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Trouser
-:Trouser rdf:type owl:Class ;
-         rdfs:subClassOf :Bottom .
+###  Bottom
+:Bottom rdf:type owl:Class ;
+        rdfs:subClassOf :ClothingItem ;
+        rdfs:label "Bottom"@en ;
+        rdfs:comment "Lower-body garment (Jean, Trouser, Short, Skirt)."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Watch
-:Watch rdf:type owl:Class ;
-       rdfs:subClassOf :Accessory .
+###  Outerwear
+:Outerwear rdf:type owl:Class ;
+           rdfs:subClassOf :ClothingItem ;
+           rdfs:label "Outerwear"@en ;
+           rdfs:comment "Outer layer worn over a Top (Jacket, Coat)."@en .
+
+
+###  Footwear
+:Footwear rdf:type owl:Class ;
+          rdfs:subClassOf :ClothingItem ;
+          rdfs:label "Footwear"@en ;
+          rdfs:comment "Foot covering (Boots, Sandals, FormalShoes, SportsShoes)."@en .
+
+
+###  Accessory
+:Accessory rdf:type owl:Class ;
+           rdfs:subClassOf :ClothingItem ;
+           rdfs:label "Accessory"@en ;
+           rdfs:comment "Non-garment wearable that complements an outfit (Belt, Hat, Scarf, Watch)."@en .
+
+
+###  Top subclasses
+:T-Shirt rdf:type owl:Class ; rdfs:subClassOf :Top ;
+         rdfs:label "T-Shirt"@en ; rdfs:comment "Short-sleeved knit Top, typically Casual."@en .
+:Blouse rdf:type owl:Class ; rdfs:subClassOf :Top ;
+        rdfs:label "Blouse"@en ; rdfs:comment "Loose-fitting Top, typically SmartCasual to BusinessCasual."@en .
+:Sweater rdf:type owl:Class ; rdfs:subClassOf :Top ;
+         rdfs:label "Sweater"@en ; rdfs:comment "Knitted Top suitable for cold seasons."@en .
+:Hoodie rdf:type owl:Class ; rdfs:subClassOf :Top ;
+        rdfs:label "Hoodie"@en ; rdfs:comment "Hooded sweatshirt; Casual formality."@en .
+
+
+###  Bottom subclasses
+:Jean rdf:type owl:Class ; rdfs:subClassOf :Bottom ;
+      rdfs:label "Jean"@en ; rdfs:comment "Denim Bottom; Casual to SmartCasual."@en .
+:Trouser rdf:type owl:Class ; rdfs:subClassOf :Bottom ;
+         rdfs:label "Trouser"@en ; rdfs:comment "Tailored Bottom; BusinessCasual to FormalDress."@en .
+:Short rdf:type owl:Class ; rdfs:subClassOf :Bottom ;
+       rdfs:label "Short"@en ; rdfs:comment "Knee-length or shorter Bottom; Casual, Summer-leaning."@en .
+:Skirt rdf:type owl:Class ; rdfs:subClassOf :Bottom ;
+       rdfs:label "Skirt"@en ; rdfs:comment "Skirted Bottom."@en .
+
+
+###  Outerwear subclasses
+:Jacket rdf:type owl:Class ; rdfs:subClassOf :Outerwear ;
+        rdfs:label "Jacket"@en ; rdfs:comment "Hip-length Outerwear."@en .
+:Coat rdf:type owl:Class ; rdfs:subClassOf :Outerwear ;
+      rdfs:label "Coat"@en ; rdfs:comment "Long Outerwear designed for cold weather."@en .
+
+
+###  Footwear subclasses
+:Boots rdf:type owl:Class ; rdfs:subClassOf :Footwear ;
+       rdfs:label "Boots"@en ; rdfs:comment "Ankle-or-higher Footwear, typically Autumn/Winter."@en .
+:Sandals rdf:type owl:Class ; rdfs:subClassOf :Footwear ;
+         rdfs:label "Sandals"@en ; rdfs:comment "Open Footwear, Summer-leaning."@en .
+:FormalShoes rdf:type owl:Class ; rdfs:subClassOf :Footwear ;
+             rdfs:label "Formal Shoes"@en ; rdfs:comment "FormalDress-level Footwear (oxford, derby, loafer)."@en .
+:SportsShoes rdf:type owl:Class ; rdfs:subClassOf :Footwear ;
+             rdfs:label "Sports Shoes"@en ; rdfs:comment "Athletic Footwear (sneaker, running shoe)."@en .
+
+
+###  Accessory subclasses
+:Belt rdf:type owl:Class ; rdfs:subClassOf :Accessory ;
+      rdfs:label "Belt"@en ; rdfs:comment "Waist Accessory."@en .
+:Hat rdf:type owl:Class ; rdfs:subClassOf :Accessory ;
+     rdfs:label "Hat"@en ; rdfs:comment "Head Accessory."@en .
+:Scarf rdf:type owl:Class ; rdfs:subClassOf :Accessory ;
+       rdfs:label "Scarf"@en ; rdfs:comment "Neck Accessory."@en .
+:Watch rdf:type owl:Class ; rdfs:subClassOf :Accessory ;
+       rdfs:label "Watch"@en ; rdfs:comment "Wrist Accessory."@en .
 
 
 #################################################################
-#    Individuals
+#    Classes — Attribute module
 #################################################################
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Autumn
-:Autumn rdf:type owl:NamedIndividual ,
-                 :Season .
+:Color rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+       rdfs:label "Color"@en ; rdfs:comment "A named color value (Red, Blue, Black, ...)."@en .
+
+:Material rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+          rdfs:label "Material"@en ; rdfs:comment "A textile material or fabric (Cotton, Wool, Silk, Polyester, ...)."@en .
+
+:Size rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+      rdfs:label "Size"@en ; rdfs:comment "A standard garment size (XS, S, M, L, XL, XXL)."@en .
+
+:Season rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+        rdfs:label "Season"@en ; rdfs:comment "A season of the year (Spring, Summer, Autumn, Winter)."@en .
+
+:Occasion rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+          rdfs:label "Occasion"@en ; rdfs:comment "A social occasion or context (Casual, Work, Formal, Sport)."@en .
+
+:Gender rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+        rdfs:label "Gender"@en ; rdfs:comment "Gender presentation an item is designed for (Male, Female, Unisex)."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Black
-:Black rdf:type owl:NamedIndividual ,
-                :Color .
+###  ColorScheme   (new in v2)
+:ColorScheme rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+             rdfs:label "Color Scheme"@en ;
+             rdfs:comment "A color-theory scheme applied to an Outfit (Monochromatic, Analogous, Complementary, Triadic, Neutral)."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Blue
-:Blue rdf:type owl:NamedIndividual ,
-               :Color .
+###  ColorUndertone   (new in v2)
+:ColorUndertone rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+                rdfs:label "Color Undertone"@en ;
+                rdfs:comment "Undertone classification of a Color: Warm, Cool, or NeutralUndertone."@en .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Blue_Cotton_Shirt
-:Blue_Cotton_Shirt rdf:type owl:NamedIndividual ,
-                            :Top ;
+###  FormalityLevel   (new in v2)
+:FormalityLevel rdf:type owl:Class ; rdfs:subClassOf :Attribute ;
+                rdfs:label "Formality Level"@en ;
+                rdfs:comment "Dress-code level: Casual, SmartCasual, BusinessCasual, FormalDress."@en .
+
+
+#################################################################
+#    Classes — Outfit module   (new in v2)
+#################################################################
+
+:Outfit rdf:type owl:Class ;
+        rdfs:label "Outfit"@en ;
+        rdfs:comment "A complete styled combination of clothing items containing at least a Top, a Bottom and Footwear, optionally extended with Outerwear and Accessories. Outfits are the primary output of the recommendation engine."@en ;
+        rdfs:subClassOf
+            [ rdf:type owl:Restriction ;
+              owl:onProperty :hasTop ;
+              owl:someValuesFrom :Top ] ,
+            [ rdf:type owl:Restriction ;
+              owl:onProperty :hasBottom ;
+              owl:someValuesFrom :Bottom ] ,
+            [ rdf:type owl:Restriction ;
+              owl:onProperty :hasFootwear ;
+              owl:someValuesFrom :Footwear ] .
+
+
+###  HarmoniousOutfit — subclass with defined semantics
+:HarmoniousOutfit rdf:type owl:Class ;
+                  rdfs:subClassOf :Outfit ;
+                  rdfs:label "Harmonious Outfit"@en ;
+                  rdfs:comment "An Outfit whose constituent items satisfy the color-harmony and formality-consistency rules. Membership is inferred by the SWRL ruleset."@en .
+
+
+###  FormalOutfit — Outfit at FormalDress level
+:FormalOutfit rdf:type owl:Class ;
+              rdfs:subClassOf :Outfit ;
+              rdfs:label "Formal Outfit"@en ;
+              rdfs:comment "Outfit whose items each have FormalDress formality. Inferred by SWRL rule R2."@en .
+
+
+###  CasualOutfit
+:CasualOutfit rdf:type owl:Class ;
+              rdfs:subClassOf :Outfit ;
+              rdfs:label "Casual Outfit"@en ;
+              rdfs:comment "Outfit whose items each have Casual formality. Inferred by SWRL rule R2'."@en .
+
+
+#################################################################
+#    Classes — User module   (new in v2)
+#################################################################
+
+:User rdf:type owl:Class ;
+      rdfs:label "User"@en ;
+      rdfs:comment "End user of the outfit recommendation engine. Owns clothing items, has stated preferences, and receives recommended Outfits."@en .
+
+
+:StyleCategory rdf:type owl:Class ;
+               rdfs:label "Style Category"@en ;
+               rdfs:comment "Named aesthetic style preference (Minimalist, Classic, Streetwear, BohoChic, Sporty, ...)."@en .
+
+
+:BodyType rdf:type owl:Class ;
+          rdfs:label "Body Type"@en ;
+          rdfs:comment "Body-shape classification used by future fit-aware recommendations."@en .
+
+
+#################################################################
+#    Individuals — Colors (with undertones)
+#################################################################
+
+:Red    rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Warm ;            rdfs:label "Red"@en .
+:Orange rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Warm ;            rdfs:label "Orange"@en .
+:Yellow rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Warm ;            rdfs:label "Yellow"@en .
+:Brown  rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Warm ;            rdfs:label "Brown"@en .
+:Blue   rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;            rdfs:label "Blue"@en .
+:Green  rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;            rdfs:label "Green"@en .
+:Purple rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;            rdfs:label "Purple"@en .
+:Pink   rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;            rdfs:label "Pink"@en .
+:Black  rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "Black"@en .
+:White  rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "White"@en .
+:Grey   rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "Grey"@en .
+:Beige  rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "Beige"@en .
+:Navy   rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;            rdfs:label "Navy"@en .
+
+# Complementary pairs (color wheel opposites)
+:Red    :isComplementaryTo :Green .
+:Blue   :isComplementaryTo :Orange .
+:Yellow :isComplementaryTo :Purple .
+
+# Neutral colors harmonize with everything
+:Black :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :White , :Grey , :Beige , :Navy .
+:White :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :Black , :Grey , :Beige , :Navy .
+:Grey  :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :Black , :White , :Beige , :Navy .
+
+
+#################################################################
+#    Individuals — Color undertones, schemes, formalities
+#################################################################
+
+:Warm             rdf:type owl:NamedIndividual , :ColorUndertone ; rdfs:label "Warm"@en .
+:Cool             rdf:type owl:NamedIndividual , :ColorUndertone ; rdfs:label "Cool"@en .
+:NeutralUndertone rdf:type owl:NamedIndividual , :ColorUndertone ; rdfs:label "Neutral undertone"@en .
+
+:Monochromatic rdf:type owl:NamedIndividual , :ColorScheme ; rdfs:label "Monochromatic"@en .
+:Analogous     rdf:type owl:NamedIndividual , :ColorScheme ; rdfs:label "Analogous"@en .
+:Complementary rdf:type owl:NamedIndividual , :ColorScheme ; rdfs:label "Complementary"@en .
+:Triadic       rdf:type owl:NamedIndividual , :ColorScheme ; rdfs:label "Triadic"@en .
+:NeutralScheme rdf:type owl:NamedIndividual , :ColorScheme ; rdfs:label "Neutral scheme"@en .
+
+:CasualLevel         rdf:type owl:NamedIndividual , :FormalityLevel ; rdfs:label "Casual"@en .
+:SmartCasualLevel    rdf:type owl:NamedIndividual , :FormalityLevel ; rdfs:label "Smart Casual"@en .
+:BusinessCasualLevel rdf:type owl:NamedIndividual , :FormalityLevel ; rdfs:label "Business Casual"@en .
+:FormalLevel         rdf:type owl:NamedIndividual , :FormalityLevel ; rdfs:label "Formal Dress"@en .
+
+
+#################################################################
+#    Individuals — Materials, Sizes, Seasons, Occasions, Genders, Styles, BodyTypes
+#################################################################
+
+:Cotton    rdf:type owl:NamedIndividual , :Material ; rdfs:label "Cotton"@en .
+:Wool      rdf:type owl:NamedIndividual , :Material ; rdfs:label "Wool"@en .
+:Silk      rdf:type owl:NamedIndividual , :Material ; rdfs:label "Silk"@en .
+:Polyester rdf:type owl:NamedIndividual , :Material ; rdfs:label "Polyester"@en .
+:Nylon     rdf:type owl:NamedIndividual , :Material ; rdfs:label "Nylon"@en .
+:Denim     rdf:type owl:NamedIndividual , :Material ; rdfs:label "Denim"@en .
+:Leather   rdf:type owl:NamedIndividual , :Material ; rdfs:label "Leather"@en .
+:Linen     rdf:type owl:NamedIndividual , :Material ; rdfs:label "Linen"@en .
+
+:XS  rdf:type owl:NamedIndividual , :Size ; rdfs:label "XS"@en .
+:S   rdf:type owl:NamedIndividual , :Size ; rdfs:label "S"@en .
+:M   rdf:type owl:NamedIndividual , :Size ; rdfs:label "M"@en .
+:L   rdf:type owl:NamedIndividual , :Size ; rdfs:label "L"@en .
+:XL  rdf:type owl:NamedIndividual , :Size ; rdfs:label "XL"@en .
+:XXL rdf:type owl:NamedIndividual , :Size ; rdfs:label "XXL"@en .
+
+:Spring rdf:type owl:NamedIndividual , :Season ; rdfs:label "Spring"@en .
+:Summer rdf:type owl:NamedIndividual , :Season ; rdfs:label "Summer"@en .
+:Autumn rdf:type owl:NamedIndividual , :Season ; rdfs:label "Autumn"@en .
+:Winter rdf:type owl:NamedIndividual , :Season ; rdfs:label "Winter"@en .
+
+:Casual rdf:type owl:NamedIndividual , :Occasion ; rdfs:label "Casual occasion"@en .
+:Work   rdf:type owl:NamedIndividual , :Occasion ; rdfs:label "Work"@en .
+:Formal rdf:type owl:NamedIndividual , :Occasion ; rdfs:label "Formal occasion"@en .
+:Sport  rdf:type owl:NamedIndividual , :Occasion ; rdfs:label "Sport"@en .
+
+:Male   rdf:type owl:NamedIndividual , :Gender ; rdfs:label "Male"@en .
+:Female rdf:type owl:NamedIndividual , :Gender ; rdfs:label "Female"@en .
+:Unisex rdf:type owl:NamedIndividual , :Gender ; rdfs:label "Unisex"@en .
+
+:Minimalist rdf:type owl:NamedIndividual , :StyleCategory ; rdfs:label "Minimalist"@en .
+:Classic    rdf:type owl:NamedIndividual , :StyleCategory ; rdfs:label "Classic"@en .
+:Streetwear rdf:type owl:NamedIndividual , :StyleCategory ; rdfs:label "Streetwear"@en .
+:BohoChic   rdf:type owl:NamedIndividual , :StyleCategory ; rdfs:label "Boho Chic"@en .
+:Sporty     rdf:type owl:NamedIndividual , :StyleCategory ; rdfs:label "Sporty"@en .
+
+:Slim     rdf:type owl:NamedIndividual , :BodyType ; rdfs:label "Slim"@en .
+:Athletic rdf:type owl:NamedIndividual , :BodyType ; rdfs:label "Athletic"@en .
+:Average  rdf:type owl:NamedIndividual , :BodyType ; rdfs:label "Average"@en .
+:Plus     rdf:type owl:NamedIndividual , :BodyType ; rdfs:label "Plus"@en .
+
+
+#################################################################
+#    Individuals — Example Clothing Items
+#################################################################
+
+:Blue_Cotton_Shirt rdf:type owl:NamedIndividual , :Blouse ;
+                   rdfs:label "Blue Cotton Shirt"@en ;
                    :hasColor :Blue ;
                    :hasMaterial :Cotton ;
+                   :hasSize :M ;
+                   :hasFormality :SmartCasualLevel ;
+                   :isAppropriateForSeason :Spring , :Summer ;
+                   :isAppropriateForOccasion :Work , :Casual ;
+                   :isSuitableFor :Unisex ;
                    :hasPrice "25.0"^^xsd:float ;
-                   :isMachineWashable "true"^^xsd:boolean .
+                   :isMachineWashable "true"^^xsd:boolean ;
+                   :brandName "Generic" .
+
+:White_TShirt rdf:type owl:NamedIndividual , :T-Shirt ;
+              rdfs:label "White T-Shirt"@en ;
+              :hasColor :White ;
+              :hasMaterial :Cotton ;
+              :hasSize :M ;
+              :hasFormality :CasualLevel ;
+              :isAppropriateForSeason :Spring , :Summer ;
+              :isAppropriateForOccasion :Casual , :Sport ;
+              :isSuitableFor :Unisex ;
+              :hasPrice "12.0"^^xsd:float ;
+              :isMachineWashable "true"^^xsd:boolean .
+
+:Black_Wool_Sweater rdf:type owl:NamedIndividual , :Sweater ;
+                    rdfs:label "Black Wool Sweater"@en ;
+                    :hasColor :Black ;
+                    :hasMaterial :Wool ;
+                    :hasSize :L ;
+                    :hasFormality :SmartCasualLevel ;
+                    :isAppropriateForSeason :Autumn , :Winter ;
+                    :isAppropriateForOccasion :Casual , :Work ;
+                    :isSuitableFor :Unisex ;
+                    :hasPrice "65.0"^^xsd:float ;
+                    :isMachineWashable "false"^^xsd:boolean .
+
+:Grey_Hoodie rdf:type owl:NamedIndividual , :Hoodie ;
+             rdfs:label "Grey Hoodie"@en ;
+             :hasColor :Grey ;
+             :hasMaterial :Cotton ;
+             :hasSize :L ;
+             :hasFormality :CasualLevel ;
+             :isAppropriateForSeason :Autumn , :Winter , :Spring ;
+             :isAppropriateForOccasion :Casual , :Sport ;
+             :isSuitableFor :Unisex ;
+             :hasPrice "40.0"^^xsd:float ;
+             :isMachineWashable "true"^^xsd:boolean .
+
+:Blue_Jeans rdf:type owl:NamedIndividual , :Jean ;
+            rdfs:label "Blue Jeans"@en ;
+            :hasColor :Blue ;
+            :hasMaterial :Denim ;
+            :hasSize :M ;
+            :hasFormality :CasualLevel ;
+            :isAppropriateForSeason :Spring , :Autumn , :Winter ;
+            :isAppropriateForOccasion :Casual , :Work ;
+            :isSuitableFor :Unisex ;
+            :hasPrice "55.0"^^xsd:float ;
+            :isMachineWashable "true"^^xsd:boolean .
+
+:Black_Trousers rdf:type owl:NamedIndividual , :Trouser ;
+                rdfs:label "Black Trousers"@en ;
+                :hasColor :Black ;
+                :hasMaterial :Wool ;
+                :hasSize :M ;
+                :hasFormality :FormalLevel ;
+                :isAppropriateForSeason :Autumn , :Winter , :Spring ;
+                :isAppropriateForOccasion :Formal , :Work ;
+                :isSuitableFor :Unisex ;
+                :hasPrice "80.0"^^xsd:float ;
+                :isMachineWashable "false"^^xsd:boolean .
+
+:Beige_Chinos rdf:type owl:NamedIndividual , :Trouser ;
+              rdfs:label "Beige Chinos"@en ;
+              :hasColor :Beige ;
+              :hasMaterial :Cotton ;
+              :hasSize :M ;
+              :hasFormality :BusinessCasualLevel ;
+              :isAppropriateForSeason :Spring , :Summer , :Autumn ;
+              :isAppropriateForOccasion :Work , :Casual ;
+              :isSuitableFor :Unisex ;
+              :hasPrice "50.0"^^xsd:float ;
+              :isMachineWashable "true"^^xsd:boolean .
+
+:Khaki_Shorts rdf:type owl:NamedIndividual , :Short ;
+              rdfs:label "Khaki Shorts"@en ;
+              :hasColor :Brown ;
+              :hasMaterial :Cotton ;
+              :hasSize :M ;
+              :hasFormality :CasualLevel ;
+              :isAppropriateForSeason :Summer ;
+              :isAppropriateForOccasion :Casual , :Sport ;
+              :isSuitableFor :Unisex ;
+              :hasPrice "30.0"^^xsd:float ;
+              :isMachineWashable "true"^^xsd:boolean .
+
+:White_Sneakers rdf:type owl:NamedIndividual , :SportsShoes ;
+                rdfs:label "White Sneakers"@en ;
+                :hasColor :White ;
+                :hasMaterial :Leather ;
+                :hasSize :L ;
+                :hasFormality :CasualLevel ;
+                :isAppropriateForSeason :Spring , :Summer , :Autumn ;
+                :isAppropriateForOccasion :Casual , :Sport ;
+                :isSuitableFor :Unisex ;
+                :hasPrice "70.0"^^xsd:float ;
+                :isMachineWashable "false"^^xsd:boolean .
+
+:Black_Oxford_Shoes rdf:type owl:NamedIndividual , :FormalShoes ;
+                    rdfs:label "Black Oxford Shoes"@en ;
+                    :hasColor :Black ;
+                    :hasMaterial :Leather ;
+                    :hasSize :L ;
+                    :hasFormality :FormalLevel ;
+                    :isAppropriateForSeason :Spring , :Autumn , :Winter ;
+                    :isAppropriateForOccasion :Formal , :Work ;
+                    :isSuitableFor :Male ;
+                    :hasPrice "150.0"^^xsd:float ;
+                    :isMachineWashable "false"^^xsd:boolean .
+
+:Brown_Leather_Boots rdf:type owl:NamedIndividual , :Boots ;
+                     rdfs:label "Brown Leather Boots"@en ;
+                     :hasColor :Brown ;
+                     :hasMaterial :Leather ;
+                     :hasSize :L ;
+                     :hasFormality :SmartCasualLevel ;
+                     :isAppropriateForSeason :Autumn , :Winter ;
+                     :isAppropriateForOccasion :Casual , :Work ;
+                     :isSuitableFor :Unisex ;
+                     :hasPrice "120.0"^^xsd:float ;
+                     :isMachineWashable "false"^^xsd:boolean .
+
+:Navy_Blazer rdf:type owl:NamedIndividual , :Jacket ;
+             rdfs:label "Navy Blazer"@en ;
+             :hasColor :Navy ;
+             :hasMaterial :Wool ;
+             :hasSize :M ;
+             :hasFormality :BusinessCasualLevel ;
+             :isAppropriateForSeason :Spring , :Autumn , :Winter ;
+             :isAppropriateForOccasion :Work , :Formal ;
+             :isSuitableFor :Unisex ;
+             :hasPrice "180.0"^^xsd:float ;
+             :isMachineWashable "false"^^xsd:boolean .
+
+:Wool_Coat rdf:type owl:NamedIndividual , :Coat ;
+           rdfs:label "Long Wool Coat"@en ;
+           :hasColor :Grey ;
+           :hasMaterial :Wool ;
+           :hasSize :L ;
+           :hasFormality :FormalLevel ;
+           :isAppropriateForSeason :Winter ;
+           :isAppropriateForOccasion :Formal , :Work ;
+           :isSuitableFor :Unisex ;
+           :hasPrice "250.0"^^xsd:float ;
+           :isMachineWashable "false"^^xsd:boolean .
+
+:Brown_Leather_Belt rdf:type owl:NamedIndividual , :Belt ;
+                    rdfs:label "Brown Leather Belt"@en ;
+                    :hasColor :Brown ;
+                    :hasMaterial :Leather ;
+                    :hasFormality :BusinessCasualLevel ;
+                    :isSuitableFor :Unisex ;
+                    :hasPrice "35.0"^^xsd:float .
+
+:Silver_Watch rdf:type owl:NamedIndividual , :Watch ;
+              rdfs:label "Silver Watch"@en ;
+              :hasColor :Grey ;
+              :hasMaterial :Leather ;
+              :hasFormality :FormalLevel ;
+              :isSuitableFor :Unisex ;
+              :hasPrice "200.0"^^xsd:float .
+
+:Silk_Scarf rdf:type owl:NamedIndividual , :Scarf ;
+            rdfs:label "Red Silk Scarf"@en ;
+            :hasColor :Red ;
+            :hasMaterial :Silk ;
+            :hasFormality :FormalLevel ;
+            :isAppropriateForSeason :Spring , :Autumn ;
+            :isSuitableFor :Female ;
+            :hasPrice "45.0"^^xsd:float .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Brown
-:Brown rdf:type owl:NamedIndividual ,
-                :Color .
+#################################################################
+#    Individuals — Example Outfits
+#################################################################
+
+:Outfit_Casual_Summer rdf:type owl:NamedIndividual , :Outfit ;
+                      rdfs:label "Casual Summer Outfit"@en ;
+                      rdfs:comment "Example casual summer combination demonstrating the engine's expected output."@en ;
+                      :hasTop :White_TShirt ;
+                      :hasBottom :Khaki_Shorts ;
+                      :hasFootwear :White_Sneakers ;
+                      :hasColorScheme :NeutralScheme ;
+                      :isAppropriateForSeason :Summer ;
+                      :isAppropriateForOccasion :Casual .
+
+:Outfit_Work_BusinessCasual rdf:type owl:NamedIndividual , :Outfit ;
+                            rdfs:label "Business Casual Work Outfit"@en ;
+                            :hasTop :Blue_Cotton_Shirt ;
+                            :hasBottom :Beige_Chinos ;
+                            :hasFootwear :Brown_Leather_Boots ;
+                            :hasOuterwear :Navy_Blazer ;
+                            :hasAccessory :Brown_Leather_Belt ;
+                            :hasColorScheme :Analogous ;
+                            :isAppropriateForSeason :Autumn ;
+                            :isAppropriateForOccasion :Work .
+
+:Outfit_Formal_Winter rdf:type owl:NamedIndividual , :Outfit ;
+                      rdfs:label "Formal Winter Outfit"@en ;
+                      :hasTop :Blue_Cotton_Shirt ;
+                      :hasBottom :Black_Trousers ;
+                      :hasFootwear :Black_Oxford_Shoes ;
+                      :hasOuterwear :Wool_Coat ;
+                      :hasAccessory :Silver_Watch ;
+                      :hasColorScheme :NeutralScheme ;
+                      :isAppropriateForSeason :Winter ;
+                      :isAppropriateForOccasion :Formal .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Casual
-:Casual rdf:type owl:NamedIndividual ,
-                 :Occasion .
+#################################################################
+#    Individuals — Example Users
+#################################################################
+
+:User_Demo rdf:type owl:NamedIndividual , :User ;
+           rdfs:label "Demo User"@en ;
+           :userName "ozgun" ;
+           :hasAge 25 ;
+           :isSuitableFor :Unisex ;
+           :hasBodyType :Athletic ;
+           :prefersColor :Blue , :Black , :White ;
+           :prefersStyle :Minimalist , :Classic ;
+           :ownsItem :Blue_Cotton_Shirt , :White_TShirt , :Blue_Jeans , :White_Sneakers ;
+           :recommendedOutfit :Outfit_Casual_Summer .
 
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Cotton
-:Cotton rdf:type owl:NamedIndividual ,
-                 :Material .
+#################################################################
+#    SWRL Rules — Outfit Combination Engine
+#################################################################
+#
+# R1  Color-harmony pairing:
+#     Outfit(?o) ^ hasTop(?o, ?t) ^ hasBottom(?o, ?b)
+#     ^ hasColor(?t, ?ct) ^ hasColor(?b, ?cb)
+#     ^ colorHarmonizesWith(?ct, ?cb)
+#     -> pairsWellWith(?t, ?b)
+#
+# R2  Formal outfit classification:
+#     Outfit(?o)
+#     ^ hasTop(?o, ?t) ^ hasFormality(?t, FormalLevel)
+#     ^ hasBottom(?o, ?b) ^ hasFormality(?b, FormalLevel)
+#     ^ hasFootwear(?o, ?f) ^ hasFormality(?f, FormalLevel)
+#     -> FormalOutfit(?o)
+#
+# R3  Casual outfit classification:
+#     Outfit(?o)
+#     ^ hasTop(?o, ?t) ^ hasFormality(?t, CasualLevel)
+#     ^ hasBottom(?o, ?b) ^ hasFormality(?b, CasualLevel)
+#     ^ hasFootwear(?o, ?f) ^ hasFormality(?f, CasualLevel)
+#     -> CasualOutfit(?o)
+#
+# R4  Season coherence (Winter requires Outerwear):
+#     Outfit(?o) ^ isAppropriateForSeason(?o, Winter)
+#     ^ hasOuterwear(?o, ?w)
+#     -> HarmoniousOutfit(?o)
+#
+# R5  Material conflict (Silk is not suitable for Sport):
+#     ClothingItem(?x) ^ hasMaterial(?x, Silk) ^ isAppropriateForOccasion(?x, Sport)
+#     -> clashesWith(?x, ?x)
+#
+# R6  Color clash (warm + cool without neutral) — diagnostic:
+#     Outfit(?o) ^ hasTop(?o, ?t) ^ hasBottom(?o, ?b)
+#     ^ hasColor(?t, ?ct) ^ hasColor(?b, ?cb)
+#     ^ hasUndertone(?ct, Warm) ^ hasUndertone(?cb, Cool)
+#     -> clashesWith(?t, ?b)
+#
+# The machine-readable SWRL encoding follows. Reasoners that do not support SWRL
+# (e.g., pure OWL DL reasoners without rule extension) will simply ignore these
+# axioms; Pellet, HermiT-with-SWRL, and Drools-backed engines will execute them.
 
+:R1_ColorHarmonyPairing rdf:type swrl:Imp ;
+    rdfs:label "R1 Color Harmony Pairing"@en ;
+    rdfs:comment "If a Top and Bottom of the same Outfit have colors that harmonize, infer pairsWellWith between them."@en ;
+    swrl:body (
+        [ rdf:type swrl:ClassAtom ;
+          swrl:classPredicate :Outfit ;
+          swrl:argument1 [ rdf:type swrl:Variable ; rdfs:label "o" ] ]
+        [ rdf:type swrl:IndividualPropertyAtom ;
+          swrl:propertyPredicate :hasTop ;
+          swrl:argument1 [ rdf:type swrl:Variable ; rdfs:label "o" ] ;
+          swrl:argument2 [ rdf:type swrl:Variable ; rdfs:label "t" ] ]
+        [ rdf:type swrl:IndividualPropertyAtom ;
+          swrl:propertyPredicate :hasBottom ;
+          swrl:argument1 [ rdf:type swrl:Variable ; rdfs:label "o" ] ;
+          swrl:argument2 [ rdf:type swrl:Variable ; rdfs:label "b" ] ]
+        [ rdf:type swrl:IndividualPropertyAtom ;
+          swrl:propertyPredicate :hasColor ;
+          swrl:argument1 [ rdf:type swrl:Variable ; rdfs:label "t" ] ;
+          swrl:argument2 [ rdf:type swrl:Variable ; rdfs:label "ct" ] ]
+        [ rdf:type swrl:IndividualPropertyAtom ;
+          swrl:propertyPredicate :hasColor ;
+          swrl:argument1 [ rdf:type swrl:Variable ; rdfs:label "b" ] ;
+          swrl:argument2 [ rdf:type swrl:Variable ; rdfs:label "cb" ] ]
+        [ rdf:type swrl:IndividualPropertyAtom ;
+          swrl:propertyPredicate :colorHarmonizesWith ;
+          swrl:argument1 [ rdf:type swrl:Variable ; rdfs:label "ct" ] ;
+          swrl:argument2 [ rdf:type swrl:Variable ; rdfs:label "cb" ] ]
+    ) ;
+    swrl:head (
+        [ rdf:type swrl:IndividualPropertyAtom ;
+          swrl:propertyPredicate :pairsWellWith ;
+          swrl:argument1 [ rdf:type swrl:Variable ; rdfs:label "t" ] ;
+          swrl:argument2 [ rdf:type swrl:Variable ; rdfs:label "b" ] ]
+    ) .
 
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Female
-:Female rdf:type owl:NamedIndividual ,
-                 :Gender .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Formal
-:Formal rdf:type owl:NamedIndividual ,
-                 :Occasion .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Green
-:Green rdf:type owl:NamedIndividual ,
-                :Color .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#L
-:L rdf:type owl:NamedIndividual ,
-            :Size .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#M
-:M rdf:type owl:NamedIndividual ,
-            :Size .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Male
-:Male rdf:type owl:NamedIndividual ,
-               :Gender .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Nylon
-:Nylon rdf:type owl:NamedIndividual ,
-                :Material .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Orange
-:Orange rdf:type owl:NamedIndividual ,
-                 :Color .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Polyester
-:Polyester rdf:type owl:NamedIndividual ,
-                    :Material .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Purple
-:Purple rdf:type owl:NamedIndividual ,
-                 :Color .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Red
-:Red rdf:type owl:NamedIndividual ,
-              :Color .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#S
-:S rdf:type owl:NamedIndividual ,
-            :Size .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Silk
-:Silk rdf:type owl:NamedIndividual ,
-               :Material .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Sport
-:Sport rdf:type owl:NamedIndividual ,
-                :Occasion .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Spring
-:Spring rdf:type owl:NamedIndividual ,
-                 :Season .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Summer
-:Summer rdf:type owl:NamedIndividual ,
-                 :Season .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Unisex
-:Unisex rdf:type owl:NamedIndividual ,
-                 :Gender .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#White
-:White rdf:type owl:NamedIndividual ,
-                :Color .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#White_Sneakers
-:White_Sneakers rdf:type owl:NamedIndividual ,
-                         :Footwear ;
-                :hasColor :White .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Winter
-:Winter rdf:type owl:NamedIndividual ,
-                 :Season .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Wool
-:Wool rdf:type owl:NamedIndividual ,
-               :Material .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Work
-:Work rdf:type owl:NamedIndividual ,
-               :Occasion .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#XL
-:XL rdf:type owl:NamedIndividual ,
-             :Size .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#XS
-:XS rdf:type owl:NamedIndividual ,
-             :Size .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#XXL
-:XXL rdf:type owl:NamedIndividual ,
-              :Size .
-
-
-###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-Ontology#Yellow
-:Yellow rdf:type owl:NamedIndividual ,
-                 :Color .
-
-
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+###  Generated by hand for Phase 2 of the Clothing Ontology project.
