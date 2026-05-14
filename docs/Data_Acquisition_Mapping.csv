@@ -1,0 +1,13 @@
+source,source_field,target_predicate,target_class_or_datatype,notes
+Retailer product JSON,title,rdfs:label,xsd:string,Product display title becomes the item label.
+Retailer product JSON,category,rdf:type,subclass of clo:ClothingItem,Category is normalized through the category mapping dictionary.
+Retailer product JSON,color,clo:hasColor,clo:Color,Color text is normalized to named ontology individuals.
+Retailer product JSON,material,clo:hasMaterial,clo:Material,Primary material is selected from parsed fabric composition.
+Retailer product JSON,size,clo:hasSize,clo:Size,Size labels are normalized to XS/S/M/L/XL/XXL where possible.
+Retailer product JSON,brand,clo:brandName,xsd:string,Stored as a literal brand name.
+Retailer product JSON,price,clo:hasPrice,xsd:float,Numeric price only; currency handling is out of scope for v2.
+Retailer product JSON,season_tag,clo:isAppropriateForSeason,clo:Season,Used when the source provides an explicit season tag.
+Retailer product JSON,formality_tag,clo:hasFormality,clo:FormalityLevel,Inferred from category/material/text when no explicit field exists.
+Polyvore Outfits,outfit_id,clo:hasTop/clo:hasBottom/clo:hasFootwear/clo:hasAccessory,clo:Outfit,Groups compatible items into one outfit individual.
+DeepFashion metadata,category,rdf:type,subclass of clo:ClothingItem,Used to test garment taxonomy coverage.
+DeepFashion metadata,attribute_labels,clo:hasColor/clo:hasMaterial/clo:hasFormality,ontology attribute classes,Used only where labels can be mapped with high confidence.

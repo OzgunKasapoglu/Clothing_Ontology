@@ -202,7 +202,7 @@ This section provides details for each class and property defined by Clothing On
   <h3>Casual Outfit<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/CasualOutfit</p>
   <div class="comment">
-   <span class="markdown">Outfit whose items each have Casual formality. Inferred by SWRL rule R2'.</span>
+   <span class="markdown">Outfit whose items each have Casual formality. Target class for documented SWRL rule R3; only R1 is machine-encoded in this version.</span>
   </div>
   <dl class="description">
    <dt>
@@ -221,7 +221,7 @@ This section provides details for each class and property defined by Clothing On
   </div>
   <dl class="description">
    <dt>
-    is equivalent to
+    has super-classes
    </dt>
    <dd>
     <a href="https://schema.org/Product" target="_blank" title="https://schema.org/Product">Product</a> <sup class="type-c" title="class">c</sup>
@@ -385,7 +385,7 @@ This section provides details for each class and property defined by Clothing On
   <h3>Formal Outfit<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/FormalOutfit</p>
   <div class="comment">
-   <span class="markdown">Outfit whose items each have FormalDress formality. Inferred by SWRL rule R2.</span>
+   <span class="markdown">Outfit whose items each have FormalDress formality. Target class for documented SWRL rule R2; only R1 is machine-encoded in this version.</span>
   </div>
   <dl class="description">
    <dt>
@@ -1142,6 +1142,12 @@ This section provides details for each class and property defined by Clothing On
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/color" target="_blank" title="https://schema.org/color">color</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
@@ -1234,6 +1240,12 @@ This section provides details for each class and property defined by Clothing On
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/material" target="_blank" title="https://schema.org/material">material</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
@@ -1280,6 +1292,12 @@ This section provides details for each class and property defined by Clothing On
   <div class="description">
    <p><strong>has characteristics: </strong> functional</p>
    <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/size" target="_blank" title="https://schema.org/size">size</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
     <dt>
      has domain
     </dt>
@@ -1575,6 +1593,12 @@ This section provides details for each class and property defined by Clothing On
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/brand" target="_blank" title="https://schema.org/brand">brand</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
@@ -1622,6 +1646,12 @@ This section provides details for each class and property defined by Clothing On
   <div class="description">
    <p><strong>has characteristics: </strong> functional</p>
    <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://schema.org/price" target="_blank" title="https://schema.org/price">price</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
     <dt>
      has domain
     </dt>
@@ -3657,9 +3687,9 @@ This section provides details for each class and property defined by Clothing On
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="swrlrules">
  <h3 id="swrlrules" class="list">SWRL rules</h3>
  <ul class="hlist">
-  <li><a href="#d4e2717">R1 Color Harmony Pairing</a></li>
+  <li><a href="#d4e2750">R1 Color Harmony Pairing</a></li>
  </ul>
- <div class="entity" id="d4e2717">
+ <div class="entity" id="d4e2750">
   <h3>R1 Color Harmony Pairing<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
   <p>If a Top and Bottom of the same Outfit have colors that harmonize, infer pairsWellWith between them.<br><br>
     -&gt;</p>

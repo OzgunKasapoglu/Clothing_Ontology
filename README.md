@@ -1,43 +1,46 @@
 # Clothing Ontology
 
-OWL 2 ontology for an **outfit combination engine**. Models clothing items, their attributes (color, material, size, formality, season, occasion, gender) and the higher-level concept of an **Outfit** — a styled combination of items — with SWRL rules that encode color-harmony, formality-consistency and season-coherence heuristics.
+OWL 2 ontology for an **outfit combination engine**. It models clothing items, their attributes (color, material, size, formality, season, occasion, gender), and the higher-level concept of an **Outfit**, a styled combination of items.
+
+Version 2 includes one machine-readable SWRL rule for color-harmony pairing and documents additional rule designs for formality, season coherence, and conflict detection.
 
 ## Files
 
 | File | Purpose |
 |---|---|
 | `Clothing_Ontology.ttl` | Canonical ontology (Turtle, OWL 2 + SWRL) |
-| `Clothing_Ontology.rdf` | RDF/XML mirror, auto-generated from the Turtle file |
+| `Clothing_Ontology.rdf` | RDF/XML mirror of the Turtle file |
 | `docs/Phase2_Report.md` | Phase 2 deliverable report |
-| `docs/Specification_v2.md` | Ontology specification document, version 2 (with v1→v2 change log) |
+| `docs/Specification_v2.md` | Ontology specification document, version 2, with v1 to v2 change log |
 | `docs/Widoco_Instructions.md` | How to regenerate Widoco documentation |
-| `docs/widoco/` | Generated HTML documentation (created after running Widoco) |
+| `docs/Data_Acquisition_Mapping.csv` | Field-level mapping from external sources to ontology terms |
+| `docs/widoco/` | Generated HTML documentation |
 
 ## Versions
 
-- `v1` — Phase 1 ontology (taxonomy only).
-- `v2` — Phase 2: adds Outfit module, User module, color-theory and formality extensions, schema.org alignment, SWRL rules, full `rdfs:label`/`rdfs:comment` annotations.
+- `v1` - Phase 1 ontology (taxonomy only).
+- `v2` - Phase 2: adds Outfit module, User module, color-theory and formality extensions, schema.org alignment, SWRL R1, documented R2-R6 rule designs, and full `rdfs:label` / `rdfs:comment` annotations.
 
 ## Methodology
 
-Modular Ontology Modeling (MOMo): four modules — Item, Attribute, Outfit, User. See `docs/Specification_v2.md` §4.
+Modular Ontology Modeling (MOMo): four modules - Item, Attribute, Outfit, User. See `docs/Specification_v2.md` section 4.
 
 ## Reused vocabularies
 
-- [schema.org](https://schema.org/) — `:ClothingItem ≡ schema:Product` and several equivalent properties.
-- [Dublin Core Terms](http://purl.org/dc/terms/) — ontology metadata.
-- [VANN](http://purl.org/vocab/vann/) — preferred prefix/URI for documentation tools.
-- [SWRL](http://www.w3.org/2003/11/swrl#) — rule encoding.
+- [schema.org](https://schema.org/) - `:ClothingItem rdfs:subClassOf schema:Product`; selected local properties use `rdfs:subPropertyOf` schema.org properties.
+- [Dublin Core Terms](http://purl.org/dc/terms/) - ontology metadata.
+- [VANN](http://purl.org/vocab/vann/) - preferred prefix/URI for documentation tools.
+- [SWRL](http://www.w3.org/2003/11/swrl#) - machine-readable encoding for rule R1.
 
 ## Quick checks
 
-Parse with rdflib:
+Parse with rdflib if available:
 
 ```bash
 python -c "import rdflib; g=rdflib.Graph(); g.parse('Clothing_Ontology.ttl', format='turtle'); print(len(g), 'triples')"
 ```
 
-Open in Protégé to view the SWRL rule R1 and the class hierarchy.
+Open in Protege to view the class hierarchy, the R1 SWRL rule, and the documented R2-R6 rule designs.
 
 ## License
 

@@ -26,11 +26,11 @@
     dcterms:description "An OWL 2 ontology that models clothing items, their attributes (color, material, size, formality), and outfit-level compatibility relations. The ontology is designed to support a rule-based outfit combination engine that recommends harmonious outfits based on color theory, material compatibility, occasion, season, and personalized user preferences."@en ;
     dcterms:creator "g911"@en ;
     dcterms:issued "2026-04-01"^^xsd:date ;
-    dcterms:modified "2026-05-11"^^xsd:date ;
+    dcterms:modified "2026-05-14"^^xsd:date ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     vann:preferredNamespacePrefix "clo" ;
     vann:preferredNamespaceUri "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/" ;
-    rdfs:comment "Version 2 extends v1 with: an Outfit module (Outfit class and part-of properties), a richer Attribute module (ColorScheme, ColorUndertone, FormalityLevel), a User module for personalization, schema.org alignment, and SWRL rules encoding color-harmony, formality-consistency, season-coherence and material-conflict heuristics."@en .
+    rdfs:comment "Version 2 extends v1 with: an Outfit module (Outfit class and part-of properties), a richer Attribute module (ColorScheme, ColorUndertone, FormalityLevel), a User module for personalization, schema.org alignment, and one machine-readable SWRL rule plus documented rule designs for color-harmony, formality-consistency, season-coherence and material-conflict heuristics."@en .
 
 
 #################################################################
@@ -55,7 +55,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 :hasColor rdf:type owl:ObjectProperty ;
           rdfs:domain :ClothingItem ;
           rdfs:range :Color ;
-          owl:equivalentProperty schema:color ;
+          rdfs:subPropertyOf schema:color ;
           rdfs:label "has color"@en ;
           rdfs:comment "Associates a clothing item with one or more colors that appear on it."@en .
 
@@ -64,7 +64,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 :hasMaterial rdf:type owl:ObjectProperty ;
              rdfs:domain :ClothingItem ;
              rdfs:range :Material ;
-             owl:equivalentProperty schema:material ;
+             rdfs:subPropertyOf schema:material ;
              rdfs:label "has material"@en ;
              rdfs:comment "Associates a clothing item with its primary fabric or material composition."@en .
 
@@ -74,7 +74,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                   owl:FunctionalProperty ;
          rdfs:domain :ClothingItem ;
          rdfs:range :Size ;
-         owl:equivalentProperty schema:size ;
+         rdfs:subPropertyOf schema:size ;
          rdfs:label "has size"@en ;
          rdfs:comment "Associates a clothing item with a single size value drawn from a standard size scale."@en .
 
@@ -255,7 +255,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 :brandName rdf:type owl:DatatypeProperty ;
            rdfs:domain :ClothingItem ;
            rdfs:range xsd:string ;
-           owl:equivalentProperty schema:brand ;
+           rdfs:subPropertyOf schema:brand ;
            rdfs:label "brand name"@en ;
            rdfs:comment "Free-text brand or manufacturer name of the clothing item."@en .
 
@@ -265,7 +265,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
                    owl:FunctionalProperty ;
           rdfs:domain :ClothingItem ;
           rdfs:range xsd:float ;
-          owl:equivalentProperty schema:price ;
+          rdfs:subPropertyOf schema:price ;
           rdfs:label "has price"@en ;
           rdfs:comment "Retail price of the clothing item, expressed as a decimal value. Currency is not encoded at the property level."@en .
 
@@ -303,7 +303,7 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  ClothingItem
 :ClothingItem rdf:type owl:Class ;
-              owl:equivalentClass schema:Product ;
+              rdfs:subClassOf schema:Product ;
               rdfs:label "Clothing Item"@en ;
               rdfs:comment "Top-level class for any wearable article. Direct subclasses partition garments by body region (Top, Bottom, Outerwear, Footwear, Accessory)."@en .
 
@@ -471,14 +471,14 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 :FormalOutfit rdf:type owl:Class ;
               rdfs:subClassOf :Outfit ;
               rdfs:label "Formal Outfit"@en ;
-              rdfs:comment "Outfit whose items each have FormalDress formality. Inferred by SWRL rule R2."@en .
+              rdfs:comment "Outfit whose items each have FormalDress formality. Target class for documented SWRL rule R2; only R1 is machine-encoded in this version."@en .
 
 
 ###  CasualOutfit
 :CasualOutfit rdf:type owl:Class ;
               rdfs:subClassOf :Outfit ;
               rdfs:label "Casual Outfit"@en ;
-              rdfs:comment "Outfit whose items each have Casual formality. Inferred by SWRL rule R2'."@en .
+              rdfs:comment "Outfit whose items each have Casual formality. Target class for documented SWRL rule R3; only R1 is machine-encoded in this version."@en .
 
 
 #################################################################
@@ -874,9 +874,10 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #     ^ hasUndertone(?ct, Warm) ^ hasUndertone(?cb, Cool)
 #     -> clashesWith(?t, ?b)
 #
-# The machine-readable SWRL encoding follows. Reasoners that do not support SWRL
+# The machine-readable SWRL encoding for R1 follows. R2-R6 are documented above
+# as implementation-ready rule designs. Reasoners that do not support SWRL
 # (e.g., pure OWL DL reasoners without rule extension) will simply ignore these
-# axioms; Pellet, HermiT-with-SWRL, and Drools-backed engines will execute them.
+# axioms; Pellet, HermiT-with-SWRL, and Drools-backed engines can execute them.
 
 :R1_ColorHarmonyPairing rdf:type swrl:Imp ;
     rdfs:label "R1 Color Harmony Pairing"@en ;

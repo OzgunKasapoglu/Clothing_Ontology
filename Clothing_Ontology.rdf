@@ -18,7 +18,7 @@
   <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/brandName">
     <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <owl:equivalentProperty rdf:resource="https://schema.org/brand"/>
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/brand"/>
     <rdfs:label xml:lang="en">brand name</rdfs:label>
     <rdfs:comment xml:lang="en">Free-text brand or manufacturer name of the clothing item.</rdfs:comment>
   </owl:DatatypeProperty>
@@ -134,7 +134,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Size"/>
-    <owl:equivalentProperty rdf:resource="https://schema.org/size"/>
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/size"/>
     <rdfs:label xml:lang="en">has size</rdfs:label>
     <rdfs:comment xml:lang="en">Associates a clothing item with a single size value drawn from a standard size scale.</rdfs:comment>
   </owl:ObjectProperty>
@@ -168,11 +168,11 @@
     <dcterms:description xml:lang="en">An OWL 2 ontology that models clothing items, their attributes (color, material, size, formality), and outfit-level compatibility relations. The ontology is designed to support a rule-based outfit combination engine that recommends harmonious outfits based on color theory, material compatibility, occasion, season, and personalized user preferences.</dcterms:description>
     <dcterms:creator xml:lang="en">g911</dcterms:creator>
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-01</dcterms:issued>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-11</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-14</dcterms:modified>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
     <vann:preferredNamespacePrefix>clo</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri>http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/</vann:preferredNamespaceUri>
-    <rdfs:comment xml:lang="en">Version 2 extends v1 with: an Outfit module (Outfit class and part-of properties), a richer Attribute module (ColorScheme, ColorUndertone, FormalityLevel), a User module for personalization, schema.org alignment, and SWRL rules encoding color-harmony, formality-consistency, season-coherence and material-conflict heuristics.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Version 2 extends v1 with: an Outfit module (Outfit class and part-of properties), a richer Attribute module (ColorScheme, ColorUndertone, FormalityLevel), a User module for personalization, schema.org alignment, and one machine-readable SWRL rule plus documented rule designs for color-harmony, formality-consistency, season-coherence and material-conflict heuristics.</rdfs:comment>
   </owl:Ontology>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/prefersColor">
     <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/User"/>
@@ -435,7 +435,7 @@
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasMaterial">
     <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"/>
     <rdfs:range rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Material"/>
-    <owl:equivalentProperty rdf:resource="https://schema.org/material"/>
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/material"/>
     <rdfs:label xml:lang="en">has material</rdfs:label>
     <rdfs:comment xml:lang="en">Associates a clothing item with its primary fabric or material composition.</rdfs:comment>
   </owl:ObjectProperty>
@@ -533,7 +533,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:equivalentProperty rdf:resource="https://schema.org/price"/>
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/price"/>
     <rdfs:label xml:lang="en">has price</rdfs:label>
     <rdfs:comment xml:lang="en">Retail price of the clothing item, expressed as a decimal value. Currency is not encoded at the property level.</rdfs:comment>
   </owl:DatatypeProperty>
@@ -702,7 +702,7 @@
           <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasColor">
             <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"/>
             <rdfs:range rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color"/>
-            <owl:equivalentProperty rdf:resource="https://schema.org/color"/>
+            <rdfs:subPropertyOf rdf:resource="https://schema.org/color"/>
             <rdfs:label xml:lang="en">has color</rdfs:label>
             <rdfs:comment xml:lang="en">Associates a clothing item with one or more colors that appear on it.</rdfs:comment>
           </owl:ObjectProperty>
@@ -796,7 +796,7 @@
   <owl:Class rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/CasualOutfit">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit"/>
     <rdfs:label xml:lang="en">Casual Outfit</rdfs:label>
-    <rdfs:comment xml:lang="en">Outfit whose items each have Casual formality. Inferred by SWRL rule R2'.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Outfit whose items each have Casual formality. Target class for documented SWRL rule R3; only R1 is machine-encoded in this version.</rdfs:comment>
   </owl:Class>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isAppropriateForSeason">
     <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"/>
@@ -830,7 +830,7 @@
   <owl:Class rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/FormalOutfit">
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit"/>
     <rdfs:label xml:lang="en">Formal Outfit</rdfs:label>
-    <rdfs:comment xml:lang="en">Outfit whose items each have FormalDress formality. Inferred by SWRL rule R2.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Outfit whose items each have FormalDress formality. Target class for documented SWRL rule R2; only R1 is machine-encoded in this version.</rdfs:comment>
   </owl:Class>
   <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ownsItem">
     <rdfs:domain rdf:resource="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/User"/>
@@ -1118,7 +1118,7 @@
     <rdfs:comment xml:lang="en">Lower-body garment (Jean, Trouser, Short, Skirt).</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:about="http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem">
-    <owl:equivalentClass rdf:resource="https://schema.org/Product"/>
+    <rdfs:subClassOf rdf:resource="https://schema.org/Product"/>
     <rdfs:label xml:lang="en">Clothing Item</rdfs:label>
     <rdfs:comment xml:lang="en">Top-level class for any wearable article. Direct subclasses partition garments by body region (Top, Bottom, Outerwear, Footwear, Accessory).</rdfs:comment>
   </owl:Class>
