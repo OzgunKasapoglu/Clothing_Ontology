@@ -3,9 +3,9 @@
 **Project:** Clothing Ontology
 **Phase:** 2
 **Ontology version:** v2
-**Author:** g911
+**Author:** Özgün Kasapoğlu
 **Date:** 2026-05-11
-**Repository:** https://github.com/g911/Clothing_Ontology (replace with the actual URL)
+**Repository:** https://github.com/OzgunKasapoglu/Clothing_Ontology
 
 ---
 
