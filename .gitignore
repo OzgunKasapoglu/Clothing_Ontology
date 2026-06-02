@@ -4,3 +4,24 @@ data/raw/
 *.tar.gz
 *.parquet
 
+# Python bytecode and virtualenv
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Env / secrets
+.env
+.env.*
+
