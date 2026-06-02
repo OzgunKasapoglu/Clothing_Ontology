@@ -1,0 +1,38 @@
+{
+  "generated_at_utc": "2026-06-02T12:12:58.972614+00:00",
+  "input": "data/samples/hm_articles_sample.csv",
+  "output": "data/generated/hm_sample_catalog.ttl",
+  "rows_read": 100,
+  "items_generated": 98,
+  "items_skipped": 2,
+  "counters": {
+    "class:broad_fallback": 43,
+    "class:exact": 25,
+    "class:needs_ontology_extension": 30,
+    "class_source:product_type": 98,
+    "color:exact": 56,
+    "color:normalized": 36,
+    "color:unmapped": 6,
+    "gender:broad_fallback": 14,
+    "gender:normalized": 59,
+    "gender:unmapped": 25,
+    "items:generated": 98,
+    "items:skipped": 2
+  },
+  "skipped": [
+    {
+      "article_id": "130035001",
+      "prod_name": "Black Umbrella",
+      "product_type_name": "Umbrella",
+      "product_group_name": "Items",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "156224002",
+      "prod_name": "Box 4p Socks",
+      "product_type_name": "Unknown",
+      "product_group_name": "Unknown",
+      "reason": "skip"
+    }
+  ]
+}

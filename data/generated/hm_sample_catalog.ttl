@@ -1,0 +1,758 @@
+@prefix clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+clo:HM_108775015 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "Strap top"@en ;
+    dcterms:identifier "108775015" ;
+    dcterms:description "Jersey top with narrow shoulder straps."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Vest top; product_group_name=Garment Upper body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_108775044 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "Strap top"@en ;
+    dcterms:identifier "108775044" ;
+    dcterms:description "Jersey top with narrow shoulder straps."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Vest top; product_group_name=Garment Upper body; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_108775051 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "Strap top (1)"@en ;
+    dcterms:identifier "108775051" ;
+    dcterms:description "Jersey top with narrow shoulder straps."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Vest top; product_group_name=Garment Upper body; colour_group_name=Off White; class_source=product_type."@en .
+
+clo:HM_110065001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP T-shirt (Idro)"@en ;
+    dcterms:identifier "110065001" ;
+    dcterms:description "Microfibre T-shirt bra with underwired, moulded, lightly padded cups that shape the bust and provide good support. Narrow adjustable shoulder straps and a narrow hook-and-eye fastening at the back. Without visible seams for greater comfort."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_110065002 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP T-shirt (Idro)"@en ;
+    dcterms:identifier "110065002" ;
+    dcterms:description "Microfibre T-shirt bra with underwired, moulded, lightly padded cups that shape the bust and provide good support. Narrow adjustable shoulder straps and a narrow hook-and-eye fastening at the back. Without visible seams for greater comfort."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_110065011 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP T-shirt (Idro)"@en ;
+    dcterms:identifier "110065011" ;
+    dcterms:description "Microfibre T-shirt bra with underwired, moulded, lightly padded cups that shape the bust and provide good support. Narrow adjustable shoulder straps and a narrow hook-and-eye fastening at the back. Without visible seams for greater comfort."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Light Beige; class_source=product_type."@en .
+
+clo:HM_111565001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "20 den 1p Stockings"@en ;
+    dcterms:identifier "111565001" ;
+    dcterms:description "Semi shiny nylon stockings with a wide, reinforced trim at the top. Use with a suspender belt. 20 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Underwear Tights; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_111565003 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "20 den 1p Stockings"@en ;
+    dcterms:identifier "111565003" ;
+    dcterms:description "Semi shiny nylon stockings with a wide, reinforced trim at the top. Use with a suspender belt. 20 denier."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Beige; class_source=product_type."@en .
+
+clo:HM_111586001 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Shape Up 30 den 1p Tights"@en ;
+    dcterms:identifier "111586001" ;
+    dcterms:description "Tights with built-in support to lift the bottom. Black in 30 denier and light amber in 15 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_111593001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Support 40 den 1p Tights"@en ;
+    dcterms:identifier "111593001" ;
+    dcterms:description "Semi shiny tights that shape the tummy, thighs and calves while also encouraging blood circulation in the legs. Elasticated waist."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Underwear Tights; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_111609001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "200 den 1p Tights"@en ;
+    dcterms:identifier "111609001" ;
+    dcterms:description "Opaque matt tights. 200 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Underwear Tights; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_112679048 rdf:type owl:NamedIndividual , clo:Sweater ;
+    rdfs:label "SWEATSHIRT  OC"@en ;
+    dcterms:identifier "112679048" ;
+    dcterms:description "Sweatshirt in soft organic cotton with a  press-stud on one shoulder (sizes 12-18 months and 18-24 months without a press-stud). Brushed inside."@en ;
+    clo:hasColor clo:Grey ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Sweater; product_group_name=Garment Upper body; colour_group_name=Grey; class_source=product_type."@en .
+
+clo:HM_112679052 rdf:type owl:NamedIndividual , clo:Sweater ;
+    rdfs:label "SWEATSHIRT  OC"@en ;
+    dcterms:identifier "112679052" ;
+    dcterms:description "Sweatshirt in soft organic cotton with a  press-stud on one shoulder (sizes 12-18 months and 18-24 months without a press-stud). Brushed inside."@en ;
+    clo:hasColor clo:Blue ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Sweater; product_group_name=Garment Upper body; colour_group_name=Light Blue; class_source=product_type."@en .
+
+clo:HM_114428026 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Alice BANDEAU 2-p"@en ;
+    dcterms:identifier "114428026" ;
+    dcterms:description "Two soft bandeau bras in soft jersey with side support and a silicone trim at the top."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_114428030 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Alice BANDEAU 2-p"@en ;
+    dcterms:identifier "114428030" ;
+    dcterms:description "Two soft bandeau bras in soft jersey with side support and a silicone trim at the top."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Light Grey; class_source=product_type."@en .
+
+clo:HM_116379047 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "Frugan longsleeve"@en ;
+    dcterms:identifier "116379047" ;
+    dcterms:description "Fitted top in soft stretch jersey with a wide neckline and long sleeves."@en ;
+    clo:hasColor clo:Blue ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Top; product_group_name=Garment Upper body; colour_group_name=Dark Blue; class_source=product_type."@en .
+
+clo:HM_118458003 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Jerry jogger bottoms"@en ;
+    dcterms:identifier "118458003" ;
+    dcterms:description "Trousers in sweatshirt fabric with an elasticated drawstring waist, side pockets, a back pocket and ribbed hems. Soft brushed inside."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Dark Grey; class_source=product_type."@en .
+
+clo:HM_118458004 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Jerry jogger bottoms"@en ;
+    dcterms:identifier "118458004" ;
+    dcterms:description "Trousers in sweatshirt fabric with an elasticated drawstring waist, side pockets, a back pocket and ribbed hems. Soft brushed inside."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Grey; class_source=product_type."@en .
+
+clo:HM_118458028 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Jerry jogger bottoms"@en ;
+    dcterms:identifier "118458028" ;
+    dcterms:description "Trousers in sweatshirt fabric with an elasticated drawstring waist, side pockets, a back pocket and ribbed hems. Soft brushed inside."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_118458029 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Jerry jogger bottoms"@en ;
+    dcterms:identifier "118458029" ;
+    dcterms:description "Trousers in sweatshirt fabric with an elasticated drawstring waist, side pockets, a back pocket and ribbed hems. Soft brushed inside."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Dark Grey; class_source=product_type."@en .
+
+clo:HM_118458034 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Jerry jogger bottoms"@en ;
+    dcterms:identifier "118458034" ;
+    dcterms:description "Trousers in sweatshirt fabric with an elasticated drawstring waist, side pockets, a back pocket and ribbed hems. Soft brushed inside."@en ;
+    clo:hasColor clo:Pink ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Pink; class_source=product_type."@en .
+
+clo:HM_118458038 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Jerry jogger bottoms"@en ;
+    dcterms:identifier "118458038" ;
+    dcterms:description "Trousers in sweatshirt fabric with an elasticated drawstring waist, side pockets, a back pocket and ribbed hems. Soft brushed inside."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_118458039 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Jerry jogger bottoms"@en ;
+    dcterms:identifier "118458039" ;
+    dcterms:description "Trousers in sweatshirt fabric with an elasticated drawstring waist, side pockets, a back pocket and ribbed hems. Soft brushed inside."@en ;
+    clo:hasColor clo:Blue ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Dark Blue; class_source=product_type."@en .
+
+clo:HM_120129001 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Babette long"@en ;
+    dcterms:identifier "120129001" ;
+    dcterms:description "Leggings in soft jersey with a wide panel at the waist for best fit over the tummy. The cotton content of the leggings is organic."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_120129014 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Babette long"@en ;
+    dcterms:identifier "120129014" ;
+    dcterms:description "Leggings in soft jersey with a wide panel at the waist for best fit over the tummy. The cotton content of the leggings is organic."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_120129018 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Babette long"@en ;
+    dcterms:identifier "120129018" ;
+    dcterms:description "Leggings in soft jersey with a wide panel at the waist for best fit over the tummy. The cotton content of the leggings is organic."@en ;
+    clo:hasColor clo:Red ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Dark Red; class_source=product_type."@en .
+
+clo:HM_120129025 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Babette long"@en ;
+    dcterms:identifier "120129025" ;
+    dcterms:description "Leggings in soft jersey with a wide panel at the waist for best fit over the tummy. The cotton content of the leggings is organic."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Dark Grey; class_source=product_type."@en .
+
+clo:HM_123173001 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Control Top 50 den 1p Tights"@en ;
+    dcterms:identifier "123173001" ;
+    dcterms:description "50 denier tights with reinforcement at the top for a shaping effect on the tummy and thighs."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_126589006 rdf:type owl:NamedIndividual , clo:Accessory ;
+    rdfs:label "2p Claw"@en ;
+    dcterms:identifier "126589006" ;
+    dcterms:description "Plastic hair claws. Width 3.5 cm."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hair clip; product_group_name=Accessories; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_126589007 rdf:type owl:NamedIndividual , clo:Accessory ;
+    rdfs:label "2p Claw"@en ;
+    dcterms:identifier "126589007" ;
+    dcterms:description "Plastic hair claws. Width 3.5 cm."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hair clip; product_group_name=Accessories; colour_group_name=Greyish Beige; class_source=product_type."@en .
+
+clo:HM_126589010 rdf:type owl:NamedIndividual , clo:Accessory ;
+    rdfs:label "2p Claw"@en ;
+    dcterms:identifier "126589010" ;
+    dcterms:description "Plastic hair claws. Width 3.5 cm."@en ;
+    clo:hasColor clo:Orange ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hair clip; product_group_name=Accessories; colour_group_name=Light Orange; class_source=product_type."@en .
+
+clo:HM_126589011 rdf:type owl:NamedIndividual , clo:Accessory ;
+    rdfs:label "2p Claw"@en ;
+    dcterms:identifier "126589011" ;
+    dcterms:description "Plastic hair claws. Width 3.5 cm."@en ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hair clip; product_group_name=Accessories; colour_group_name=Silver; class_source=product_type."@en .
+
+clo:HM_126589012 rdf:type owl:NamedIndividual , clo:Accessory ;
+    rdfs:label "2p Claw"@en ;
+    dcterms:identifier "126589012" ;
+    dcterms:description "Plastic hair claws. Width 3.5 cm."@en ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hair clip; product_group_name=Accessories; colour_group_name=Gold; class_source=product_type."@en .
+
+clo:HM_129085001 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Pirate Leggings (1)"@en ;
+    dcterms:identifier "129085001" ;
+    dcterms:description "3/4-length leggings in stretch jersey with an elasticated waist."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_129085026 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Pirate Leggings (1)"@en ;
+    dcterms:identifier "129085026" ;
+    dcterms:description "3/4-length leggings in stretch jersey with an elasticated waist."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_129085027 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Pirate Leggings (1)"@en ;
+    dcterms:identifier "129085027" ;
+    dcterms:description "3/4-length leggings in stretch jersey with an elasticated waist."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Grey; class_source=product_type."@en .
+
+clo:HM_141661022 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Velour pyjama"@en ;
+    dcterms:identifier "141661022" ;
+    dcterms:description "Velour pyjamas with an appliqué detail at the front and on the feet, and press-studs along one side and leg."@en ;
+    clo:hasColor clo:White ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_141661025 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Velour pyjama"@en ;
+    dcterms:identifier "141661025" ;
+    dcterms:description "Velour pyjamas with an appliqué detail at the front and on the feet, and press-studs along one side and leg."@en ;
+    clo:hasColor clo:Pink ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Pink; class_source=product_type."@en .
+
+clo:HM_144993001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Mama 100 den 1p Tights"@en ;
+    dcterms:identifier "144993001" ;
+    dcterms:description "Matt tights with an elasticated waist and extra space for a growing tummy. 100 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Underwear Tights; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_145872001 rdf:type owl:NamedIndividual , clo:Sweater ;
+    rdfs:label "Dorian l/s basic"@en ;
+    dcterms:identifier "145872001" ;
+    dcterms:description "Long-sleeved sports top in fast-drying, breathable functional fabric with overlocked seams for optimum comfort. Some of the polyester content of the top is recycled."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Sweater; product_group_name=Garment Upper body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_145872037 rdf:type owl:NamedIndividual , clo:Sweater ;
+    rdfs:label "Dorian l/s basic"@en ;
+    dcterms:identifier "145872037" ;
+    dcterms:description "Long-sleeved sports top in fast-drying, breathable functional fabric with overlocked seams for optimum comfort. Some of the polyester content of the top is recycled."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Sweater; product_group_name=Garment Upper body; colour_group_name=Dark Grey; class_source=product_type."@en .
+
+clo:HM_145872043 rdf:type owl:NamedIndividual , clo:Sweater ;
+    rdfs:label "Dorian l/s basic"@en ;
+    dcterms:identifier "145872043" ;
+    dcterms:description "Long-sleeved sports top in fast-drying, breathable functional fabric with overlocked seams for optimum comfort. Some of the polyester content of the top is recycled."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Sweater; product_group_name=Garment Upper body; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_145872051 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "Dorian l/s basic"@en ;
+    dcterms:identifier "145872051" ;
+    dcterms:description "Long-sleeved sports top in fast-drying, breathable functional fabric with overlocked seams for optimum comfort. Some of the polyester content of the top is recycled."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Top; product_group_name=Garment Upper body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_145872052 rdf:type owl:NamedIndividual , clo:Sweater ;
+    rdfs:label "Dorian l/s basic"@en ;
+    dcterms:identifier "145872052" ;
+    dcterms:description "Long-sleeved sports top in fast-drying, breathable functional fabric with overlocked seams for optimum comfort. Some of the polyester content of the top is recycled."@en ;
+    clo:hasColor clo:Blue ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Sweater; product_group_name=Garment Upper body; colour_group_name=Dark Blue; class_source=product_type."@en .
+
+clo:HM_145872053 rdf:type owl:NamedIndividual , clo:Sweater ;
+    rdfs:label "Dorian l/s basic"@en ;
+    dcterms:identifier "145872053" ;
+    dcterms:description "Long-sleeved sports top in fast-drying, breathable functional fabric with overlocked seams for optimum comfort. Some of the polyester content of the top is recycled."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Sweater; product_group_name=Garment Upper body; colour_group_name=Dark Grey; class_source=product_type."@en .
+
+clo:HM_146706001 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "Tanktop body white 3PACK"@en ;
+    dcterms:identifier "146706001" ;
+    dcterms:description "Sleeveless bodysuits in soft organic cotton jersey with press-studs at the crotch."@en ;
+    clo:hasColor clo:White ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bodysuit; product_group_name=Garment Upper body; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_146706004 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "Tanktop body white 3PACK"@en ;
+    dcterms:identifier "146706004" ;
+    dcterms:description "Sleeveless bodysuits in soft organic cotton jersey with press-studs at the crotch."@en ;
+    clo:hasColor clo:White ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bodysuit; product_group_name=Garment Upper body; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_146706005 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "3P TANKTOP BODY"@en ;
+    dcterms:identifier "146706005" ;
+    dcterms:description "Sleeveless bodysuits in soft organic cotton jersey with press-studs at the crotch."@en ;
+    clo:hasColor clo:Grey ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bodysuit; product_group_name=Garment Upper body; colour_group_name=Light Grey; class_source=product_type."@en .
+
+clo:HM_146721001 rdf:type owl:NamedIndividual , clo:Accessory ;
+    rdfs:label "Hair Ring"@en ;
+    dcterms:identifier "146721001" ;
+    dcterms:description "Hair clip in the shape of a metal ring that opens and has a hair elastic inside."@en ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hair string; product_group_name=Accessories; colour_group_name=Gold; class_source=product_type."@en .
+
+clo:HM_146721002 rdf:type owl:NamedIndividual , clo:Accessory ;
+    rdfs:label "Hair Ring"@en ;
+    dcterms:identifier "146721002" ;
+    dcterms:description "Hair clip in the shape of a metal ring that opens and has a hair elastic inside."@en ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hair string; product_group_name=Accessories; colour_group_name=Silver; class_source=product_type."@en .
+
+clo:HM_146730001 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "200 den 1p leggings"@en ;
+    dcterms:identifier "146730001" ;
+    dcterms:description "Opaque matt leggings with an elasticated waist. 200 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_147339034 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "6P SS BODY"@en ;
+    dcterms:identifier "147339034" ;
+    dcterms:description "Short-sleeved bodysuits in organic cotton jersey with press-studs at the crotch."@en ;
+    clo:hasColor clo:White ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bodysuit; product_group_name=Garment Upper body; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_148033001 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Nouvelle 1p Stay Up"@en ;
+    dcterms:identifier "148033001" ;
+    dcterms:description "Semi shiny stay-ups with a wide lace trim at the top and silicone on the inside. 20 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_148033006 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Nouvelle 1p Stay Up"@en ;
+    dcterms:identifier "148033006" ;
+    dcterms:description "Semi shiny stay-ups with a wide lace trim at the top and silicone on the inside. 20 denier."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Beige; class_source=product_type."@en .
+
+clo:HM_150959011 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "THOMPSON woven sport pants"@en ;
+    dcterms:identifier "150959011" ;
+    dcterms:description "Running trousers in fast-drying, breathable functional fabric with elastication and a concealed drawstring at the waist. Mesh-lined side pockets, a concealed key pocket in the waistband, a zip at the hems, and reflective details. Regular fit."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_150959013 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "THOMPSON woven sport pants"@en ;
+    dcterms:identifier "150959013" ;
+    dcterms:description "Running trousers in fast-drying, breathable functional fabric with elastication and a concealed drawstring at the waist. Mesh-lined side pockets, a concealed key pocket in the waistband, a zip at the hems, and reflective details. Regular fit."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Dark Grey; class_source=product_type."@en .
+
+clo:HM_153115019 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP Strapless^"@en ;
+    dcterms:identifier "153115019" ;
+    dcterms:description "Strapless bra in microfibre with underwired, padded cups that lift and shape the bust. Silicone trim at the top and a hook-and-eye fastening at the back. Detachable, adjustable shoulder straps and side support."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_153115020 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP Strapless^"@en ;
+    dcterms:identifier "153115020" ;
+    dcterms:description "Strapless bra in microfibre with underwired, padded cups that lift and shape the bust. Silicone trim at the top and a hook-and-eye fastening at the back. Detachable, adjustable shoulder straps and side support."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Light Beige; class_source=product_type."@en .
+
+clo:HM_153115021 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP Strapless^"@en ;
+    dcterms:identifier "153115021" ;
+    dcterms:description "Strapless bra in microfibre with underwired, padded cups that lift and shape the bust. Silicone trim at the top and a hook-and-eye fastening at the back. Detachable, adjustable shoulder straps and side support."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_153115039 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP Strapless^"@en ;
+    dcterms:identifier "153115039" ;
+    dcterms:description "Strapless bra in microfibre with underwired, padded cups that lift and shape the bust. Silicone trim at the top and a hook-and-eye fastening at the back. Detachable, adjustable shoulder straps and side support."@en ;
+    clo:hasColor clo:Pink ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Dark Pink; class_source=product_type."@en .
+
+clo:HM_153115040 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP Strapless^"@en ;
+    dcterms:identifier "153115040" ;
+    dcterms:description "Strapless bra in microfibre with underwired, padded cups that lift and shape the bust. Silicone trim at the top and a hook-and-eye fastening at the back. Detachable, adjustable shoulder straps and side support."@en ;
+    clo:hasColor clo:Brown ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Yellowish Brown; class_source=product_type."@en .
+
+clo:HM_153115043 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "OP Strapless^"@en ;
+    dcterms:identifier "153115043" ;
+    dcterms:description "Strapless bra in microfibre with underwired, padded cups that lift and shape the bust. Silicone trim at the top and a hook-and-eye fastening at the back. Detachable, adjustable shoulder straps and side support."@en ;
+    clo:hasColor clo:Brown ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Bra; product_group_name=Underwear; colour_group_name=Yellowish Brown; class_source=product_type."@en .
+
+clo:HM_156224001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Box 4p Socks"@en ;
+    dcterms:identifier "156224001" ;
+    dcterms:description "Semi-matte socks with a short shaft. 20 denier."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Beige; class_source=product_type."@en .
+
+clo:HM_156227001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Box 4p Kneehighs"@en ;
+    dcterms:identifier "156227001" ;
+    dcterms:description "Four pairs of knee highs. 20 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Underwear Tights; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_156227002 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Box 4p Kneehighs"@en ;
+    dcterms:identifier "156227002" ;
+    dcterms:description "Four pairs of knee highs. 20 denier."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Underwear Tights; product_group_name=Socks & Tights; colour_group_name=Beige; class_source=product_type."@en .
+
+clo:HM_156231001 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Box 4p Tights"@en ;
+    dcterms:identifier "156231001" ;
+    dcterms:description "Matt tights with an elasticated waist. 20 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Underwear Tights; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_156231002 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Box 4p Tights"@en ;
+    dcterms:identifier "156231002" ;
+    dcterms:description "Matt tights with an elasticated waist. 20 denier."@en ;
+    clo:hasColor clo:Beige ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Beige; class_source=product_type."@en .
+
+clo:HM_156289011 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Slim Cheapo 79"@en ;
+    dcterms:identifier "156289011" ;
+    dcterms:description "5-pocket slim-fit jeans in washed denim with an adjustable elasticated waist, zip fly with a press-stud and slim legs."@en ;
+    clo:hasColor clo:Blue ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Blue; class_source=product_type."@en .
+
+clo:HM_156610001 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Connor pants"@en ;
+    dcterms:identifier "156610001" ;
+    dcterms:description "Sports trousers in fast-drying fabric made from recycled polyester with an elasticated drawstring waist, side pockets and tapered legs. Regular fit."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_156610007 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Anton sport pant"@en ;
+    dcterms:identifier "156610007" ;
+    dcterms:description "Sports trousers in fast-drying fabric made from recycled polyester with an elasticated drawstring waist, side pockets and tapered legs. Regular fit."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_156610010 rdf:type owl:NamedIndividual , clo:Trouser ;
+    rdfs:label "Anton sport pant"@en ;
+    dcterms:identifier "156610010" ;
+    dcterms:description "Sports trousers in fast-drying fabric made from recycled polyester with an elasticated drawstring waist, side pockets and tapered legs. Regular fit."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Trousers; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_158340001 rdf:type owl:NamedIndividual , clo:Bottom ;
+    rdfs:label "Highwaist 30 den 1p Tights"@en ;
+    dcterms:identifier "158340001" ;
+    dcterms:description "High-waisted tights that lift the bum and shape the waist and thighs. 30 denier."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Leggings/Tights; product_group_name=Garment Lower body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_160442007 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "3p Sneaker Socks"@en ;
+    dcterms:identifier "160442007" ;
+    dcterms:description "Short, fine-knit socks designed to be hidden by your shoes with a silicone trim at the back of the heel to keep them in place."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_160442010 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "3p Sneaker Socks"@en ;
+    dcterms:identifier "160442010" ;
+    dcterms:description "Short, fine-knit socks designed to be hidden by your shoes with a silicone trim at the back of the heel to keep them in place."@en ;
+    clo:hasColor clo:White ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_160442042 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Sneaker 3p Socks"@en ;
+    dcterms:identifier "160442042" ;
+    dcterms:description "Short, fine-knit socks designed to be hidden by your shoes with a silicone trim at the back of the heel to keep them in place."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Light Grey; class_source=product_type."@en .
+
+clo:HM_160442043 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "3p Sneaker Socks"@en ;
+    dcterms:identifier "160442043" ;
+    dcterms:description "Short, fine-knit socks designed to be hidden by your shoes with a silicone trim at the back of the heel to keep them in place."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Light Grey; class_source=product_type."@en .
+
+clo:HM_162074062 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Sigge sneaker sock 5p"@en ;
+    dcterms:identifier "162074062" ;
+    dcterms:description "Fine-knit trainer socks in various colours."@en ;
+    clo:hasColor clo:Pink ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Pink; class_source=product_type."@en .
+
+clo:HM_162074069 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Sigge sneaker sock 5p"@en ;
+    dcterms:identifier "162074069" ;
+    dcterms:description "Fine-knit trainer socks in various colours."@en ;
+    clo:hasColor clo:Grey ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Grey; class_source=product_type."@en .
+
+clo:HM_162074071 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Sigge sneaker sock 5p"@en ;
+    dcterms:identifier "162074071" ;
+    dcterms:description "Fine-knit trainer socks in various colours."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Unisex ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_163734002 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "KOMPIS 2-pack L/S"@en ;
+    dcterms:identifier "163734002" ;
+    dcterms:description "Long-sleeved tops in soft organic cotton."@en ;
+    clo:hasColor clo:Black ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Top; product_group_name=Garment Upper body; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_163734054 rdf:type owl:NamedIndividual , clo:Top ;
+    rdfs:label "KOMPIS 2-pack L/S"@en ;
+    dcterms:identifier "163734054" ;
+    dcterms:description "Long-sleeved tops in soft organic cotton."@en ;
+    clo:hasColor clo:Blue ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Top; product_group_name=Garment Upper body; colour_group_name=Light Blue; class_source=product_type."@en .
+
+clo:HM_164912035 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Scallop 5p Socks"@en ;
+    dcterms:identifier "164912035" ;
+    dcterms:description "Fine-knit socks with a scalloped edge."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Black; class_source=product_type."@en .
+
+clo:HM_164912039 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "Scallop 5p Socks"@en ;
+    dcterms:identifier "164912039" ;
+    dcterms:description "Fine-knit socks with a scalloped edge."@en ;
+    clo:hasColor clo:Pink ;
+    clo:isSuitableFor clo:Female ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Socks; product_group_name=Socks & Tights; colour_group_name=Dark Pink; class_source=product_type."@en .
+
+clo:HM_174057022 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057022" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Pink ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Pink; class_source=product_type."@en .
+
+clo:HM_174057026 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057026" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Grey ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Grey; class_source=product_type."@en .
+
+clo:HM_174057027 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057027" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Blue ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Dark Blue; class_source=product_type."@en .
+
+clo:HM_174057028 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057028" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Pink ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Pink; class_source=product_type."@en .
+
+clo:HM_174057029 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057029" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:White ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=White; class_source=product_type."@en .
+
+clo:HM_174057030 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057030" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Turquoise; class_source=product_type."@en .
+
+clo:HM_174057032 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057032" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Blue ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Dark Blue; class_source=product_type."@en .
+
+clo:HM_174057033 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057033" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Pink ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Pink; class_source=product_type."@en .
+
+clo:HM_174057035 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057035" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Turquoise; class_source=product_type."@en .
+
+clo:HM_174057036 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057036" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Yellow ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Yellow; class_source=product_type."@en .
+
+clo:HM_174057037 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057037" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Blue ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Dark Blue; class_source=product_type."@en .
+
+clo:HM_174057038 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057038" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Pink ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Pink; class_source=product_type."@en .
+
+clo:HM_174057039 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057039" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Blue ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Dark Blue; class_source=product_type."@en .
+
+clo:HM_174057040 rdf:type owl:NamedIndividual , clo:ClothingItem ;
+    rdfs:label "FLEECE PYJAMA"@en ;
+    dcterms:identifier "174057040" ;
+    dcterms:description "All-in-one pyjamas in soft, patterned fleece that fasten down the front and along one leg. Ribbing at the cuffs and hems."@en ;
+    clo:hasColor clo:Pink ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Pyjama jumpsuit/playsuit; product_group_name=Nightwear; colour_group_name=Light Pink; class_source=product_type."@en .
+
+clo:HM_176209023 rdf:type owl:NamedIndividual , clo:Hoodie ;
+    rdfs:label "Mr Harrington w/hood"@en ;
+    dcterms:identifier "176209023" ;
+    dcterms:description "Short, padded jacket with a jersey-lined hood and stand-up collar with a drawstring. Zip down the front, flap side pockets with a press-stud, one inner pocket, and ribbing at the cuffs and hem. Quilted lining."@en ;
+    clo:hasColor clo:Black ;
+    clo:isSuitableFor clo:Male ;
+    rdfs:comment "Mapped from H&M sample: product_type_name=Hoodie; product_group_name=Garment Upper body; colour_group_name=Black; class_source=product_type."@en .

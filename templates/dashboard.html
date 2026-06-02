@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Clothing Ontology{% endblock %}
+{% block content %}
+<section class="header-row">
+  <div>
+    <h1>Pipeline Dashboard</h1>
+    <p class="muted">Last run: {{ summary.finished_at_utc or "No recorded run" }}</p>
+  </div>
+  <div class="status {{ 'good' if summary.ok else 'bad' if summary.ok == false else 'unknown' }}">
+    {% if summary.ok == true %}Conformant{% elif summary.ok == false %}Needs attention{% else %}Not run{% endif %}
+  </div>
+</section>
+
+{% if summary.error %}
+<section class="notice error">{{ summary.error }}</section>
+{% endif %}
+
+<section class="panel">
+  <form class="run-form" method="post" action="{{ url_for('run') }}">
+    <div class="mode-grid">
+      <label class="radio-card">
+        <input type="radio" name="llm_mode" value="mock" checked>
+        <span>Run with mock LLM</span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="llm_mode" value="ollama">
+        <span>Run with Ollama</span>
+      </label>
+    </div>
+    <div class="field-grid">
+      <label>Ollama endpoint
+        <input name="ollama_endpoint" value="http://localhost:11434">
+      </label>
+      <label>Ollama model
+        <input name="ollama_model" value="llama3.1">
+      </label>
+      <label>Minimum confidence
+        <input name="min_confidence" type="number" min="0" max="1" step="0.01" value="0.70">
+      </label>
+      <label>Catalog limit
+        <input name="limit" type="number" min="1" step="1" value="100">
+      </label>
+    </div>
+    <button class="primary" type="submit">Run pipeline</button>
+  </form>
+</section>
+
+<section class="metric-grid">
+  <div class="metric"><span>Enriched products</span><strong>{{ summary.metrics.enriched_products }}</strong></div>
+  <div class="metric"><span>Low confidence skips</span><strong>{{ summary.metrics.skipped_due_to_low_confidence }}</strong></div>
+  <div class="metric"><span>Unknown value skips</span><strong>{{ summary.metrics.skipped_due_to_unknown_ontology_value }}</strong></div>
+  <div class="metric"><span>SHACL results</span><strong>{{ summary.metrics.validation_result_count }}</strong></div>
+</section>
+
+<section class="two-column">
+  <div class="panel">
+    <h2>SPARQL row counts</h2>
+    <table>
+      <thead><tr><th>Query</th><th>Rows</th></tr></thead>
+      <tbody>
+      {% for query, count in summary.metrics.sparql_query_row_counts.items() %}
+        <tr><td>{{ query }}</td><td>{{ count }}</td></tr>
+      {% else %}
+        <tr><td colspan="2" class="muted">No SPARQL results yet.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="panel">
+    <h2>Artifacts</h2>
+    <div class="artifact-list">
+      {% for name, artifact in artifacts.items() %}
+        <div class="artifact">
+          <div>
+            <strong>{{ name }}</strong>
+            <span>{{ artifact.size_bytes }} bytes</span>
+          </div>
+          {% if artifact.exists %}
+            <a href="{{ url_for('artifacts', name=name) }}">Open</a>
+          {% else %}
+            <span class="muted">Missing</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

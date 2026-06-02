@@ -1,0 +1,10 @@
+source_field,source_value,sample_count,target_class,mapping_status,notes
+product_group_name,Garment Lower body,26,:Bottom,broad_fallback,"Use when product_type_name is unavailable or unmapped."
+product_group_name,Garment Upper body,19,:Top,broad_fallback,"Use when product_type_name is unavailable or unmapped."
+product_group_name,Socks & Tights,19,:ClothingItem,needs_ontology_extension,"No socks/tights class exists."
+product_group_name,Nightwear,16,:ClothingItem,needs_ontology_extension,"No nightwear class exists."
+product_group_name,Underwear,11,:ClothingItem,needs_ontology_extension,"No underwear class exists."
+product_group_name,Accessories,7,:Accessory,broad_fallback,"Ontology has :Accessory but limited accessory subclasses."
+product_group_name,Items,1,,skip,"Too generic to map safely."
+product_group_name,Unknown,1,,skip,"Cannot map unknown product group safely."
+

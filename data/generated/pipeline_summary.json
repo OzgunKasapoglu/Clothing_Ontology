@@ -1,0 +1,72 @@
+{
+  "started_at_utc": "2026-06-02T12:12:58.896394+00:00",
+  "finished_at_utc": "2026-06-02T12:13:03.089752+00:00",
+  "ok": false,
+  "error": "Ollama is unavailable at http://localhost:11434: <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>",
+  "options": {
+    "llm_mode": "ollama",
+    "ollama_endpoint": "http://localhost:11434",
+    "ollama_model": "llama3.1",
+    "min_confidence": 0.7,
+    "limit": 100
+  },
+  "stages": [
+    {
+      "name": "hm_abox",
+      "ok": true
+    },
+    {
+      "name": "failed",
+      "ok": false,
+      "error": "Ollama is unavailable at http://localhost:11434: <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+    }
+  ],
+  "metrics": {
+    "hm_items_generated": 98,
+    "hm_items_skipped": 2,
+    "enriched_products": 0,
+    "skipped_due_to_low_confidence": 0,
+    "skipped_due_to_unknown_ontology_value": 0,
+    "skipped_due_to_missing_article_id": 0,
+    "skipped_due_to_absent_catalog_item": 0,
+    "skipped_total": 0,
+    "material_counts": {},
+    "formality_counts": {},
+    "season_counts": {},
+    "shacl_conforms": null,
+    "validation_result_count": null,
+    "sparql_query_row_counts": {}
+  },
+  "artifacts": {
+    "hm_sample_catalog.ttl": {
+      "path": "data/generated/hm_sample_catalog.ttl",
+      "exists": true,
+      "size_bytes": 50681,
+      "modified_at_utc": "2026-06-02T12:12:58.971695+00:00"
+    },
+    "hm_llm_enriched_catalog.ttl": {
+      "path": "data/generated/hm_llm_enriched_catalog.ttl",
+      "exists": true,
+      "size_bytes": 2071,
+      "modified_at_utc": "2026-06-02T12:09:19.761110+00:00"
+    },
+    "llm_enrichment_metadata.json": {
+      "path": "data/generated/llm_enrichment_metadata.json",
+      "exists": true,
+      "size_bytes": 1576,
+      "modified_at_utc": "2026-06-02T12:09:19.762106+00:00"
+    },
+    "shacl_validation_summary.json": {
+      "path": "data/generated/shacl_validation_summary.json",
+      "exists": true,
+      "size_bytes": 497,
+      "modified_at_utc": "2026-06-02T12:09:21.791235+00:00"
+    },
+    "sparql_results.json": {
+      "path": "data/generated/sparql_results.json",
+      "exists": true,
+      "size_bytes": 13181,
+      "modified_at_utc": "2026-06-02T12:09:22.028377+00:00"
+    }
+  }
+}

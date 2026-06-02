@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Skipped Records - Clothing Ontology{% endblock %}
+{% block content %}
+<section class="header-row">
+  <div>
+    <h1>Skipped Records</h1>
+    <p class="muted">{{ skipped_rows|length }} skipped during the last enrichment run</p>
+  </div>
+</section>
+
+<section class="metric-grid">
+  <div class="metric"><span>Low confidence</span><strong>{{ metadata.skipped_due_to_low_confidence or 0 }}</strong></div>
+  <div class="metric"><span>Unknown values</span><strong>{{ metadata.skipped_due_to_unknown_ontology_value or 0 }}</strong></div>
+  <div class="metric"><span>Missing article ID</span><strong>{{ metadata.skipped_due_to_missing_article_id or 0 }}</strong></div>
+  <div class="metric"><span>Absent catalog item</span><strong>{{ metadata.skipped_due_to_absent_catalog_item or 0 }}</strong></div>
+</section>
+
+<section class="panel table-panel">
+  <table>
+    <thead>
+      <tr>
+        <th>Article ID</th>
+        <th>Reason</th>
+        <th>Confidence</th>
+        <th>Evidence</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for row in skipped_rows %}
+      <tr>
+        <td>{{ row.article_id or "" }}</td>
+        <td>{{ row.reason }}</td>
+        <td>{{ row.confidence or "" }}</td>
+        <td>{{ row.evidence or "" }}</td>
+        <td><pre>{{ row|json_pretty }}</pre></td>
+      </tr>
+    {% else %}
+      <tr><td colspan="5" class="muted">No skipped enrichment records found.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

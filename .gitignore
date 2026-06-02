@@ -1,0 +1,6 @@
+data/full/
+data/raw/
+*.zip
+*.tar.gz
+*.parquet
+

@@ -1,0 +1,42 @@
+@prefix clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+clo:HM_112679048 clo:hasMaterial clo:Cotton ;
+    clo:hasFormality clo:CasualLevel ;
+    clo:isAppropriateForSeason clo:Autumn ;
+    clo:isAppropriateForSeason clo:Winter ;
+    rdfs:comment "Mock LLM extraction: confidence=0.93; evidence=soft organic cotton; brushed inside."@en .
+
+clo:HM_120129001 clo:hasMaterial clo:Cotton ;
+    clo:hasFormality clo:CasualLevel ;
+    clo:isAppropriateForSeason clo:Spring ;
+    clo:isAppropriateForSeason clo:Summer ;
+    clo:isAppropriateForSeason clo:Autumn ;
+    rdfs:comment "Mock LLM extraction: confidence=0.91; evidence=soft jersey; cotton content is organic."@en .
+
+clo:HM_145872001 clo:hasMaterial clo:Polyester ;
+    clo:hasFormality clo:CasualLevel ;
+    clo:isAppropriateForSeason clo:Spring ;
+    clo:isAppropriateForSeason clo:Summer ;
+    clo:isAppropriateForSeason clo:Autumn ;
+    rdfs:comment "Mock LLM extraction: confidence=0.88; evidence=fast-drying breathable functional fabric; polyester content."@en .
+
+clo:HM_156289011 clo:hasMaterial clo:Denim ;
+    clo:hasFormality clo:CasualLevel ;
+    clo:isAppropriateForSeason clo:Spring ;
+    clo:isAppropriateForSeason clo:Autumn ;
+    clo:isAppropriateForSeason clo:Winter ;
+    rdfs:comment "Mock LLM extraction: confidence=0.90; evidence=washed denim slim-fit jeans."@en .
+
+clo:HM_156610001 clo:hasMaterial clo:Polyester ;
+    clo:hasFormality clo:CasualLevel ;
+    clo:isAppropriateForSeason clo:Spring ;
+    clo:isAppropriateForSeason clo:Summer ;
+    clo:isAppropriateForSeason clo:Autumn ;
+    rdfs:comment "Mock LLM extraction: confidence=0.89; evidence=fast-drying fabric made from recycled polyester."@en .
+
+clo:HM_111565001 clo:hasMaterial clo:Nylon ;
+    clo:hasFormality clo:CasualLevel ;
+    clo:isAppropriateForSeason clo:Spring ;
+    clo:isAppropriateForSeason clo:Autumn ;
+    rdfs:comment "Mock LLM extraction: confidence=0.86; evidence=semi shiny nylon stockings."@en .

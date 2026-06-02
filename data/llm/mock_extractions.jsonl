@@ -1,0 +1,8 @@
+{"article_id":"112679048","material":"Cotton","formality":"CasualLevel","season":["Autumn","Winter"],"confidence":0.93,"evidence":"soft organic cotton; brushed inside"}
+{"article_id":"120129001","material":"Cotton","formality":"CasualLevel","season":["Spring","Summer","Autumn"],"confidence":0.91,"evidence":"soft jersey; cotton content is organic"}
+{"article_id":"145872001","material":"Polyester","formality":"CasualLevel","season":["Spring","Summer","Autumn"],"confidence":0.88,"evidence":"fast-drying breathable functional fabric; polyester content"}
+{"article_id":"156289011","material":"Denim","formality":"CasualLevel","season":["Spring","Autumn","Winter"],"confidence":0.9,"evidence":"washed denim slim-fit jeans"}
+{"article_id":"156610001","material":"Polyester","formality":"CasualLevel","season":["Spring","Summer","Autumn"],"confidence":0.89,"evidence":"fast-drying fabric made from recycled polyester"}
+{"article_id":"111565001","material":"Nylon","formality":"CasualLevel","season":["Spring","Autumn"],"confidence":0.86,"evidence":"semi shiny nylon stockings"}
+{"article_id":"174057022","material":"Fleece","formality":"CasualLevel","season":["Winter"],"confidence":0.88,"evidence":"soft patterned fleece"}
+{"article_id":"108775015","material":null,"formality":"CasualLevel","season":["Summer"],"confidence":0.58,"evidence":"jersey top with narrow shoulder straps"}

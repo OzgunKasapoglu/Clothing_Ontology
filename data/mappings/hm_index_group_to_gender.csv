@@ -1,0 +1,7 @@
+source_field,source_value,sample_count,target_individual,mapping_status,notes
+index_group_name,Ladieswear,53,:Female,normalized,"Retail segment is mapped to ontology gender individual for demonstration."
+index_group_name,Baby/Children,25,,needs_ontology_extension,"Ontology has no child/age-group target individual."
+index_group_name,Sport,11,:Unisex,broad_fallback,"Sport is not gender-specific in the ontology."
+index_group_name,Menswear,8,:Male,normalized,"Retail segment is mapped to ontology gender individual for demonstration."
+index_group_name,Divided,3,:Unisex,broad_fallback,"H&M youth/fashion segment; no exact ontology target."
+

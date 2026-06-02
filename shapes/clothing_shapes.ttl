@@ -1,0 +1,239 @@
+@prefix clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+clo:GeneratedCatalogItemShape
+    rdf:type sh:NodeShape ;
+    sh:targetSubjectsOf dcterms:identifier ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Generated catalogue items must have a human-readable label."@en
+    ] ;
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Generated catalogue items must have exactly one source article identifier."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasColor ;
+        sh:class clo:Color ;
+        sh:message "When present, hasColor must point to an ontology Color individual."@en
+    ] ;
+    sh:property [
+        sh:path clo:isSuitableFor ;
+        sh:class clo:Gender ;
+        sh:message "When present, isSuitableFor must point to an ontology Gender individual."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasMaterial ;
+        sh:class clo:Material ;
+        sh:message "When present, hasMaterial must point to an ontology Material individual."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasFormality ;
+        sh:class clo:FormalityLevel ;
+        sh:message "When present, hasFormality must point to an ontology FormalityLevel individual."@en
+    ] ;
+    sh:property [
+        sh:path clo:isAppropriateForSeason ;
+        sh:class clo:Season ;
+        sh:message "When present, isAppropriateForSeason must point to an ontology Season individual."@en
+    ] ;
+    sh:sparql [
+        sh:message "Generated catalogue items must have at least one rdf:type that is clo:ClothingItem or a subclass of it."@en ;
+        sh:select """
+            PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+            SELECT $this
+            WHERE {
+              FILTER NOT EXISTS {
+                $this rdf:type/rdfs:subClassOf* clo:ClothingItem .
+              }
+            }
+        """
+    ] .
+
+
+clo:ColoredItemShape
+    rdf:type sh:NodeShape ;
+    sh:targetSubjectsOf clo:hasColor ;
+    sh:property [
+        sh:path clo:hasColor ;
+        sh:minCount 1 ;
+        sh:class clo:Color ;
+        sh:message "Any hasColor value must be a member of clo:Color."@en
+    ] .
+
+
+clo:MaterialEnrichmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetSubjectsOf clo:hasMaterial ;
+    sh:property [
+        sh:path clo:hasMaterial ;
+        sh:minCount 1 ;
+        sh:class clo:Material ;
+        sh:message "Any hasMaterial value must be a member of clo:Material."@en
+    ] .
+
+
+clo:FormalityEnrichmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetSubjectsOf clo:hasFormality ;
+    sh:property [
+        sh:path clo:hasFormality ;
+        sh:minCount 1 ;
+        sh:class clo:FormalityLevel ;
+        sh:message "Any hasFormality value must be a member of clo:FormalityLevel."@en
+    ] .
+
+
+clo:SeasonEnrichmentShape
+    rdf:type sh:NodeShape ;
+    sh:targetSubjectsOf clo:isAppropriateForSeason ;
+    sh:property [
+        sh:path clo:isAppropriateForSeason ;
+        sh:minCount 1 ;
+        sh:class clo:Season ;
+        sh:message "Any isAppropriateForSeason value must be a member of clo:Season."@en
+    ] .
+
+
+clo:OutfitShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass clo:Outfit ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Outfits must have a label."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasTop ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class clo:Top ;
+        sh:message "Outfits must have exactly one top that is typed as Top or a subclass."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasBottom ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class clo:Bottom ;
+        sh:message "Outfits must have exactly one bottom that is typed as Bottom or a subclass."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasFootwear ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class clo:Footwear ;
+        sh:message "Outfits must have exactly one footwear item that is typed as Footwear or a subclass."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasOuterwear ;
+        sh:maxCount 1 ;
+        sh:class clo:Outerwear ;
+        sh:message "When present, outfit outerwear must be typed as Outerwear or a subclass."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasAccessory ;
+        sh:class clo:Accessory ;
+        sh:message "When present, outfit accessories must be typed as Accessory or a subclass."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasColorScheme ;
+        sh:maxCount 1 ;
+        sh:class clo:ColorScheme ;
+        sh:message "When present, outfit color scheme must point to a ColorScheme individual."@en
+    ] ;
+    sh:property [
+        sh:path clo:isAppropriateForSeason ;
+        sh:minCount 1 ;
+        sh:class clo:Season ;
+        sh:message "Outfits must declare at least one appropriate season."@en
+    ] ;
+    sh:property [
+        sh:path clo:isAppropriateForOccasion ;
+        sh:minCount 1 ;
+        sh:class clo:Occasion ;
+        sh:message "Outfits must declare at least one appropriate occasion."@en
+    ] .
+
+
+clo:UserShape
+    rdf:type sh:NodeShape ;
+    sh:targetClass clo:User ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Users must have a display label."@en
+    ] ;
+    sh:property [
+        sh:path clo:userName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Users must have exactly one string userName."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasAge ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:message "When present, hasAge must be a non-negative integer."@en
+    ] ;
+    sh:property [
+        sh:path clo:hasBodyType ;
+        sh:maxCount 1 ;
+        sh:class clo:BodyType ;
+        sh:message "When present, hasBodyType must point to a BodyType individual."@en
+    ] ;
+    sh:property [
+        sh:path clo:prefersColor ;
+        sh:class clo:Color ;
+        sh:message "User preferred colors must point to Color individuals."@en
+    ] ;
+    sh:property [
+        sh:path clo:prefersStyle ;
+        sh:class clo:StyleCategory ;
+        sh:message "User preferred styles must point to StyleCategory individuals."@en
+    ] ;
+    sh:property [
+        sh:path clo:ownsItem ;
+        sh:class clo:ClothingItem ;
+        sh:message "Owned items must be ClothingItem individuals or subclass instances."@en
+    ] ;
+    sh:property [
+        sh:path clo:recommendedOutfit ;
+        sh:class clo:Outfit ;
+        sh:message "Recommended outfits must be Outfit individuals."@en
+    ] .
+
+
+clo:ColorHarmonyShape
+    rdf:type sh:NodeShape ;
+    sh:targetSubjectsOf clo:colorHarmonizesWith ;
+    sh:class clo:Color ;
+    sh:property [
+        sh:path clo:colorHarmonizesWith ;
+        sh:class clo:Color ;
+        sh:message "colorHarmonizesWith must connect Color individuals."@en
+    ] .
+
+
+clo:ComplementaryColorShape
+    rdf:type sh:NodeShape ;
+    sh:targetSubjectsOf clo:isComplementaryTo ;
+    sh:class clo:Color ;
+    sh:property [
+        sh:path clo:isComplementaryTo ;
+        sh:class clo:Color ;
+        sh:message "isComplementaryTo must connect Color individuals."@en
+    ] .

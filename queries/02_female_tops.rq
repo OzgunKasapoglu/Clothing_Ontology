@@ -1,0 +1,14 @@
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?item ?label ?class
+WHERE {
+  ?item rdf:type ?class ;
+        clo:isSuitableFor clo:Female ;
+        rdfs:label ?label .
+  ?class rdfs:subClassOf* clo:Top .
+  FILTER(?class != owl:NamedIndividual)
+}
+ORDER BY ?label

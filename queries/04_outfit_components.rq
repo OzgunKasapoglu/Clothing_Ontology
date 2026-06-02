@@ -1,0 +1,20 @@
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?outfit ?outfitLabel ?role ?component ?componentLabel
+WHERE {
+  VALUES (?property ?role) {
+    (clo:hasTop "top")
+    (clo:hasBottom "bottom")
+    (clo:hasFootwear "footwear")
+    (clo:hasOuterwear "outerwear")
+    (clo:hasAccessory "accessory")
+  }
+  ?outfit rdf:type clo:Outfit ;
+          rdfs:label ?outfitLabel ;
+          ?property ?component .
+  OPTIONAL { ?component rdfs:label ?componentLabel . }
+}
+ORDER BY ?outfitLabel ?role
+

@@ -1,0 +1,34 @@
+{
+  "downloaded_at_utc": "2026-06-02T10:55:04.487360+00:00",
+  "method": "Hugging Face datasets-server rows API",
+  "offset": 0,
+  "requests": {
+    "hm_articles": {
+      "dataset": "dinhlnd1610/HM-Personalized-Fashion-Recommendations",
+      "config": "articles",
+      "split": "train",
+      "description": "H&M article/product metadata sample"
+    },
+    "polyvore_outfits": {
+      "dataset": "owj0421/polyvore-outfits",
+      "config": "disjoint_default",
+      "split": "train",
+      "description": "Polyvore outfit grouping sample"
+    }
+  },
+  "outputs": [
+    {
+      "name": "hm_articles",
+      "rows": 100,
+      "jsonl": "data/samples/hm_articles_sample.jsonl",
+      "csv": "data/samples/hm_articles_sample.csv"
+    },
+    {
+      "name": "polyvore_outfits",
+      "rows": 50,
+      "jsonl": "data/samples/polyvore_outfits_sample.jsonl",
+      "csv": "data/samples/polyvore_outfits_sample.csv"
+    }
+  ],
+  "note": "Samples are for ontology mapping/prototyping. Do not commit full raw datasets."
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HMDescriptionOntologyExtraction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "article_id",
+    "material",
+    "formality",
+    "season",
+    "confidence",
+    "evidence"
+  ],
+  "properties": {
+    "article_id": {
+      "type": "string",
+      "description": "Original H&M article_id."
+    },
+    "material": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Cotton",
+        "Wool",
+        "Silk",
+        "Polyester",
+        "Nylon",
+        "Denim",
+        "Leather",
+        "Linen",
+        null
+      ]
+    },
+    "formality": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "CasualLevel",
+        "SmartCasualLevel",
+        "BusinessCasualLevel",
+        "FormalLevel",
+        null
+      ]
+    },
+    "season": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "enum": [
+          "Spring",
+          "Summer",
+          "Autumn",
+          "Winter"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

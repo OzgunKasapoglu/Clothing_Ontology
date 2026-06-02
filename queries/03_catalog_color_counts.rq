@@ -1,0 +1,11 @@
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?color ?colorLabel (COUNT(?item) AS ?itemCount)
+WHERE {
+  ?item clo:hasColor ?color .
+  OPTIONAL { ?color rdfs:label ?colorLabel . }
+}
+GROUP BY ?color ?colorLabel
+ORDER BY DESC(?itemCount) ?color
+

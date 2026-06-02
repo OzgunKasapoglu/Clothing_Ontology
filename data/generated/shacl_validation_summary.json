@@ -1,0 +1,16 @@
+{
+  "validated_at_utc": "2026-06-02T12:09:21.790365+00:00",
+  "graphs": [
+    "Clothing_Ontology.ttl",
+    "data/generated/hm_sample_catalog.ttl",
+    "data/generated/hm_llm_enriched_catalog.ttl"
+  ],
+  "shapes": "shapes/clothing_shapes.ttl",
+  "inference": "rdfs",
+  "data_triples": 1701,
+  "shape_triples": 166,
+  "conforms": true,
+  "validation_result_count": 0,
+  "report": "data/generated/shacl_validation_report.ttl",
+  "report_text": "Validation Report\nConforms: True\n"
+}

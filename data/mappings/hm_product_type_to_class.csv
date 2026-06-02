@@ -1,0 +1,17 @@
+source_field,source_value,sample_count,target_class,mapping_status,notes
+product_type_name,Pyjama jumpsuit/playsuit,16,:ClothingItem,broad_fallback,"No sleepwear or jumpsuit class exists in the ontology yet."
+product_type_name,Trousers,13,:Trouser,exact,"Ontology uses singular class name :Trouser."
+product_type_name,Leggings/Tights,13,:Bottom,broad_fallback,"No leggings/tights class exists; lower-body garment."
+product_type_name,Socks,12,:ClothingItem,needs_ontology_extension,"No socks/hosiery/underwear class exists in the ontology."
+product_type_name,Bra,11,:ClothingItem,needs_ontology_extension,"No underwear class exists in the ontology."
+product_type_name,Sweater,7,:Sweater,exact,"Direct ontology class exists."
+product_type_name,Underwear Tights,7,:ClothingItem,needs_ontology_extension,"No underwear/tights class exists in the ontology."
+product_type_name,Hair clip,5,:Accessory,broad_fallback,"Accessory is available, but no hair-accessory subclass exists."
+product_type_name,Top,4,:Top,exact,"Direct ontology class exists."
+product_type_name,Bodysuit,4,:Top,broad_fallback,"Likely upper-body garment, but no bodysuit class exists."
+product_type_name,Vest top,3,:Top,broad_fallback,"No vest-top class exists; maps to top-level :Top."
+product_type_name,Hair string,2,:Accessory,broad_fallback,"Accessory is available, but no hair-accessory subclass exists."
+product_type_name,Umbrella,1,,out_of_scope,"Umbrella is an accessory in retail data but outside the current clothing ontology scope."
+product_type_name,Unknown,1,,skip,"Cannot map unknown product type safely."
+product_type_name,Hoodie,1,:Hoodie,exact,"Direct ontology class exists."
+

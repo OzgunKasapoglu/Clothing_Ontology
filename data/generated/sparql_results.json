@@ -1,0 +1,465 @@
+{
+  "generated_at_utc": "2026-06-02T12:09:22.027586+00:00",
+  "graphs": [
+    "Clothing_Ontology.ttl",
+    "data/generated/hm_sample_catalog.ttl",
+    "data/generated/hm_llm_enriched_catalog.ttl"
+  ],
+  "triple_count": 1701,
+  "results": [
+    {
+      "query": "queries/01_blue_items.rq",
+      "variables": [
+        "item",
+        "label",
+        "class"
+      ],
+      "row_count": 12,
+      "preview_rows": [
+        {
+          "item": "clo:Blue_Cotton_Shirt",
+          "label": "Blue Cotton Shirt",
+          "class": "clo:Blouse"
+        },
+        {
+          "item": "clo:Blue_Jeans",
+          "label": "Blue Jeans",
+          "class": "clo:Jean"
+        },
+        {
+          "item": "clo:HM_145872052",
+          "label": "Dorian l/s basic",
+          "class": "clo:Sweater"
+        },
+        {
+          "item": "clo:HM_174057027",
+          "label": "FLEECE PYJAMA",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "item": "clo:HM_174057032",
+          "label": "FLEECE PYJAMA",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "item": "clo:HM_174057037",
+          "label": "FLEECE PYJAMA",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "item": "clo:HM_174057039",
+          "label": "FLEECE PYJAMA",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "item": "clo:HM_116379047",
+          "label": "Frugan longsleeve",
+          "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_118458039",
+          "label": "Jerry jogger bottoms",
+          "class": "clo:Trouser"
+        },
+        {
+          "item": "clo:HM_163734054",
+          "label": "KOMPIS 2-pack L/S",
+          "class": "clo:Top"
+        }
+      ]
+    },
+    {
+      "query": "queries/02_female_tops.rq",
+      "variables": [
+        "item",
+        "label",
+        "class"
+      ],
+      "row_count": 4,
+      "preview_rows": [
+        {
+          "item": "clo:HM_116379047",
+          "label": "Frugan longsleeve",
+          "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_108775015",
+          "label": "Strap top",
+          "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_108775044",
+          "label": "Strap top",
+          "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_108775051",
+          "label": "Strap top (1)",
+          "class": "clo:Top"
+        }
+      ]
+    },
+    {
+      "query": "queries/03_catalog_color_counts.rq",
+      "variables": [
+        "color",
+        "colorLabel",
+        "itemCount"
+      ],
+      "row_count": 11,
+      "preview_rows": [
+        {
+          "color": "clo:Black",
+          "colorLabel": "Black",
+          "itemCount": "34"
+        },
+        {
+          "color": "clo:Grey",
+          "colorLabel": "Grey",
+          "itemCount": "18"
+        },
+        {
+          "color": "clo:White",
+          "colorLabel": "White",
+          "itemCount": "15"
+        },
+        {
+          "color": "clo:Blue",
+          "colorLabel": "Blue",
+          "itemCount": "12"
+        },
+        {
+          "color": "clo:Pink",
+          "colorLabel": "Pink",
+          "itemCount": "10"
+        },
+        {
+          "color": "clo:Beige",
+          "colorLabel": "Beige",
+          "itemCount": "9"
+        },
+        {
+          "color": "clo:Brown",
+          "colorLabel": "Brown",
+          "itemCount": "5"
+        },
+        {
+          "color": "clo:Red",
+          "colorLabel": "Red",
+          "itemCount": "2"
+        },
+        {
+          "color": "clo:Navy",
+          "colorLabel": "Navy",
+          "itemCount": "1"
+        },
+        {
+          "color": "clo:Orange",
+          "colorLabel": "Orange",
+          "itemCount": "1"
+        }
+      ]
+    },
+    {
+      "query": "queries/04_outfit_components.rq",
+      "variables": [
+        "outfit",
+        "outfitLabel",
+        "role",
+        "component",
+        "componentLabel"
+      ],
+      "row_count": 13,
+      "preview_rows": [
+        {
+          "outfit": "clo:Outfit_Work_BusinessCasual",
+          "outfitLabel": "Business Casual Work Outfit",
+          "role": "accessory",
+          "component": "clo:Brown_Leather_Belt",
+          "componentLabel": "Brown Leather Belt"
+        },
+        {
+          "outfit": "clo:Outfit_Work_BusinessCasual",
+          "outfitLabel": "Business Casual Work Outfit",
+          "role": "bottom",
+          "component": "clo:Beige_Chinos",
+          "componentLabel": "Beige Chinos"
+        },
+        {
+          "outfit": "clo:Outfit_Work_BusinessCasual",
+          "outfitLabel": "Business Casual Work Outfit",
+          "role": "footwear",
+          "component": "clo:Brown_Leather_Boots",
+          "componentLabel": "Brown Leather Boots"
+        },
+        {
+          "outfit": "clo:Outfit_Work_BusinessCasual",
+          "outfitLabel": "Business Casual Work Outfit",
+          "role": "outerwear",
+          "component": "clo:Navy_Blazer",
+          "componentLabel": "Navy Blazer"
+        },
+        {
+          "outfit": "clo:Outfit_Work_BusinessCasual",
+          "outfitLabel": "Business Casual Work Outfit",
+          "role": "top",
+          "component": "clo:Blue_Cotton_Shirt",
+          "componentLabel": "Blue Cotton Shirt"
+        },
+        {
+          "outfit": "clo:Outfit_Casual_Summer",
+          "outfitLabel": "Casual Summer Outfit",
+          "role": "bottom",
+          "component": "clo:Khaki_Shorts",
+          "componentLabel": "Khaki Shorts"
+        },
+        {
+          "outfit": "clo:Outfit_Casual_Summer",
+          "outfitLabel": "Casual Summer Outfit",
+          "role": "footwear",
+          "component": "clo:White_Sneakers",
+          "componentLabel": "White Sneakers"
+        },
+        {
+          "outfit": "clo:Outfit_Casual_Summer",
+          "outfitLabel": "Casual Summer Outfit",
+          "role": "top",
+          "component": "clo:White_TShirt",
+          "componentLabel": "White T-Shirt"
+        },
+        {
+          "outfit": "clo:Outfit_Formal_Winter",
+          "outfitLabel": "Formal Winter Outfit",
+          "role": "accessory",
+          "component": "clo:Silver_Watch",
+          "componentLabel": "Silver Watch"
+        },
+        {
+          "outfit": "clo:Outfit_Formal_Winter",
+          "outfitLabel": "Formal Winter Outfit",
+          "role": "bottom",
+          "component": "clo:Black_Trousers",
+          "componentLabel": "Black Trousers"
+        }
+      ]
+    },
+    {
+      "query": "queries/05_harmonious_top_bottom_pairs.rq",
+      "variables": [
+        "outfit",
+        "outfitLabel",
+        "topLabel",
+        "topColor",
+        "bottomLabel",
+        "bottomColor"
+      ],
+      "row_count": 2,
+      "preview_rows": [
+        {
+          "outfit": "clo:Outfit_Casual_Summer",
+          "outfitLabel": "Casual Summer Outfit",
+          "topLabel": "White T-Shirt",
+          "topColor": "clo:White",
+          "bottomLabel": "Khaki Shorts",
+          "bottomColor": "clo:Brown"
+        },
+        {
+          "outfit": "clo:Outfit_Formal_Winter",
+          "outfitLabel": "Formal Winter Outfit",
+          "topLabel": "Blue Cotton Shirt",
+          "topColor": "clo:Blue",
+          "bottomLabel": "Black Trousers",
+          "bottomColor": "clo:Black"
+        }
+      ]
+    },
+    {
+      "query": "queries/06_user_preferred_color_items.rq",
+      "variables": [
+        "user",
+        "userLabel",
+        "preferredColor",
+        "item",
+        "itemLabel",
+        "class"
+      ],
+      "row_count": 50,
+      "preview_rows": [
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_111565001",
+          "itemLabel": "20 den 1p Stockings",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_111609001",
+          "itemLabel": "200 den 1p Tights",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_146730001",
+          "itemLabel": "200 den 1p leggings",
+          "class": "clo:Bottom"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_126589006",
+          "itemLabel": "2p Claw",
+          "class": "clo:Accessory"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_160442007",
+          "itemLabel": "3p Sneaker Socks",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_156610007",
+          "itemLabel": "Anton sport pant",
+          "class": "clo:Trouser"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_156610010",
+          "itemLabel": "Anton sport pant",
+          "class": "clo:Trouser"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_120129001",
+          "itemLabel": "Babette long",
+          "class": "clo:Bottom"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_120129014",
+          "itemLabel": "Babette long",
+          "class": "clo:Bottom"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:Black_Oxford_Shoes",
+          "itemLabel": "Black Oxford Shoes",
+          "class": "clo:FormalShoes"
+        }
+      ]
+    },
+    {
+      "query": "queries/07_llm_enriched_products.rq",
+      "variables": [
+        "articleId",
+        "item",
+        "label",
+        "materialLabel",
+        "formalityLabel",
+        "seasonLabel"
+      ],
+      "row_count": 16,
+      "preview_rows": [
+        {
+          "articleId": "120129001",
+          "item": "clo:HM_120129001",
+          "label": "Babette long",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "112679048",
+          "item": "clo:HM_112679048",
+          "label": "SWEATSHIRT  OC",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "120129001",
+          "item": "clo:HM_120129001",
+          "label": "Babette long",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Spring"
+        },
+        {
+          "articleId": "120129001",
+          "item": "clo:HM_120129001",
+          "label": "Babette long",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Summer"
+        },
+        {
+          "articleId": "112679048",
+          "item": "clo:HM_112679048",
+          "label": "SWEATSHIRT  OC",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Winter"
+        },
+        {
+          "articleId": "156289011",
+          "item": "clo:HM_156289011",
+          "label": "Slim Cheapo 79",
+          "materialLabel": "Denim",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "156289011",
+          "item": "clo:HM_156289011",
+          "label": "Slim Cheapo 79",
+          "materialLabel": "Denim",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Spring"
+        },
+        {
+          "articleId": "156289011",
+          "item": "clo:HM_156289011",
+          "label": "Slim Cheapo 79",
+          "materialLabel": "Denim",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Winter"
+        },
+        {
+          "articleId": "111565001",
+          "item": "clo:HM_111565001",
+          "label": "20 den 1p Stockings",
+          "materialLabel": "Nylon",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "111565001",
+          "item": "clo:HM_111565001",
+          "label": "20 den 1p Stockings",
+          "materialLabel": "Nylon",
+          "formalityLabel": "Casual",
+          "seasonLabel": "Spring"
+        }
+      ]
+    }
+  ]
+}

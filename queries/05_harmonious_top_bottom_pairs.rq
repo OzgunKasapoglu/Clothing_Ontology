@@ -1,0 +1,24 @@
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?outfit ?outfitLabel ?topLabel ?topColor ?bottomLabel ?bottomColor
+WHERE {
+  ?outfit rdf:type clo:Outfit ;
+          rdfs:label ?outfitLabel ;
+          clo:hasTop ?top ;
+          clo:hasBottom ?bottom .
+  ?top clo:hasColor ?topColor ;
+       rdfs:label ?topLabel .
+  ?bottom clo:hasColor ?bottomColor ;
+          rdfs:label ?bottomLabel .
+  {
+    ?topColor clo:colorHarmonizesWith|^clo:colorHarmonizesWith ?bottomColor .
+  }
+  UNION
+  {
+    ?topColor clo:isComplementaryTo|^clo:isComplementaryTo ?bottomColor .
+  }
+}
+ORDER BY ?outfitLabel
+

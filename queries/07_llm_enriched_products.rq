@@ -1,0 +1,17 @@
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?articleId ?item ?label ?materialLabel ?formalityLabel ?seasonLabel
+WHERE {
+  ?item dcterms:identifier ?articleId ;
+        rdfs:label ?label ;
+        clo:hasMaterial ?material ;
+        clo:hasFormality ?formality ;
+        clo:isAppropriateForSeason ?season .
+
+  ?material rdfs:label ?materialLabel .
+  ?formality rdfs:label ?formalityLabel .
+  ?season rdfs:label ?seasonLabel .
+}
+ORDER BY ?materialLabel ?formalityLabel ?seasonLabel ?label
