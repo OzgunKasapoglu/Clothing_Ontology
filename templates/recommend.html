@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block title %}Outfit Recommendations - Clothing Ontology{% endblock %}
+{% block content %}
+
+{% set formality_label = {
+  "CasualLevel": "Casual",
+  "SmartCasualLevel": "Smart Casual",
+  "BusinessCasualLevel": "Business Casual",
+  "FormalLevel": "Formal Dress"
+} %}
+
+<section class="header-row">
+  <div>
+    <h1>Outfit Recommendations</h1>
+    <p class="muted">Describe what you have and get ontology-based outfit suggestions.</p>
+  </div>
+</section>
+
+{% if step == "input" %}
+
+<section class="panel">
+  <form method="post" action="{{ url_for('recommend_post') }}">
+    <div class="run-form">
+      <label>Describe your item
+        <input name="phrase" placeholder="e.g. I have a white shirt" autofocus>
+      </label>
+      <button type="submit" class="primary">Parse</button>
+    </div>
+  </form>
+</section>
+
+{% elif step == "confirm" %}
+
+<section class="panel">
+  <p class="muted">We parsed your phrase. Confirm or adjust the details below, then get recommendations.</p>
+  <form method="post" action="{{ url_for('recommend_post') }}">
+    <input type="hidden" name="phrase" value="{{ phrase }}">
+    <input type="hidden" name="confirmed" value="1">
+    <div class="field-grid" style="grid-template-columns: repeat(5, minmax(0, 1fr)); margin-bottom: 16px;">
+      <label>Role
+        <select name="role">
+          <option value="">Unknown</option>
+          {% for r in roles %}
+            <option value="{{ r }}" {% if parsed.role == r %}selected{% endif %}>{{ r }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Color
+        <select name="color">
+          <option value="">Unknown</option>
+          {% for c in colors %}
+            <option value="{{ c }}" {% if parsed.color == c %}selected{% endif %}>{{ c }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Material
+        <select name="material">
+          <option value="">Any</option>
+          {% for m in materials %}
+            <option value="{{ m }}" {% if parsed.get('material') == m %}selected{% endif %}>{{ m }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Formality
+        <select name="formality">
+          <option value="">Unknown</option>
+          {% for val, lbl in formalities %}
+            <option value="{{ val }}">{{ lbl }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Season
+        <select name="season">
+          <option value="">Unknown</option>
+          {% for s in seasons %}
+            <option value="{{ s }}">{{ s }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    <button type="submit" class="primary">Get Recommendations</button>
+  </form>
+</section>
+
+{% elif step == "results" %}
+
+<section class="panel">
+  <h2>Seed Item</h2>
+  <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+    {% for key, val in seed.items() %}
+      {% if val %}
+        <div>
+          <span class="muted" style="font-size: 12px; text-transform: uppercase;">{{ key }}</span>
+          <div><strong>{{ formality_label.get(val, val) }}</strong></div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div style="margin-top: 12px;">
+    <a href="{{ url_for('recommend_get') }}">&larr; Start over</a>
+  </div>
+</section>
+
+{% if not results.grouped_items and not results.outfits %}
+  <div class="notice">No recommendations found. Try specifying a role or different color.</div>
+{% endif %}
+
+{% if results.grouped_items %}
+<section class="panel">
+  <h2>Compatible Items by Role</h2>
+  {% for role in roles %}
+    {% set items = results.grouped_items.get(role, []) %}
+    {% if items %}
+      <h2 style="font-size: 15px; margin-top: 14px; margin-bottom: 8px; color: #344054;">{{ role }}</h2>
+      <div class="table-panel" style="margin-bottom: 14px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Color</th>
+              <th>Material</th>
+              <th>Formality</th>
+              <th>Seasons</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in items %}
+            <tr>
+              <td>
+                <strong>{{ item.label }}</strong>
+                {% if item.article_id %}<span class="muted" style="font-size:11px; display:block; font-family:monospace;">{{ item.article_id }}</span>{% endif %}
+              </td>
+              <td>
+                {% if item.color %}
+                  <span style="display:inline-flex; align-items:center; gap:6px;">
+                    <span style="width:12px; height:12px; border-radius:50%; background:{{ item.color | lower }}; border:1px solid #ccc; flex-shrink:0;"></span>
+                    {{ item.color }}
+                  </span>
+                {% endif %}
+              </td>
+              <td>{{ item.material }}</td>
+              <td>{{ formality_label.get(item.formality, item.formality) }}</td>
+              <td>{{ item.seasons | join(", ") }}</td>
+              <td>{{ item.score | int }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
+{% endif %}
+
+{% if results.outfits %}
+<section class="panel">
+  <h2>Complete Outfit Ideas</h2>
+  <div class="outfit-grid">
+    {% for outfit in results.outfits %}
+      <div class="outfit-card">
+        <div class="outfit-score">Score {{ outfit.total_score }}</div>
+        {% for role in roles %}
+          {% if role in outfit.roles %}
+            {% set slot = outfit.roles[role] %}
+            <div class="outfit-slot {% if slot.is_seed %}outfit-slot-seed{% endif %}">
+              <span class="outfit-role">{{ role }}</span>
+              <span class="outfit-item-label">{{ slot.label }}</span>
+              {% if slot.color %}
+                <span class="outfit-color muted" style="display:inline-flex; align-items:center; gap:5px;">
+                  <span style="width:10px; height:10px; border-radius:50%; background:{{ slot.color | lower }}; border:1px solid #ccc; flex-shrink:0;"></span>
+                  {{ slot.color }}
+                </span>
+              {% endif %}
+              {% if slot.article_id %}<span class="muted" style="font-size:10px; font-family:monospace;">{{ slot.article_id }}</span>{% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

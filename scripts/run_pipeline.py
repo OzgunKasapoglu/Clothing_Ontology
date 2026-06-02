@@ -104,7 +104,7 @@ def run_pipeline(
     ollama_endpoint: str = "http://localhost:11434",
     ollama_model: str = "llama3.1",
     min_confidence: float = 0.70,
-    limit: int = 100,
+    limit: int = 2000,
     enrichment_limit: int | None = None,
 ) -> dict[str, Any]:
     started_at = datetime.now(timezone.utc).isoformat()
@@ -168,7 +168,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--ollama-endpoint", default="http://localhost:11434")
     parser.add_argument("--ollama-model", default="llama3.1")
     parser.add_argument("--min-confidence", type=float, default=0.70)
-    parser.add_argument("--limit", type=int, default=100)
+    parser.add_argument("--limit", type=int, default=2000)
     return parser.parse_args()
 
 

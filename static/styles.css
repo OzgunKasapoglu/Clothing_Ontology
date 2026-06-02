@@ -284,6 +284,55 @@ pre {
   white-space: pre-wrap;
 }
 
+.outfit-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.outfit-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+}
+
+.outfit-score {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.outfit-slot {
+  border-left: 3px solid var(--border);
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.outfit-slot-seed {
+  border-left-color: var(--accent);
+}
+
+.outfit-role {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.outfit-item-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.outfit-color {
+  font-size: 12px;
+}
+
 @media (max-width: 860px) {
   .topbar,
   .header-row {

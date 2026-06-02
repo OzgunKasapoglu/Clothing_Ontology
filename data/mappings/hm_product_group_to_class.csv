@@ -5,6 +5,11 @@ product_group_name,Socks & Tights,19,:ClothingItem,needs_ontology_extension,"No 
 product_group_name,Nightwear,16,:ClothingItem,needs_ontology_extension,"No nightwear class exists."
 product_group_name,Underwear,11,:ClothingItem,needs_ontology_extension,"No underwear class exists."
 product_group_name,Accessories,7,:Accessory,broad_fallback,"Ontology has :Accessory but limited accessory subclasses."
+product_group_name,Garment Full body,0,:ClothingItem,broad_fallback,"Full-body garments (dresses, jumpsuits); no shared role class. Type mapping handles specific types first."
+product_group_name,Shoes,0,:Footwear,broad_fallback,"Fallback for any footwear type not caught by product_type mapping."
+product_group_name,Swimwear,0,:ClothingItem,needs_ontology_extension,"No swimwear class exists in the ontology."
+product_group_name,Cosmetic,0,,out_of_scope,"Cosmetics are outside the clothing ontology scope."
+product_group_name,Underwear/nightwear,0,:ClothingItem,needs_ontology_extension,"Combined underwear/nightwear group; no specific class."
 product_group_name,Items,1,,skip,"Too generic to map safely."
 product_group_name,Unknown,1,,skip,"Cannot map unknown product group safely."
 

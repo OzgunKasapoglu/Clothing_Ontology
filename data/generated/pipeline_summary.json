@@ -1,14 +1,14 @@
 {
-  "started_at_utc": "2026-06-02T12:12:58.896394+00:00",
-  "finished_at_utc": "2026-06-02T12:13:03.089752+00:00",
-  "ok": false,
-  "error": "Ollama is unavailable at http://localhost:11434: <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>",
+  "started_at_utc": "2026-06-02T18:48:01.130588+00:00",
+  "finished_at_utc": "2026-06-02T18:48:10.435317+00:00",
+  "ok": true,
+  "error": null,
   "options": {
-    "llm_mode": "ollama",
-    "ollama_endpoint": "http://localhost:11434",
-    "ollama_model": "llama3.1",
+    "llm_mode": "mock",
+    "ollama_endpoint": null,
+    "ollama_model": null,
     "min_confidence": 0.7,
-    "limit": 100
+    "limit": 2000
   },
   "stages": [
     {
@@ -16,57 +16,90 @@
       "ok": true
     },
     {
-      "name": "failed",
-      "ok": false,
-      "error": "Ollama is unavailable at http://localhost:11434: <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+      "name": "llm_enrichment",
+      "ok": true
+    },
+    {
+      "name": "shacl_validation",
+      "ok": true
+    },
+    {
+      "name": "sparql_queries",
+      "ok": true
     }
   ],
   "metrics": {
-    "hm_items_generated": 98,
-    "hm_items_skipped": 2,
-    "enriched_products": 0,
+    "hm_items_generated": 1962,
+    "hm_items_skipped": 38,
+    "enriched_products": 1638,
     "skipped_due_to_low_confidence": 0,
     "skipped_due_to_unknown_ontology_value": 0,
     "skipped_due_to_missing_article_id": 0,
     "skipped_due_to_absent_catalog_item": 0,
     "skipped_total": 0,
-    "material_counts": {},
-    "formality_counts": {},
-    "season_counts": {},
-    "shacl_conforms": null,
-    "validation_result_count": null,
-    "sparql_query_row_counts": {}
+    "material_counts": {
+      "Cotton": 1088,
+      "Denim": 103,
+      "Leather": 77,
+      "Linen": 26,
+      "Nylon": 5,
+      "Polyester": 217,
+      "Silk": 65,
+      "Wool": 57
+    },
+    "formality_counts": {
+      "BusinessCasualLevel": 53,
+      "CasualLevel": 761,
+      "SmartCasualLevel": 824
+    },
+    "season_counts": {
+      "Autumn": 1114,
+      "Spring": 1246,
+      "Summer": 1216,
+      "Winter": 554
+    },
+    "shacl_conforms": true,
+    "validation_result_count": 0,
+    "sparql_query_row_counts": {
+      "01_blue_items.rq": 379,
+      "02_female_tops.rq": 259,
+      "03_catalog_color_counts.rq": 11,
+      "04_outfit_components.rq": 13,
+      "05_harmonious_top_bottom_pairs.rq": 2,
+      "06_user_preferred_color_items.rq": 50,
+      "07_llm_enriched_products.rq": 4130
+    }
   },
   "artifacts": {
     "hm_sample_catalog.ttl": {
       "path": "data/generated/hm_sample_catalog.ttl",
       "exists": true,
-      "size_bytes": 50681,
-      "modified_at_utc": "2026-06-02T12:12:58.971695+00:00"
+      "size_bytes": 1027784,
+      "modified_at_utc": "2026-06-02T18:48:01.152271+00:00"
     },
     "hm_llm_enriched_catalog.ttl": {
       "path": "data/generated/hm_llm_enriched_catalog.ttl",
       "exists": true,
-      "size_bytes": 2071,
-      "modified_at_utc": "2026-06-02T12:09:19.761110+00:00"
+      "size_bytes": 494421,
+      "modified_at_utc": "2026-06-02T18:48:01.421754+00:00"
     },
     "llm_enrichment_metadata.json": {
       "path": "data/generated/llm_enrichment_metadata.json",
       "exists": true,
-      "size_bytes": 1576,
-      "modified_at_utc": "2026-06-02T12:09:19.762106+00:00"
+      "size_bytes": 1201,
+      "modified_at_utc": "2026-06-02T18:48:01.422032+00:00"
     },
     "shacl_validation_summary.json": {
       "path": "data/generated/shacl_validation_summary.json",
       "exists": true,
-      "size_bytes": 497,
-      "modified_at_utc": "2026-06-02T12:09:21.791235+00:00"
+      "size_bytes": 482,
+      "modified_at_utc": "2026-06-02T18:48:09.298515+00:00"
     },
     "sparql_results.json": {
       "path": "data/generated/sparql_results.json",
       "exists": true,
-      "size_bytes": 13181,
-      "modified_at_utc": "2026-06-02T12:09:22.028377+00:00"
+      "size_bytes": 13608,
+      "modified_at_utc": "2026-06-02T18:48:10.435257+00:00"
     }
   }
 }

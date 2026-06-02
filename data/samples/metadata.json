@@ -1,13 +1,14 @@
 {
-  "downloaded_at_utc": "2026-06-02T10:55:04.487360+00:00",
-  "method": "Hugging Face datasets-server rows API",
-  "offset": 0,
+  "downloaded_at_utc": "2026-06-02T18:41:33.913352+00:00",
+  "method": "Hugging Face datasets library (streaming stride sample)",
+  "hm_length": 2000,
+  "hm_dataset_size": 105000,
   "requests": {
     "hm_articles": {
       "dataset": "dinhlnd1610/HM-Personalized-Fashion-Recommendations",
       "config": "articles",
       "split": "train",
-      "description": "H&M article/product metadata sample"
+      "description": "H&M article/product metadata"
     },
     "polyvore_outfits": {
       "dataset": "owj0421/polyvore-outfits",
@@ -19,7 +20,7 @@
   "outputs": [
     {
       "name": "hm_articles",
-      "rows": 100,
+      "rows": 2000,
       "jsonl": "data/samples/hm_articles_sample.jsonl",
       "csv": "data/samples/hm_articles_sample.csv"
     },

@@ -516,17 +516,31 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 :White  rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "White"@en .
 :Grey   rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "Grey"@en .
 :Beige  rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "Beige"@en .
-:Navy   rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;            rdfs:label "Navy"@en .
+:Navy      rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;             rdfs:label "Navy"@en .
+:Gold      rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Warm ;             rdfs:label "Gold"@en .
+:Silver    rdf:type owl:NamedIndividual , :Color ; :hasUndertone :NeutralUndertone ; rdfs:label "Silver"@en .
+:Turquoise rdf:type owl:NamedIndividual , :Color ; :hasUndertone :Cool ;             rdfs:label "Turquoise"@en .
 
 # Complementary pairs (color wheel opposites)
-:Red    :isComplementaryTo :Green .
-:Blue   :isComplementaryTo :Orange .
-:Yellow :isComplementaryTo :Purple .
+:Red       :isComplementaryTo :Green .
+:Blue      :isComplementaryTo :Orange .
+:Yellow    :isComplementaryTo :Purple .
+:Gold      :isComplementaryTo :Purple .
+:Turquoise :isComplementaryTo :Orange .
 
 # Neutral colors harmonize with everything
-:Black :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :White , :Grey , :Beige , :Navy .
-:White :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :Black , :Grey , :Beige , :Navy .
-:Grey  :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :Black , :White , :Beige , :Navy .
+:Black  :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :White , :Grey , :Beige , :Navy , :Gold , :Silver , :Turquoise .
+:White  :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :Black , :Grey , :Beige , :Navy , :Gold , :Silver , :Turquoise .
+:Grey   :colorHarmonizesWith :Red , :Blue , :Yellow , :Green , :Pink , :Purple , :Orange , :Brown , :Black , :White , :Beige , :Navy , :Gold , :Silver , :Turquoise .
+
+# Gold — warm metallic; pairs with earth tones, navy, cool contrast colours
+:Gold :colorHarmonizesWith :Navy , :Brown , :Beige , :White , :Black , :Grey , :Green , :Red , :Orange , :Silver , :Turquoise .
+
+# Silver — neutral metallic; pairs broadly like a cool neutral
+:Silver :colorHarmonizesWith :Black , :White , :Grey , :Navy , :Blue , :Purple , :Pink , :Red , :Green , :Beige , :Gold , :Turquoise .
+
+# Turquoise — blue-green; analogous to Blue/Green, classic with Gold and earth tones
+:Turquoise :colorHarmonizesWith :Blue , :Green , :Navy , :White , :Beige , :Black , :Grey , :Gold , :Brown , :Pink , :Silver .
 
 
 #################################################################

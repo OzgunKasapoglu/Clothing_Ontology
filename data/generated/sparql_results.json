@@ -1,11 +1,11 @@
 {
-  "generated_at_utc": "2026-06-02T12:09:22.027586+00:00",
+  "generated_at_utc": "2026-06-02T18:48:10.434947+00:00",
   "graphs": [
     "Clothing_Ontology.ttl",
     "data/generated/hm_sample_catalog.ttl",
     "data/generated/hm_llm_enriched_catalog.ttl"
   ],
-  "triple_count": 1701,
+  "triple_count": 24609,
   "results": [
     {
       "query": "queries/01_blue_items.rq",
@@ -14,57 +14,57 @@
         "label",
         "class"
       ],
-      "row_count": 12,
+      "row_count": 379,
       "preview_rows": [
         {
-          "item": "clo:Blue_Cotton_Shirt",
-          "label": "Blue Cotton Shirt",
-          "class": "clo:Blouse"
+          "item": "clo:HM_619468001",
+          "label": "&DENIM Jacket Daisy Garden",
+          "class": "clo:Jacket"
         },
         {
-          "item": "clo:Blue_Jeans",
-          "label": "Blue Jeans",
-          "class": "clo:Jean"
-        },
-        {
-          "item": "clo:HM_145872052",
-          "label": "Dorian l/s basic",
-          "class": "clo:Sweater"
-        },
-        {
-          "item": "clo:HM_174057027",
-          "label": "FLEECE PYJAMA",
+          "item": "clo:HM_783707050",
+          "label": "1pk Fun",
           "class": "clo:ClothingItem"
         },
         {
-          "item": "clo:HM_174057032",
-          "label": "FLEECE PYJAMA",
-          "class": "clo:ClothingItem"
-        },
-        {
-          "item": "clo:HM_174057037",
-          "label": "FLEECE PYJAMA",
-          "class": "clo:ClothingItem"
-        },
-        {
-          "item": "clo:HM_174057039",
-          "label": "FLEECE PYJAMA",
-          "class": "clo:ClothingItem"
-        },
-        {
-          "item": "clo:HM_116379047",
-          "label": "Frugan longsleeve",
+          "item": "clo:HM_348330033",
+          "label": "2P Tanktop body Mixed",
           "class": "clo:Top"
         },
         {
-          "item": "clo:HM_118458039",
-          "label": "Jerry jogger bottoms",
-          "class": "clo:Trouser"
+          "item": "clo:HM_597215005",
+          "label": "56-Studio atlas shorts",
+          "class": "clo:Short"
         },
         {
-          "item": "clo:HM_163734054",
-          "label": "KOMPIS 2-pack L/S",
-          "class": "clo:Top"
+          "item": "clo:HM_829611002",
+          "label": "A-band 2pk plastic fun",
+          "class": "clo:Accessory"
+        },
+        {
+          "item": "clo:HM_861095001",
+          "label": "AK Tomo skirt HW",
+          "class": "clo:Skirt"
+        },
+        {
+          "item": "clo:HM_831447001",
+          "label": "ALGOT 3-p shorts",
+          "class": "clo:Short"
+        },
+        {
+          "item": "clo:HM_832744001",
+          "label": "ANDREW FANCY L/S",
+          "class": "clo:T-Shirt"
+        },
+        {
+          "item": "clo:HM_715226004",
+          "label": "ANDYS L/S",
+          "class": "clo:T-Shirt"
+        },
+        {
+          "item": "clo:HM_800488002",
+          "label": "ANGEL t-shirt dress",
+          "class": "clo:Bottom"
         }
       ]
     },
@@ -75,27 +75,57 @@
         "label",
         "class"
       ],
-      "row_count": 4,
+      "row_count": 259,
       "preview_rows": [
         {
-          "item": "clo:HM_116379047",
-          "label": "Frugan longsleeve",
+          "item": "clo:HM_644686002",
+          "label": "ABBY OFF SHOULDER SMOCK",
           "class": "clo:Top"
         },
         {
-          "item": "clo:HM_108775015",
-          "label": "Strap top",
+          "item": "clo:HM_768307003",
+          "label": "AUDREY CONSCIOUS LOOSE TANK+",
           "class": "clo:Top"
         },
         {
-          "item": "clo:HM_108775044",
-          "label": "Strap top",
+          "item": "clo:HM_583728001",
+          "label": "Active Rush Tee",
           "class": "clo:Top"
         },
         {
-          "item": "clo:HM_108775051",
-          "label": "Strap top (1)",
+          "item": "clo:HM_871527003",
+          "label": "Ada",
+          "class": "clo:Blouse"
+        },
+        {
+          "item": "clo:HM_664390001",
+          "label": "Adita top",
           "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_516000020",
+          "label": "Agnes LS R-neck",
+          "class": "clo:T-Shirt"
+        },
+        {
+          "item": "clo:HM_817386001",
+          "label": "Alberta dnm tunic",
+          "class": "clo:Blouse"
+        },
+        {
+          "item": "clo:HM_770315023",
+          "label": "Alpha top",
+          "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_586679001",
+          "label": "Alva Fancy Lace",
+          "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_772421003",
+          "label": "Amelia popover",
+          "class": "clo:Blouse"
         }
       ]
     },
@@ -111,52 +141,52 @@
         {
           "color": "clo:Black",
           "colorLabel": "Black",
-          "itemCount": "34"
-        },
-        {
-          "color": "clo:Grey",
-          "colorLabel": "Grey",
-          "itemCount": "18"
-        },
-        {
-          "color": "clo:White",
-          "colorLabel": "White",
-          "itemCount": "15"
+          "itemCount": "395"
         },
         {
           "color": "clo:Blue",
           "colorLabel": "Blue",
-          "itemCount": "12"
+          "itemCount": "379"
+        },
+        {
+          "color": "clo:White",
+          "colorLabel": "White",
+          "itemCount": "235"
+        },
+        {
+          "color": "clo:Grey",
+          "colorLabel": "Grey",
+          "itemCount": "173"
         },
         {
           "color": "clo:Pink",
           "colorLabel": "Pink",
-          "itemCount": "10"
+          "itemCount": "162"
         },
         {
           "color": "clo:Beige",
           "colorLabel": "Beige",
-          "itemCount": "9"
-        },
-        {
-          "color": "clo:Brown",
-          "colorLabel": "Brown",
-          "itemCount": "5"
+          "itemCount": "117"
         },
         {
           "color": "clo:Red",
           "colorLabel": "Red",
-          "itemCount": "2"
+          "itemCount": "51"
         },
         {
-          "color": "clo:Navy",
-          "colorLabel": "Navy",
-          "itemCount": "1"
+          "color": "clo:Brown",
+          "colorLabel": "Brown",
+          "itemCount": "32"
         },
         {
           "color": "clo:Orange",
           "colorLabel": "Orange",
-          "itemCount": "1"
+          "itemCount": "32"
+        },
+        {
+          "color": "clo:Yellow",
+          "colorLabel": "Yellow",
+          "itemCount": "26"
         }
       ]
     },
@@ -289,81 +319,81 @@
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_111565001",
-          "itemLabel": "20 den 1p Stockings",
+          "item": "clo:HM_619718001",
+          "itemLabel": "1 pk Dot in half",
           "class": "clo:ClothingItem"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_111609001",
-          "itemLabel": "200 den 1p Tights",
+          "item": "clo:HM_585342006",
+          "itemLabel": "50 cent high waist bottoms",
           "class": "clo:ClothingItem"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_146730001",
-          "itemLabel": "200 den 1p leggings",
-          "class": "clo:Bottom"
+          "item": "clo:HM_870121001",
+          "itemLabel": "ADELIA top",
+          "class": "clo:Top"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_126589006",
-          "itemLabel": "2p Claw",
-          "class": "clo:Accessory"
-        },
-        {
-          "user": "clo:User_Demo",
-          "userLabel": "Demo User",
-          "preferredColor": "clo:Black",
-          "item": "clo:HM_160442007",
-          "itemLabel": "3p Sneaker Socks",
-          "class": "clo:ClothingItem"
-        },
-        {
-          "user": "clo:User_Demo",
-          "userLabel": "Demo User",
-          "preferredColor": "clo:Black",
-          "item": "clo:HM_156610007",
-          "itemLabel": "Anton sport pant",
+          "item": "clo:HM_753746001",
+          "itemLabel": "ALINA jogger",
           "class": "clo:Trouser"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_156610010",
-          "itemLabel": "Anton sport pant",
-          "class": "clo:Trouser"
+          "item": "clo:HM_658329013",
+          "itemLabel": "ARTICHOKE SLIM FIT POLO",
+          "class": "clo:Top"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_120129001",
-          "itemLabel": "Babette long",
+          "item": "clo:HM_661658001",
+          "itemLabel": "Aconda",
+          "class": "clo:Jacket"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_586679001",
+          "itemLabel": "Alva Fancy Lace",
+          "class": "clo:Top"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_772421003",
+          "itemLabel": "Amelia popover",
+          "class": "clo:Blouse"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_787235001",
+          "itemLabel": "Ananas",
           "class": "clo:Bottom"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_120129014",
-          "itemLabel": "Babette long",
-          "class": "clo:Bottom"
-        },
-        {
-          "user": "clo:User_Demo",
-          "userLabel": "Demo User",
-          "preferredColor": "clo:Black",
-          "item": "clo:Black_Oxford_Shoes",
-          "itemLabel": "Black Oxford Shoes",
-          "class": "clo:FormalShoes"
+          "item": "clo:HM_734194001",
+          "itemLabel": "Andy check skinny blz3",
+          "class": "clo:Jacket"
         }
       ]
     },
@@ -377,87 +407,87 @@
         "formalityLabel",
         "seasonLabel"
       ],
-      "row_count": 16,
+      "row_count": 4130,
       "preview_rows": [
         {
-          "articleId": "120129001",
-          "item": "clo:HM_120129001",
-          "label": "Babette long",
+          "articleId": "858983001",
+          "item": "clo:HM_858983001",
+          "label": "AK Maru jumpsuit",
           "materialLabel": "Cotton",
-          "formalityLabel": "Casual",
+          "formalityLabel": "Business Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "112679048",
-          "item": "clo:HM_112679048",
-          "label": "SWEATSHIRT  OC",
+          "articleId": "742084001",
+          "item": "clo:HM_742084001",
+          "label": "Acerola jumpsuit",
           "materialLabel": "Cotton",
-          "formalityLabel": "Casual",
+          "formalityLabel": "Business Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "120129001",
-          "item": "clo:HM_120129001",
-          "label": "Babette long",
+          "articleId": "779590011",
+          "item": "clo:HM_779590011",
+          "label": "Andy check skinny blz",
           "materialLabel": "Cotton",
-          "formalityLabel": "Casual",
-          "seasonLabel": "Spring"
-        },
-        {
-          "articleId": "120129001",
-          "item": "clo:HM_120129001",
-          "label": "Babette long",
-          "materialLabel": "Cotton",
-          "formalityLabel": "Casual",
-          "seasonLabel": "Summer"
-        },
-        {
-          "articleId": "112679048",
-          "item": "clo:HM_112679048",
-          "label": "SWEATSHIRT  OC",
-          "materialLabel": "Cotton",
-          "formalityLabel": "Casual",
-          "seasonLabel": "Winter"
-        },
-        {
-          "articleId": "156289011",
-          "item": "clo:HM_156289011",
-          "label": "Slim Cheapo 79",
-          "materialLabel": "Denim",
-          "formalityLabel": "Casual",
+          "formalityLabel": "Business Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "156289011",
-          "item": "clo:HM_156289011",
-          "label": "Slim Cheapo 79",
-          "materialLabel": "Denim",
-          "formalityLabel": "Casual",
-          "seasonLabel": "Spring"
-        },
-        {
-          "articleId": "156289011",
-          "item": "clo:HM_156289011",
-          "label": "Slim Cheapo 79",
-          "materialLabel": "Denim",
-          "formalityLabel": "Casual",
-          "seasonLabel": "Winter"
-        },
-        {
-          "articleId": "111565001",
-          "item": "clo:HM_111565001",
-          "label": "20 den 1p Stockings",
-          "materialLabel": "Nylon",
-          "formalityLabel": "Casual",
+          "articleId": "734194001",
+          "item": "clo:HM_734194001",
+          "label": "Andy check skinny blz3",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "111565001",
-          "item": "clo:HM_111565001",
-          "label": "20 den 1p Stockings",
-          "materialLabel": "Nylon",
-          "formalityLabel": "Casual",
-          "seasonLabel": "Spring"
+          "articleId": "824835001",
+          "item": "clo:HM_824835001",
+          "label": "Austen Cord Jumpsuit",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "578487004",
+          "item": "clo:HM_578487004",
+          "label": "Burmilla",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "690478001",
+          "item": "clo:HM_690478001",
+          "label": "Capone blazer campaign",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "639192001",
+          "item": "clo:HM_639192001",
+          "label": "Capri blazer",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "630542002",
+          "item": "clo:HM_630542002",
+          "label": "Chelsea wd blazer TP",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Autumn"
+        },
+        {
+          "articleId": "708067005",
+          "item": "clo:HM_708067005",
+          "label": "Colibri",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Autumn"
         }
       ]
     }

@@ -132,7 +132,7 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("data/generated/hm_sample_catalog_metadata.json"),
     )
-    parser.add_argument("--limit", type=int, default=100)
+    parser.add_argument("--limit", type=int, default=2000)
     parser.add_argument(
         "--product-type-map",
         type=Path,
@@ -156,7 +156,7 @@ def generate_hm_abox(
     input_path: Path = Path("data/samples/hm_articles_sample.csv"),
     output_path: Path = Path("data/generated/hm_sample_catalog.ttl"),
     metadata_output: Path = Path("data/generated/hm_sample_catalog_metadata.json"),
-    limit: int = 100,
+    limit: int = 2000,
     product_type_map_path: Path = Path("data/mappings/hm_product_type_to_class.csv"),
     product_group_map_path: Path = Path("data/mappings/hm_product_group_to_class.csv"),
     color_map_path: Path = Path("data/mappings/hm_color_to_ontology.csv"),

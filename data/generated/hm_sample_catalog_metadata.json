@@ -1,35 +1,288 @@
 {
-  "generated_at_utc": "2026-06-02T12:12:58.972614+00:00",
+  "generated_at_utc": "2026-06-02T18:48:01.152425+00:00",
   "input": "data/samples/hm_articles_sample.csv",
   "output": "data/generated/hm_sample_catalog.ttl",
-  "rows_read": 100,
-  "items_generated": 98,
-  "items_skipped": 2,
+  "rows_read": 2000,
+  "items_generated": 1962,
+  "items_skipped": 38,
   "counters": {
-    "class:broad_fallback": 43,
-    "class:exact": 25,
-    "class:needs_ontology_extension": 30,
-    "class_source:product_type": 98,
-    "color:exact": 56,
-    "color:normalized": 36,
-    "color:unmapped": 6,
-    "gender:broad_fallback": 14,
-    "gender:normalized": 59,
-    "gender:unmapped": 25,
-    "items:generated": 98,
-    "items:skipped": 2
+    "class:broad_fallback": 465,
+    "class:exact": 1047,
+    "class:needs_ontology_extension": 221,
+    "class:normalized": 229,
+    "class_source:product_type": 1962,
+    "color:exact": 819,
+    "color:normalized": 768,
+    "color:unmapped": 375,
+    "gender:broad_fallback": 314,
+    "gender:normalized": 984,
+    "gender:unmapped": 664,
+    "items:generated": 1962,
+    "items:skipped": 38
   },
   "skipped": [
     {
-      "article_id": "130035001",
-      "prod_name": "Black Umbrella",
-      "product_type_name": "Umbrella",
-      "product_group_name": "Items",
+      "article_id": "270381004",
+      "prod_name": "Classic Clubba",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
       "reason": "out_of_scope"
     },
     {
-      "article_id": "156224002",
-      "prod_name": "Box 4p Socks",
+      "article_id": "357792009",
+      "prod_name": "Cool Alessa Cat",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "481781008",
+      "prod_name": "Malin sunglasses",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "537670001",
+      "prod_name": "Halloween Face paint",
+      "product_type_name": "Fine cosmetics",
+      "product_group_name": "Cosmetic",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "595436004",
+      "prod_name": "Johan Sunglasses",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "615727001",
+      "prod_name": "Michaela wallet small",
+      "product_type_name": "Wallet",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "620139003",
+      "prod_name": "Cool Angie sunglasses",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "621888003",
+      "prod_name": "KATJA mesh bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "633025001",
+      "prod_name": "Celeste shopper",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "633930001",
+      "prod_name": "BOO phone bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "635240006",
+      "prod_name": "Gracie Cross Bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "639448008",
+      "prod_name": "Case tote",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "643577001",
+      "prod_name": "Ginger gymbag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "682138001",
+      "prod_name": "BETSY bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "682771001",
+      "prod_name": "Yuki shopper",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "684238001",
+      "prod_name": "Savannah shopper (1)",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "686072001",
+      "prod_name": "SB Skeleton Dino",
+      "product_type_name": "Costumes",
+      "product_group_name": "Garment Full body",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "687151002",
+      "prod_name": "ENZO BUMBAG",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "701738008",
+      "prod_name": "ENZO BELT BAG",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "712594001",
+      "prod_name": "Beauty Small Cross Bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "728844001",
+      "prod_name": "BB Onsie own fancy",
+      "product_type_name": "Costumes",
+      "product_group_name": "Garment Full body",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "731324001",
+      "prod_name": "Embark bucket",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "741387001",
+      "prod_name": "Sunglasses Rory",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "746344002",
+      "prod_name": "PQ Mendez sunglasses",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "749297007",
+      "prod_name": "Ben bumbag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "756433001",
+      "prod_name": "SL Quick sunglasses",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "765308007",
+      "prod_name": "Taylor shopper",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "798889002",
+      "prod_name": "MICHAELA small wallet",
+      "product_type_name": "Wallet",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "816233006",
+      "prod_name": "WAYFARERS",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "822354001",
+      "prod_name": "Clearglasses Claudio",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "823679001",
+      "prod_name": "Ringcard 3pk",
+      "product_type_name": "Giftbox",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "824130001",
+      "prod_name": "Sunglasses Anna",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "835296002",
+      "prod_name": "Matteo cross bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "837956001",
+      "prod_name": "Sunglasses Cathy",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "877534001",
+      "prod_name": "Betsy bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "883684002",
+      "prod_name": "Miffi cross",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "885490002",
+      "prod_name": "Kevin Fur Shopper",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "894221001",
+      "prod_name": "MAJSAN SMALL BAG",
       "product_type_name": "Unknown",
       "product_group_name": "Unknown",
       "reason": "skip"

@@ -9,6 +9,7 @@ from typing import Any
 import rdflib
 from flask import Flask, abort, redirect, render_template, request, send_file, url_for
 
+from recommend import COLORS, ROLES, get_recommendations, parse_phrase
 from scripts.run_pipeline import ARTIFACTS, PIPELINE_SUMMARY, aggregate_summary, artifact_status, read_json, run_pipeline
 
 
@@ -23,6 +24,16 @@ GENERATED_GRAPHS = [
     ROOT / "data/generated/hm_sample_catalog.ttl",
     ROOT / "data/generated/hm_llm_enriched_catalog.ttl",
 ]
+
+_graph: rdflib.Graph | None = None
+
+_RECOMMEND_FORMALITIES = [
+    ("CasualLevel", "Casual"),
+    ("SmartCasualLevel", "Smart Casual"),
+    ("BusinessCasualLevel", "Business Casual"),
+    ("FormalLevel", "Formal Dress"),
+]
+_RECOMMEND_SEASONS = ["Spring", "Summer", "Autumn", "Winter"]
 
 
 def project_path(path: Path) -> Path:
@@ -42,12 +53,28 @@ def load_pipeline_summary() -> dict[str, Any]:
     }
 
 
-def load_graph() -> rdflib.Graph:
+def _load_graph() -> rdflib.Graph:
     graph = rdflib.Graph()
     for path in GENERATED_GRAPHS:
         if path.exists():
             graph.parse(path, format="turtle")
     return graph
+
+
+def get_graph() -> rdflib.Graph:
+    global _graph
+    if _graph is None:
+        _graph = _load_graph()
+    return _graph
+
+
+def get_materials(graph: rdflib.Graph) -> list[str]:
+    mats: set[str] = set()
+    for node in graph.objects(None, CLO.hasMaterial):
+        local = str(node).rsplit("/", 1)[-1]
+        if local:
+            mats.add(local)
+    return sorted(mats)
 
 
 def label_for(graph: rdflib.Graph, value: rdflib.term.Node | None) -> str:
@@ -86,7 +113,7 @@ def get_filter_options(products: list[dict[str, Any]]) -> dict[str, list[str]]:
 
 
 def load_products() -> list[dict[str, Any]]:
-    graph = load_graph()
+    graph = get_graph()
     products: dict[str, dict[str, Any]] = {}
     for item in set(graph.subjects(CLO.hasMaterial, None)):
         article_id = next((str(value) for value in graph.objects(item, DCTERMS.identifier)), "")
@@ -143,6 +170,7 @@ def dashboard() -> str:
 
 @app.post("/run")
 def run() -> Any:
+    global _graph
     llm_mode = request.form.get("llm_mode", "mock")
     summary = run_pipeline(
         llm_mode=llm_mode,
@@ -151,6 +179,7 @@ def run() -> Any:
         min_confidence=float(request.form.get("min_confidence", "0.70")),
         limit=int(request.form.get("limit", "100")),
     )
+    _graph = None  # invalidate cache so next request re-loads fresh artifacts
     return redirect(url_for("dashboard", status="ok" if summary["ok"] else "failed"))
 
 
@@ -178,6 +207,42 @@ def skipped() -> str:
     metadata = read_json(ROOT / "data/generated/llm_enrichment_metadata.json")
     skipped_rows = metadata.get("skipped", []) if isinstance(metadata.get("skipped"), list) else []
     return render_template("skipped.html", skipped_rows=skipped_rows, metadata=metadata)
+
+
+def _recommend_context(graph: rdflib.Graph) -> dict[str, Any]:
+    return {
+        "colors": COLORS,
+        "roles": ROLES,
+        "formalities": _RECOMMEND_FORMALITIES,
+        "seasons": _RECOMMEND_SEASONS,
+        "materials": get_materials(graph),
+    }
+
+
+@app.get("/recommend")
+def recommend_get() -> str:
+    graph = get_graph()
+    return render_template("recommend.html", step="input", **_recommend_context(graph))
+
+
+@app.post("/recommend")
+def recommend_post() -> str:
+    graph = get_graph()
+    phrase = request.form.get("phrase", "")
+    confirmed = request.form.get("confirmed", "")
+    ctx = _recommend_context(graph)
+    if not confirmed:
+        parsed = parse_phrase(phrase)
+        return render_template("recommend.html", step="confirm", phrase=phrase, parsed=parsed, **ctx)
+    seed = {
+        "role": request.form.get("role") or None,
+        "color": request.form.get("color") or None,
+        "material": request.form.get("material") or None,
+        "formality": request.form.get("formality") or None,
+        "season": request.form.get("season") or None,
+    }
+    results = get_recommendations(graph, seed)
+    return render_template("recommend.html", step="results", phrase=phrase, seed=seed, results=results, **ctx)
 
 
 @app.get("/artifacts/<name>")

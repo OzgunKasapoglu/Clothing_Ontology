@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-02T12:09:19.762199+00:00",
+  "generated_at_utc": "2026-06-02T18:48:01.421854+00:00",
   "llm_mode": "mock",
   "mock_input": "data/llm/mock_extractions.jsonl",
   "sample_input": "data/samples/hm_articles_sample.csv",
@@ -8,47 +8,32 @@
   "source_catalog_graph": "data/generated/hm_sample_catalog.ttl",
   "output": "data/generated/hm_llm_enriched_catalog.ttl",
   "min_confidence": 0.7,
-  "records_read": 8,
-  "mock_records_read": 8,
-  "catalog_items_available": 98,
-  "enriched_products": 6,
-  "skipped_due_to_low_confidence": 1,
-  "skipped_due_to_unknown_ontology_value": 1,
+  "records_read": 1638,
+  "mock_records_read": 1638,
+  "catalog_items_available": 1962,
+  "enriched_products": 1638,
+  "skipped_due_to_low_confidence": 0,
+  "skipped_due_to_unknown_ontology_value": 0,
   "skipped_due_to_missing_article_id": 0,
   "skipped_due_to_absent_catalog_item": 0,
-  "skipped_total": 2,
+  "skipped_total": 0,
   "counters": {
-    "formality:CasualLevel": 6,
-    "items:enriched": 6,
-    "material:Cotton": 2,
-    "material:Denim": 1,
-    "material:Nylon": 1,
-    "material:Polyester": 2,
-    "season:Autumn": 6,
-    "season:Spring": 5,
-    "season:Summer": 3,
-    "season:Winter": 2,
-    "skipped:low_confidence": 1,
-    "skipped:unknown_ontology_value": 1
+    "formality:BusinessCasualLevel": 53,
+    "formality:CasualLevel": 761,
+    "formality:SmartCasualLevel": 824,
+    "items:enriched": 1638,
+    "material:Cotton": 1088,
+    "material:Denim": 103,
+    "material:Leather": 77,
+    "material:Linen": 26,
+    "material:Nylon": 5,
+    "material:Polyester": 217,
+    "material:Silk": 65,
+    "material:Wool": 57,
+    "season:Autumn": 1114,
+    "season:Spring": 1246,
+    "season:Summer": 1216,
+    "season:Winter": 554
   },
-  "skipped": [
-    {
-      "article_id": "174057022",
-      "reason": "unknown_ontology_value",
-      "confidence": 0.88,
-      "evidence": "soft patterned fleece",
-      "invalid_values": {
-        "material": "Fleece",
-        "formality": null,
-        "season": []
-      }
-    },
-    {
-      "article_id": "108775015",
-      "reason": "low_confidence",
-      "confidence": 0.58,
-      "evidence": "jersey top with narrow shoulder straps",
-      "min_confidence": 0.7
-    }
-  ]
+  "skipped": []
 }
