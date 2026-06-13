@@ -138,7 +138,9 @@ class RecommendationTests(unittest.TestCase):
         names_with = [i["local_name"] for i in res_with["grouped_items"].get("Bottom", [])]
         names_without = [i["local_name"] for i in res_without["grouped_items"].get("Bottom", [])]
         # If any Bottom items have Cotton, the rankings differ
-        cotton_items = [i["local_name"] for i in res_with["grouped_items"].get("Bottom", []) if i.get("material") == "Cotton"]
+        cotton_items = [
+            i["local_name"] for i in res_with["grouped_items"].get("Bottom", []) if i.get("material") == "Cotton"
+        ]
         if cotton_items:
             self.assertNotEqual(names_with, names_without)
 
@@ -151,6 +153,7 @@ class RecommendationTests(unittest.TestCase):
 
 try:
     import flask as _flask  # noqa: F401
+
     _FLASK_AVAILABLE = True
 except ModuleNotFoundError:
     _FLASK_AVAILABLE = False
@@ -160,6 +163,7 @@ except ModuleNotFoundError:
 class FlaskSmokeTests(unittest.TestCase):
     def setUp(self) -> None:
         import app as flask_app
+
         flask_app.app.config["TESTING"] = True
         self.client = flask_app.app.test_client()
 
@@ -175,12 +179,15 @@ class FlaskSmokeTests(unittest.TestCase):
         self.assertIn("white shirt", body.lower())
 
     def test_recommend_confirmed_post_shows_results(self) -> None:
-        resp = self.client.post("/recommend", data={
-            "phrase": "I have a white shirt",
-            "role": "Top",
-            "color": "White",
-            "confirmed": "1",
-        })
+        resp = self.client.post(
+            "/recommend",
+            data={
+                "phrase": "I have a white shirt",
+                "role": "Top",
+                "color": "White",
+                "confirmed": "1",
+            },
+        )
         self.assertEqual(resp.status_code, 200)
         body = resp.data.decode()
         self.assertIn("Bottom", body)

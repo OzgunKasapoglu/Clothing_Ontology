@@ -11,11 +11,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.generate_hm_abox import generate_hm_abox
-from scripts.generate_llm_enriched_abox import generate_llm_enriched_abox
-from scripts.run_sparql_queries import run_sparql_queries
-from scripts.validate_shacl import validate_shacl
-
+from scripts.generate_hm_abox import generate_hm_abox  # noqa: E402
+from scripts.generate_llm_enriched_abox import generate_llm_enriched_abox  # noqa: E402
+from scripts.run_sparql_queries import run_sparql_queries  # noqa: E402
+from scripts.validate_shacl import validate_shacl  # noqa: E402
 
 GENERATED_DIR = Path("data/generated")
 PIPELINE_SUMMARY = GENERATED_DIR / "pipeline_summary.json"
@@ -56,11 +55,17 @@ def aggregate_summary(
     shacl_summary: dict[str, Any] | None = None,
     sparql_results: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    hm_metadata = hm_metadata if hm_metadata is not None else read_json(GENERATED_DIR / "hm_sample_catalog_metadata.json")
-    enrichment_metadata = (
-        enrichment_metadata if enrichment_metadata is not None else read_json(GENERATED_DIR / "llm_enrichment_metadata.json")
+    hm_metadata = (
+        hm_metadata if hm_metadata is not None else read_json(GENERATED_DIR / "hm_sample_catalog_metadata.json")
     )
-    shacl_summary = shacl_summary if shacl_summary is not None else read_json(GENERATED_DIR / "shacl_validation_summary.json")
+    enrichment_metadata = (
+        enrichment_metadata
+        if enrichment_metadata is not None
+        else read_json(GENERATED_DIR / "llm_enrichment_metadata.json")
+    )
+    shacl_summary = (
+        shacl_summary if shacl_summary is not None else read_json(GENERATED_DIR / "shacl_validation_summary.json")
+    )
     sparql_results = sparql_results if sparql_results is not None else read_json(GENERATED_DIR / "sparql_results.json")
     counters = enrichment_metadata.get("counters", {})
     sparql_rows = {
@@ -73,9 +78,7 @@ def aggregate_summary(
         "hm_items_skipped": hm_metadata.get("items_skipped", 0),
         "enriched_products": enrichment_metadata.get("enriched_products", 0),
         "skipped_due_to_low_confidence": enrichment_metadata.get("skipped_due_to_low_confidence", 0),
-        "skipped_due_to_unknown_ontology_value": enrichment_metadata.get(
-            "skipped_due_to_unknown_ontology_value", 0
-        ),
+        "skipped_due_to_unknown_ontology_value": enrichment_metadata.get("skipped_due_to_unknown_ontology_value", 0),
         "skipped_due_to_missing_article_id": enrichment_metadata.get("skipped_due_to_missing_article_id", 0),
         "skipped_due_to_absent_catalog_item": enrichment_metadata.get("skipped_due_to_absent_catalog_item", 0),
         "skipped_total": enrichment_metadata.get("skipped_total", 0),

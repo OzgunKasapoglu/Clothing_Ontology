@@ -1,11 +1,11 @@
 {
-  "generated_at_utc": "2026-06-02T18:48:10.434947+00:00",
+  "generated_at_utc": "2026-06-13T19:55:18.158245+00:00",
   "graphs": [
     "Clothing_Ontology.ttl",
     "data/generated/hm_sample_catalog.ttl",
     "data/generated/hm_llm_enriched_catalog.ttl"
   ],
-  "triple_count": 24609,
+  "triple_count": 11191,
   "results": [
     {
       "query": "queries/01_blue_items.rq",
@@ -14,17 +14,12 @@
         "label",
         "class"
       ],
-      "row_count": 379,
+      "row_count": 199,
       "preview_rows": [
         {
           "item": "clo:HM_619468001",
           "label": "&DENIM Jacket Daisy Garden",
           "class": "clo:Jacket"
-        },
-        {
-          "item": "clo:HM_783707050",
-          "label": "1pk Fun",
-          "class": "clo:ClothingItem"
         },
         {
           "item": "clo:HM_348330033",
@@ -37,34 +32,39 @@
           "class": "clo:Short"
         },
         {
-          "item": "clo:HM_829611002",
-          "label": "A-band 2pk plastic fun",
-          "class": "clo:Accessory"
+          "item": "clo:HM_643160004",
+          "label": "Aberdeen flipflop",
+          "class": "clo:Sandals"
         },
         {
-          "item": "clo:HM_861095001",
-          "label": "AK Tomo skirt HW",
-          "class": "clo:Skirt"
-        },
-        {
-          "item": "clo:HM_831447001",
-          "label": "ALGOT 3-p shorts",
-          "class": "clo:Short"
-        },
-        {
-          "item": "clo:HM_832744001",
-          "label": "ANDREW FANCY L/S",
-          "class": "clo:T-Shirt"
-        },
-        {
-          "item": "clo:HM_715226004",
-          "label": "ANDYS L/S",
-          "class": "clo:T-Shirt"
-        },
-        {
-          "item": "clo:HM_800488002",
-          "label": "ANGEL t-shirt dress",
+          "item": "clo:HM_664203001",
+          "label": "Adrien Dress",
           "class": "clo:Bottom"
+        },
+        {
+          "item": "clo:HM_506368004",
+          "label": "Andre s/l pj BB",
+          "class": "clo:ClothingItem"
+        },
+        {
+          "item": "clo:HM_687331006",
+          "label": "Aquarius hood",
+          "class": "clo:Hoodie"
+        },
+        {
+          "item": "clo:HM_504852002",
+          "label": "Atlantis Printed Bomber",
+          "class": "clo:Jacket"
+        },
+        {
+          "item": "clo:HM_658539001",
+          "label": "BB Henry jkt ES",
+          "class": "clo:Jacket"
+        },
+        {
+          "item": "clo:HM_494472005",
+          "label": "BB Timm parka",
+          "class": "clo:Jacket"
         }
       ]
     },
@@ -75,7 +75,7 @@
         "label",
         "class"
       ],
-      "row_count": 259,
+      "row_count": 129,
       "preview_rows": [
         {
           "item": "clo:HM_644686002",
@@ -83,19 +83,9 @@
           "class": "clo:Top"
         },
         {
-          "item": "clo:HM_768307003",
-          "label": "AUDREY CONSCIOUS LOOSE TANK+",
-          "class": "clo:Top"
-        },
-        {
           "item": "clo:HM_583728001",
           "label": "Active Rush Tee",
           "class": "clo:Top"
-        },
-        {
-          "item": "clo:HM_871527003",
-          "label": "Ada",
-          "class": "clo:Blouse"
         },
         {
           "item": "clo:HM_664390001",
@@ -108,24 +98,34 @@
           "class": "clo:T-Shirt"
         },
         {
-          "item": "clo:HM_817386001",
-          "label": "Alberta dnm tunic",
-          "class": "clo:Blouse"
-        },
-        {
-          "item": "clo:HM_770315023",
-          "label": "Alpha top",
-          "class": "clo:Top"
-        },
-        {
           "item": "clo:HM_586679001",
           "label": "Alva Fancy Lace",
           "class": "clo:Top"
         },
         {
-          "item": "clo:HM_772421003",
-          "label": "Amelia popover",
+          "item": "clo:HM_688713001",
+          "label": "Angelina",
           "class": "clo:Blouse"
+        },
+        {
+          "item": "clo:HM_619807002",
+          "label": "Ariel boat neck stripe",
+          "class": "clo:Top"
+        },
+        {
+          "item": "clo:HM_625339001",
+          "label": "Ava top",
+          "class": "clo:Sweater"
+        },
+        {
+          "item": "clo:HM_686997004",
+          "label": "BASIC HOOD",
+          "class": "clo:Hoodie"
+        },
+        {
+          "item": "clo:HM_651327001",
+          "label": "BURN OUT TEE",
+          "class": "clo:T-Shirt"
         }
       ]
     },
@@ -141,52 +141,52 @@
         {
           "color": "clo:Black",
           "colorLabel": "Black",
-          "itemCount": "395"
+          "itemCount": "209"
         },
         {
           "color": "clo:Blue",
           "colorLabel": "Blue",
-          "itemCount": "379"
+          "itemCount": "199"
         },
         {
           "color": "clo:White",
           "colorLabel": "White",
-          "itemCount": "235"
+          "itemCount": "126"
         },
         {
           "color": "clo:Grey",
           "colorLabel": "Grey",
-          "itemCount": "173"
+          "itemCount": "99"
         },
         {
           "color": "clo:Pink",
           "colorLabel": "Pink",
-          "itemCount": "162"
+          "itemCount": "89"
         },
         {
           "color": "clo:Beige",
           "colorLabel": "Beige",
-          "itemCount": "117"
+          "itemCount": "37"
         },
         {
           "color": "clo:Red",
           "colorLabel": "Red",
-          "itemCount": "51"
-        },
-        {
-          "color": "clo:Brown",
-          "colorLabel": "Brown",
-          "itemCount": "32"
+          "itemCount": "33"
         },
         {
           "color": "clo:Orange",
           "colorLabel": "Orange",
-          "itemCount": "32"
+          "itemCount": "18"
+        },
+        {
+          "color": "clo:Brown",
+          "colorLabel": "Brown",
+          "itemCount": "12"
         },
         {
           "color": "clo:Yellow",
           "colorLabel": "Yellow",
-          "itemCount": "26"
+          "itemCount": "7"
         }
       ]
     },
@@ -335,22 +335,6 @@
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_870121001",
-          "itemLabel": "ADELIA top",
-          "class": "clo:Top"
-        },
-        {
-          "user": "clo:User_Demo",
-          "userLabel": "Demo User",
-          "preferredColor": "clo:Black",
-          "item": "clo:HM_753746001",
-          "itemLabel": "ALINA jogger",
-          "class": "clo:Trouser"
-        },
-        {
-          "user": "clo:User_Demo",
-          "userLabel": "Demo User",
-          "preferredColor": "clo:Black",
           "item": "clo:HM_658329013",
           "itemLabel": "ARTICHOKE SLIM FIT POLO",
           "class": "clo:Top"
@@ -375,24 +359,40 @@
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_772421003",
-          "itemLabel": "Amelia popover",
+          "item": "clo:HM_501722005",
+          "itemLabel": "Arthur slim fit shirt",
           "class": "clo:Blouse"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_787235001",
-          "itemLabel": "Ananas",
-          "class": "clo:Bottom"
+          "item": "clo:HM_226959007",
+          "itemLabel": "Astaire 1p Overknee",
+          "class": "clo:ClothingItem"
         },
         {
           "user": "clo:User_Demo",
           "userLabel": "Demo User",
           "preferredColor": "clo:Black",
-          "item": "clo:HM_734194001",
-          "itemLabel": "Andy check skinny blz3",
+          "item": "clo:HM_686731002",
+          "itemLabel": "BB Bobbie bomber",
+          "class": "clo:Jacket"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_643704003",
+          "itemLabel": "BB Mike windbreaker",
+          "class": "clo:Jacket"
+        },
+        {
+          "user": "clo:User_Demo",
+          "userLabel": "Demo User",
+          "preferredColor": "clo:Black",
+          "item": "clo:HM_500358001",
+          "itemLabel": "BB Paul parka",
           "class": "clo:Jacket"
         }
       ]
@@ -407,86 +407,86 @@
         "formalityLabel",
         "seasonLabel"
       ],
-      "row_count": 4130,
+      "row_count": 1348,
       "preview_rows": [
         {
-          "articleId": "858983001",
-          "item": "clo:HM_858983001",
-          "label": "AK Maru jumpsuit",
+          "articleId": "624535003",
+          "item": "clo:HM_624535003",
+          "label": "S/J overall",
           "materialLabel": "Cotton",
           "formalityLabel": "Business Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "742084001",
-          "item": "clo:HM_742084001",
-          "label": "Acerola jumpsuit",
+          "articleId": "497352001",
+          "item": "clo:HM_497352001",
+          "label": "Simon seersucker",
           "materialLabel": "Cotton",
           "formalityLabel": "Business Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "779590011",
-          "item": "clo:HM_779590011",
-          "label": "Andy check skinny blz",
+          "articleId": "624535003",
+          "item": "clo:HM_624535003",
+          "label": "S/J overall",
           "materialLabel": "Cotton",
           "formalityLabel": "Business Casual",
+          "seasonLabel": "Spring"
+        },
+        {
+          "articleId": "497352001",
+          "item": "clo:HM_497352001",
+          "label": "Simon seersucker",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Spring"
+        },
+        {
+          "articleId": "624535003",
+          "item": "clo:HM_624535003",
+          "label": "S/J overall",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Summer"
+        },
+        {
+          "articleId": "497352001",
+          "item": "clo:HM_497352001",
+          "label": "Simon seersucker",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Business Casual",
+          "seasonLabel": "Summer"
+        },
+        {
+          "articleId": "348330033",
+          "item": "clo:HM_348330033",
+          "label": "2P Tanktop body Mixed",
+          "materialLabel": "Cotton",
+          "formalityLabel": "Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "734194001",
-          "item": "clo:HM_734194001",
-          "label": "Andy check skinny blz3",
+          "articleId": "533261010",
+          "item": "clo:HM_533261010",
+          "label": "5P LS bodypack",
           "materialLabel": "Cotton",
-          "formalityLabel": "Business Casual",
+          "formalityLabel": "Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "824835001",
-          "item": "clo:HM_824835001",
-          "label": "Austen Cord Jumpsuit",
+          "articleId": "147339034",
+          "item": "clo:HM_147339034",
+          "label": "6P SS BODY",
           "materialLabel": "Cotton",
-          "formalityLabel": "Business Casual",
+          "formalityLabel": "Casual",
           "seasonLabel": "Autumn"
         },
         {
-          "articleId": "578487004",
-          "item": "clo:HM_578487004",
-          "label": "Burmilla",
+          "articleId": "493836006",
+          "item": "clo:HM_493836006",
+          "label": "ALBIN basic rib 2p SB",
           "materialLabel": "Cotton",
-          "formalityLabel": "Business Casual",
-          "seasonLabel": "Autumn"
-        },
-        {
-          "articleId": "690478001",
-          "item": "clo:HM_690478001",
-          "label": "Capone blazer campaign",
-          "materialLabel": "Cotton",
-          "formalityLabel": "Business Casual",
-          "seasonLabel": "Autumn"
-        },
-        {
-          "articleId": "639192001",
-          "item": "clo:HM_639192001",
-          "label": "Capri blazer",
-          "materialLabel": "Cotton",
-          "formalityLabel": "Business Casual",
-          "seasonLabel": "Autumn"
-        },
-        {
-          "articleId": "630542002",
-          "item": "clo:HM_630542002",
-          "label": "Chelsea wd blazer TP",
-          "materialLabel": "Cotton",
-          "formalityLabel": "Business Casual",
-          "seasonLabel": "Autumn"
-        },
-        {
-          "articleId": "708067005",
-          "item": "clo:HM_708067005",
-          "label": "Colibri",
-          "materialLabel": "Cotton",
-          "formalityLabel": "Business Casual",
+          "formalityLabel": "Casual",
           "seasonLabel": "Autumn"
         }
       ]

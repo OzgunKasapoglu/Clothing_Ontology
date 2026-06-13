@@ -1,14 +1,14 @@
 {
-  "started_at_utc": "2026-06-02T18:48:01.130588+00:00",
-  "finished_at_utc": "2026-06-02T18:48:10.435317+00:00",
+  "started_at_utc": "2026-06-13T19:55:09.264420+00:00",
+  "finished_at_utc": "2026-06-13T19:55:18.160580+00:00",
   "ok": true,
   "error": null,
   "options": {
     "llm_mode": "mock",
     "ollama_endpoint": null,
     "ollama_model": null,
-    "min_confidence": 0.7,
-    "limit": 2000
+    "min_confidence": 0.8,
+    "limit": 1000
   },
   "stages": [
     {
@@ -29,77 +29,77 @@
     }
   ],
   "metrics": {
-    "hm_items_generated": 1962,
-    "hm_items_skipped": 38,
-    "enriched_products": 1638,
-    "skipped_due_to_low_confidence": 0,
+    "hm_items_generated": 982,
+    "hm_items_skipped": 18,
+    "enriched_products": 507,
+    "skipped_due_to_low_confidence": 309,
     "skipped_due_to_unknown_ontology_value": 0,
     "skipped_due_to_missing_article_id": 0,
-    "skipped_due_to_absent_catalog_item": 0,
-    "skipped_total": 0,
+    "skipped_due_to_absent_catalog_item": 822,
+    "skipped_total": 1131,
     "material_counts": {
-      "Cotton": 1088,
-      "Denim": 103,
-      "Leather": 77,
-      "Linen": 26,
-      "Nylon": 5,
-      "Polyester": 217,
-      "Silk": 65,
-      "Wool": 57
+      "Cotton": 238,
+      "Denim": 57,
+      "Leather": 31,
+      "Linen": 10,
+      "Nylon": 2,
+      "Polyester": 112,
+      "Silk": 30,
+      "Wool": 27
     },
     "formality_counts": {
-      "BusinessCasualLevel": 53,
-      "CasualLevel": 761,
-      "SmartCasualLevel": 824
+      "BusinessCasualLevel": 9,
+      "CasualLevel": 271,
+      "SmartCasualLevel": 227
     },
     "season_counts": {
-      "Autumn": 1114,
-      "Spring": 1246,
-      "Summer": 1216,
-      "Winter": 554
+      "Autumn": 401,
+      "Spring": 374,
+      "Summer": 371,
+      "Winter": 202
     },
     "shacl_conforms": true,
     "validation_result_count": 0,
     "sparql_query_row_counts": {
-      "01_blue_items.rq": 379,
-      "02_female_tops.rq": 259,
+      "01_blue_items.rq": 199,
+      "02_female_tops.rq": 129,
       "03_catalog_color_counts.rq": 11,
       "04_outfit_components.rq": 13,
       "05_harmonious_top_bottom_pairs.rq": 2,
       "06_user_preferred_color_items.rq": 50,
-      "07_llm_enriched_products.rq": 4130
+      "07_llm_enriched_products.rq": 1348
     }
   },
   "artifacts": {
     "hm_sample_catalog.ttl": {
       "path": "data/generated/hm_sample_catalog.ttl",
       "exists": true,
-      "size_bytes": 1027784,
-      "modified_at_utc": "2026-06-02T18:48:01.152271+00:00"
+      "size_bytes": 509941,
+      "modified_at_utc": "2026-06-13T19:55:09.288470+00:00"
     },
     "hm_llm_enriched_catalog.ttl": {
       "path": "data/generated/hm_llm_enriched_catalog.ttl",
       "exists": true,
-      "size_bytes": 494421,
-      "modified_at_utc": "2026-06-02T18:48:01.421754+00:00"
+      "size_bytes": 158784,
+      "modified_at_utc": "2026-06-13T19:55:09.498527+00:00"
     },
     "llm_enrichment_metadata.json": {
       "path": "data/generated/llm_enrichment_metadata.json",
       "exists": true,
-      "size_bytes": 1201,
-      "modified_at_utc": "2026-06-02T18:48:01.422032+00:00"
+      "size_bytes": 200830,
+      "modified_at_utc": "2026-06-13T19:55:09.500530+00:00"
     },
     "shacl_validation_summary.json": {
       "path": "data/generated/shacl_validation_summary.json",
       "exists": true,
-      "size_bytes": 482,
-      "modified_at_utc": "2026-06-02T18:48:09.298515+00:00"
+      "size_bytes": 498,
+      "modified_at_utc": "2026-06-13T19:55:17.128100+00:00"
     },
     "sparql_results.json": {
       "path": "data/generated/sparql_results.json",
       "exists": true,
-      "size_bytes": 13608,
-      "modified_at_utc": "2026-06-02T18:48:10.435257+00:00"
+      "size_bytes": 14072,
+      "modified_at_utc": "2026-06-13T19:55:18.160239+00:00"
     }
   }
 }

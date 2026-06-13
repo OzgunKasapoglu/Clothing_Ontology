@@ -11,8 +11,22 @@ CLO = Namespace("http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/")
 DCTERMS = Namespace("http://purl.org/dc/terms/")
 
 COLORS = [
-    "Red", "Orange", "Yellow", "Brown", "Blue", "Green", "Purple", "Pink",
-    "Black", "White", "Grey", "Beige", "Navy", "Gold", "Silver", "Turquoise",
+    "Red",
+    "Orange",
+    "Yellow",
+    "Brown",
+    "Blue",
+    "Green",
+    "Purple",
+    "Pink",
+    "Black",
+    "White",
+    "Grey",
+    "Beige",
+    "Navy",
+    "Gold",
+    "Silver",
+    "Turquoise",
 ]
 
 ROLES = ["Top", "Bottom", "Footwear", "Outerwear", "Accessory"]
@@ -118,9 +132,7 @@ def _get_article_id(graph: rdflib.Graph, item: rdflib.URIRef) -> str:
     return str(node) if node else ""
 
 
-def _find_seed_proxies(
-    graph: rdflib.Graph, seed_color: str, seed_role: str
-) -> set[rdflib.URIRef]:
+def _find_seed_proxies(graph: rdflib.Graph, seed_color: str, seed_role: str) -> set[rdflib.URIRef]:
     color_uri = CLO[seed_color]
     proxies: set[rdflib.URIRef] = set()
     for cls in _get_subclasses(graph, CLO[seed_role]):
@@ -158,12 +170,7 @@ def _score_candidate(
 
     seed_formality = seed.get("formality")
     cand_formality = _get_formality(graph, candidate)
-    if (
-        seed_formality
-        and cand_formality
-        and seed_formality in FORMALITY_ORDER
-        and cand_formality in FORMALITY_ORDER
-    ):
+    if seed_formality and cand_formality and seed_formality in FORMALITY_ORDER and cand_formality in FORMALITY_ORDER:
         dist = abs(FORMALITY_ORDER.index(seed_formality) - FORMALITY_ORDER.index(cand_formality))
         if dist == 0:
             score += 3.0
@@ -194,11 +201,7 @@ def get_recommendations(graph: rdflib.Graph, seed: dict[str, Any]) -> dict[str, 
         return {"grouped_items": {}, "outfits": []}
 
     seed_color = seed.get("color")
-    seed_proxies = (
-        _find_seed_proxies(graph, seed_color, seed_role)
-        if seed_color and seed_role
-        else set()
-    )
+    seed_proxies = _find_seed_proxies(graph, seed_color, seed_role) if seed_color and seed_role else set()
 
     target_roles = COMPLEMENT_ROLES.get(seed_role, [])
     items_by_role = _collect_items_by_role(graph)

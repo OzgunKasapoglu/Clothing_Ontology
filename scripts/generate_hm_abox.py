@@ -9,7 +9,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-
 CLO = "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/"
 SKIP_STATUSES = {"skip", "out_of_scope"}
 
@@ -20,11 +19,7 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def load_mapping(path: Path, target_field: str) -> dict[str, dict[str, str]]:
-    return {
-        row["source_value"]: row
-        for row in read_csv(path)
-        if row.get("source_value")
-    }
+    return {row["source_value"]: row for row in read_csv(path) if row.get("source_value")}
 
 
 def ttl_string(value: str, lang: str | None = None) -> str:
@@ -77,9 +72,7 @@ def build_item_triples(
     gender_map: dict[str, dict[str, str]],
     counters: Counter[str],
 ) -> list[str]:
-    triples = [
-        f"{item_uri(row['article_id'])} rdf:type owl:NamedIndividual , clo:{local_name(class_target)}"
-    ]
+    triples = [f"{item_uri(row['article_id'])} rdf:type owl:NamedIndividual , clo:{local_name(class_target)}"]
     add_literal(triples, "rdfs:label", row.get("prod_name", ""), "en")
     add_literal(triples, "dcterms:identifier", row.get("article_id", ""))
     add_literal(triples, "dcterms:description", row.get("detail_desc", ""), "en")

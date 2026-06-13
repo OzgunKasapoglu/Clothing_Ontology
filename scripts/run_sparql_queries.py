@@ -8,7 +8,6 @@ from typing import Any
 
 import rdflib
 
-
 PREFIXES = {
     "clo": "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/",
     "dcterms": "http://purl.org/dc/terms/",
@@ -44,10 +43,7 @@ def load_graph(paths: list[Path]) -> rdflib.Graph:
 def run_query(graph: rdflib.Graph, query_path: Path, max_preview_rows: int) -> dict[str, Any]:
     result = graph.query(query_path.read_text(encoding="utf-8"))
     variables = [str(variable) for variable in result.vars]
-    rows = [
-        {variable: compact(row[index]) for index, variable in enumerate(variables)}
-        for row in result
-    ]
+    rows = [{variable: compact(row[index]) for index, variable in enumerate(variables)} for row in result]
     return {
         "query": str(query_path.as_posix()),
         "variables": variables,

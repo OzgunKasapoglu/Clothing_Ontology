@@ -9,7 +9,6 @@ from pathlib import Path
 import rdflib
 from rdflib.namespace import RDF
 
-
 SH = rdflib.Namespace("http://www.w3.org/ns/shacl#")
 DEFAULT_GRAPHS = [
     Path("Clothing_Ontology.ttl"),

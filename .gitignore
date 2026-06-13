@@ -9,6 +9,19 @@ __pycache__/
 *.pyc
 *.pyo
 .venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Test & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
 
 # macOS
 .DS_Store
@@ -20,8 +33,22 @@ __pycache__/
 .vscode/
 .idea/
 *.code-workspace
+*.swp
+*.swo
+*~
+.project
+.pydevproject
 
 # Env / secrets
 .env
 .env.*
 
+# Build artifacts
+*.o
+*.so
+*.dll
+*.dylib
+
+# Cache
+.cache/
+*.cache

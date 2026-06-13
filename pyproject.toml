@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clothing-ontology"
+version = "2.0.0"
+description = "OWL 2 ontology for an outfit recommendation engine with web UI and semantic pipeline"
+readme = "README.md"
+license = {text = "CC BY 4.0"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Sedat"},
+]
+keywords = ["ontology", "owl", "semantic-web", "rdf", "recommendation-engine", "fashion"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: Free for non-commercial use",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "flask>=2.0.0",
+    "rdflib>=6.0.0",
+    "pyshacl>=0.20.0",
+    "datasets>=2.0.0",
+    "pyarrow>=10.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+]
+docs = [
+    "sphinx>=4.5.0",
+    "sphinx-rtd-theme>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-username/clothing-ontology"
+Documentation = "https://github.com/your-username/clothing-ontology#readme"
+Repository = "https://github.com/your-username/clothing-ontology.git"
+Issues = "https://github.com/your-username/clothing-ontology/issues"
+
+[tool.setuptools]
+packages = ["scripts"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=scripts --cov=recommend --cov-report=term-missing --tb=short"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

@@ -8,7 +8,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-
 DATASET_REQUESTS = {
     "hm_articles": {
         "dataset": "dinhlnd1610/HM-Personalized-Fashion-Recommendations",
@@ -95,8 +94,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer.writeheader()
         for row in rows:
             normalized = {
-                k: json.dumps(v, ensure_ascii=False) if isinstance(v, (dict, list)) else v
-                for k, v in row.items()
+                k: json.dumps(v, ensure_ascii=False) if isinstance(v, (dict, list)) else v for k, v in row.items()
             }
             writer.writerow(normalized)
 
@@ -110,19 +108,23 @@ def write_dataset(name: str, rows: list[dict[str, Any]], output_dir: Path) -> di
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Download H&M article samples spread evenly across the full dataset."
-    )
+    parser = argparse.ArgumentParser(description="Download H&M article samples spread evenly across the full dataset.")
     parser.add_argument(
-        "--hm-length", type=int, default=2000,
+        "--hm-length",
+        type=int,
+        default=2000,
         help="Total H&M rows to collect (sampled with stride). Default: 2000.",
     )
     parser.add_argument(
-        "--hm-dataset-size", type=int, default=105000,
+        "--hm-dataset-size",
+        type=int,
+        default=105000,
         help="Approximate total rows in the H&M dataset (used to compute stride). Default: 105000.",
     )
     parser.add_argument(
-        "--polyvore-length", type=int, default=50,
+        "--polyvore-length",
+        type=int,
+        default=50,
         help="Number of Polyvore outfit rows to collect. Default: 50.",
     )
     parser.add_argument("--output-dir", type=Path, default=Path("data/samples"))
@@ -136,7 +138,9 @@ def main() -> None:
     req = DATASET_REQUESTS["hm_articles"]
     print(f"Fetching {args.hm_length} H&M articles (stride-sampled from ~{args.hm_dataset_size} rows) …")
     hm_rows = fetch_stride(
-        req["dataset"], req["config"], req["split"],
+        req["dataset"],
+        req["config"],
+        req["split"],
         total=args.hm_length,
         dataset_size=args.hm_dataset_size,
     )
@@ -161,7 +165,9 @@ def main() -> None:
         "method": "Hugging Face datasets library (streaming stride sample)",
         "hm_length": args.hm_length,
         "hm_dataset_size": args.hm_dataset_size,
-        "requests": {k: {kk: vv for kk, vv in v.items() if kk != "approximate_size"} for k, v in DATASET_REQUESTS.items()},
+        "requests": {
+            k: {kk: vv for kk, vv in v.items() if kk != "approximate_size"} for k, v in DATASET_REQUESTS.items()
+        },
         "outputs": outputs,
         "note": "Samples are for ontology mapping/prototyping. Do not commit full raw datasets.",
     }

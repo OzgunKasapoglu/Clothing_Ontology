@@ -10,8 +10,14 @@ import rdflib
 from flask import Flask, abort, redirect, render_template, request, send_file, url_for
 
 from recommend import COLORS, ROLES, get_recommendations, parse_phrase
-from scripts.run_pipeline import ARTIFACTS, PIPELINE_SUMMARY, aggregate_summary, artifact_status, read_json, run_pipeline
-
+from scripts.run_pipeline import (
+    ARTIFACTS,
+    PIPELINE_SUMMARY,
+    aggregate_summary,
+    artifact_status,
+    read_json,
+    run_pipeline,
+)
 
 app = Flask(__name__)
 
@@ -127,12 +133,7 @@ def load_products() -> list[dict[str, Any]]:
             "label": label_for(graph, item),
             "material": label_for(graph, next(graph.objects(item, CLO.hasMaterial), None)),
             "formality": label_for(graph, next(graph.objects(item, CLO.hasFormality), None)),
-            "seasons": sorted(
-                {
-                    label_for(graph, season)
-                    for season in graph.objects(item, CLO.isAppropriateForSeason)
-                }
-            ),
+            "seasons": sorted({label_for(graph, season) for season in graph.objects(item, CLO.isAppropriateForSeason)}),
             "confidence": parsed_comment["confidence"],
             "evidence": parsed_comment["evidence"],
             "source": parsed_comment["source"],

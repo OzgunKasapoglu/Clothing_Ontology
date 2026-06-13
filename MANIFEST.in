@@ -1,0 +1,17 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include requirements.txt
+recursive-include docs *.md *.csv
+recursive-include data/samples *.csv *.jsonl *.json
+recursive-include data/mappings *.csv
+recursive-include queries *.rq *.md
+recursive-include shapes *.ttl
+recursive-include prompts *.md *.json
+recursive-include templates *.html
+recursive-include static *.css *.js
+recursive-exclude data/generated *.ttl *.json
+recursive-exclude venv *
+recursive-exclude .git *
+recursive-exclude __pycache__ *

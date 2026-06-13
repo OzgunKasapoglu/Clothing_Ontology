@@ -13,7 +13,6 @@ from typing import Any
 
 import rdflib
 
-
 CLO = "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/"
 DCTERMS = rdflib.Namespace("http://purl.org/dc/terms/")
 
@@ -71,10 +70,7 @@ def read_catalog_rows(path: Path, limit: int) -> list[dict[str, str]]:
 def load_catalog_article_ids(path: Path) -> set[str]:
     graph = rdflib.Graph()
     graph.parse(path, format="turtle")
-    return {
-        str(identifier)
-        for identifier in graph.objects(predicate=DCTERMS.identifier)
-    }
+    return {str(identifier) for identifier in graph.objects(predicate=DCTERMS.identifier)}
 
 
 def ttl_string(value: str, lang: str | None = None) -> str:
@@ -91,9 +87,9 @@ def strip_prefix(value: str) -> str:
     text = str(value).strip()
     for prefix in ("clo:", ":"):
         if text.startswith(prefix):
-            return text[len(prefix):]
+            return text[len(prefix) :]  # noqa: E203
     if text.startswith(CLO):
-        return text[len(CLO):]
+        return text[len(CLO) :]  # noqa: E203
     return text
 
 
