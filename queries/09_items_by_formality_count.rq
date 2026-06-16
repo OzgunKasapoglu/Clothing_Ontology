@@ -1,0 +1,14 @@
+# Category: AGGREGATION
+# Competency question CQ3 (formality facet): How is the catalogue distributed
+# across dress-code formality levels? Most of these values are produced by the
+# LLM enrichment stage, so this query also exercises the enriched ABox.
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?formalityLabel (COUNT(DISTINCT ?item) AS ?itemCount)
+WHERE {
+  ?item clo:hasFormality ?formality .
+  ?formality rdfs:label ?formalityLabel .
+}
+GROUP BY ?formalityLabel
+ORDER BY DESC(?itemCount)

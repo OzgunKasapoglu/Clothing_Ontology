@@ -352,3 +352,37 @@ pre {
     padding: 18px;
   }
 }
+
+/* NL -> SPARQL ("Ask") page */
+.chip {
+  display: inline-block;
+  margin: 4px 6px 4px 0;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  color: #344054;
+  background: #f2f4f7;
+  border: 1px solid #d0d5dd;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  background: #e4e7ec;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #344054;
+  background: #eef2f6;
+  border: 1px solid #d0d5dd;
+  border-radius: 999px;
+}
+
+.badge-ok {
+  color: #05603a;
+  background: #d1fadf;
+  border-color: #6ce9a6;
+}

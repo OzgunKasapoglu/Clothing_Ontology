@@ -26,7 +26,7 @@
     dcterms:description "An OWL 2 ontology that models clothing items, their attributes (color, material, size, formality), and outfit-level compatibility relations. The ontology is designed to support a rule-based outfit combination engine that recommends harmonious outfits based on color theory, material compatibility, occasion, season, and personalized user preferences."@en ;
     dcterms:creator "g911"@en ;
     dcterms:issued "2026-04-01"^^xsd:date ;
-    dcterms:modified "2026-05-14"^^xsd:date ;
+    dcterms:modified "2026-06-16"^^xsd:date ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     vann:preferredNamespacePrefix "clo" ;
     vann:preferredNamespaceUri "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/" ;
@@ -81,18 +81,18 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  isAppropriateForOccasion
 :isAppropriateForOccasion rdf:type owl:ObjectProperty ;
-                          rdfs:domain :ClothingItem ;
+                          rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( :ClothingItem :Outfit ) ] ;
                           rdfs:range :Occasion ;
                           rdfs:label "is appropriate for occasion"@en ;
-                          rdfs:comment "States that a clothing item or outfit is suitable for a particular social occasion."@en .
+                          rdfs:comment "States that a clothing item or an outfit is suitable for a particular social occasion. The domain is the union of ClothingItem and Outfit because both individual garments and whole outfits carry an occasion."@en .
 
 
 ###  isAppropriateForSeason
 :isAppropriateForSeason rdf:type owl:ObjectProperty ;
-                        rdfs:domain :ClothingItem ;
+                        rdfs:domain [ rdf:type owl:Class ; owl:unionOf ( :ClothingItem :Outfit ) ] ;
                         rdfs:range :Season ;
                         rdfs:label "is appropriate for season"@en ;
-                        rdfs:comment "States that a clothing item or outfit is suitable for a particular season."@en .
+                        rdfs:comment "States that a clothing item or an outfit is suitable for a particular season. The domain is the union of ClothingItem and Outfit because both individual garments and whole outfits carry a season."@en .
 
 
 ###  isSuitableFor
@@ -501,6 +501,34 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Disjointness Axioms   (new in v2 — modeling correctness)
+#################################################################
+#
+# These axioms let an OWL DL reasoner (HermiT, Pellet) detect modeling
+# errors such as an Outfit accidentally typed as a garment. They are added
+# after the domains of season/occasion were generalised to (ClothingItem ∪
+# Outfit) so that they do not introduce a contradiction.
+
+# Top-level concepts are mutually disjoint: an Outfit is not a garment,
+# and a User is neither a garment nor an outfit.
+[] rdf:type owl:AllDisjointClasses ;
+   owl:members ( :ClothingItem :Outfit :User ) .
+
+# The five garment regions partition ClothingItem and cannot overlap.
+[] rdf:type owl:AllDisjointClasses ;
+   owl:members ( :Top :Bottom :Outerwear :Footwear :Accessory ) .
+
+# The core attribute value-spaces are mutually disjoint.
+[] rdf:type owl:AllDisjointClasses ;
+   owl:members ( :Color :Material :Size :Season :Occasion :Gender
+                 :FormalityLevel :ColorScheme :ColorUndertone ) .
+
+# Gender individuals denote distinct values (no unique-name assumption).
+[] rdf:type owl:AllDifferent ;
+   owl:distinctMembers ( :Male :Female :Unisex ) .
+
+
+#################################################################
 #    Individuals — Colors (with undertones)
 #################################################################
 
@@ -841,7 +869,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
            rdfs:label "Demo User"@en ;
            :userName "ozgun" ;
            :hasAge 25 ;
-           :isSuitableFor :Unisex ;
            :hasBodyType :Athletic ;
            :prefersColor :Blue , :Black , :White ;
            :prefersStyle :Minimalist , :Classic ;

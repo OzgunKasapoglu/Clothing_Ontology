@@ -12,7 +12,7 @@
                                                                        <http://purl.org/dc/terms/description> "An OWL 2 ontology that models clothing items, their attributes (color, material, size, formality), and outfit-level compatibility relations. The ontology is designed to support a rule-based outfit combination engine that recommends harmonious outfits based on color theory, material compatibility, occasion, season, and personalized user preferences."@en ;
                                                                        <http://purl.org/dc/terms/issued> "2026-04-01"^^xsd:date ;
                                                                        <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
-                                                                       <http://purl.org/dc/terms/modified> "2026-05-14"^^xsd:date ;
+                                                                       <http://purl.org/dc/terms/modified> "2026-06-16"^^xsd:date ;
                                                                        <http://purl.org/dc/terms/title> "Clothing Ontology for Outfit Combination Engine"@en ;
                                                                        <http://purl.org/vocab/vann/preferredNamespacePrefix> "clo" ;
                                                                        <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/" ;
@@ -215,17 +215,25 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isAppropriateForOccasion
 <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isAppropriateForOccasion> rdf:type owl:ObjectProperty ;
-                                                                                        rdfs:domain <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem> ;
+                                                                                        rdfs:domain [ rdf:type owl:Class ;
+                                                                                                      owl:unionOf ( <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem>
+                                                                                                                    <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit>
+                                                                                                                  )
+                                                                                                    ] ;
                                                                                         rdfs:range <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Occasion> ;
-                                                                                        rdfs:comment "States that a clothing item or outfit is suitable for a particular social occasion."@en ;
+                                                                                        rdfs:comment "States that a clothing item or an outfit is suitable for a particular social occasion. The domain is the union of ClothingItem and Outfit because both individual garments and whole outfits carry an occasion."@en ;
                                                                                         rdfs:label "is appropriate for occasion"@en .
 
 
 ###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isAppropriateForSeason
 <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isAppropriateForSeason> rdf:type owl:ObjectProperty ;
-                                                                                      rdfs:domain <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem> ;
+                                                                                      rdfs:domain [ rdf:type owl:Class ;
+                                                                                                    owl:unionOf ( <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem>
+                                                                                                                  <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit>
+                                                                                                                )
+                                                                                                  ] ;
                                                                                       rdfs:range <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Season> ;
-                                                                                      rdfs:comment "States that a clothing item or outfit is suitable for a particular season."@en ;
+                                                                                      rdfs:comment "States that a clothing item or an outfit is suitable for a particular season. The domain is the union of ClothingItem and Outfit because both individual garments and whole outfits carry a season."@en ;
                                                                                       rdfs:label "is appropriate for season"@en .
 
 
@@ -719,6 +727,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                                      <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Beige> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown> ,
+                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy> ,
@@ -726,6 +735,8 @@ xsd:date rdf:type rdfs:Datatype .
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Pink> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red> ,
+                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver> ,
+                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Yellow> ;
                                                                      <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/NeutralUndertone> ;
@@ -936,6 +947,25 @@ xsd:date rdf:type rdfs:Datatype .
                                                                            rdfs:label "Formal Dress"@en .
 
 
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold
+<http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold> rdf:type owl:NamedIndividual ,
+                                                                             <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color> ;
+                                                                    <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Beige> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Orange> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White> ;
+                                                                    <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Warm> ;
+                                                                    <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isComplementaryTo> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple> ;
+                                                                    rdfs:label "Gold"@en .
+
+
 ###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green
 <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green> rdf:type owl:NamedIndividual ,
                                                                               <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color> ;
@@ -950,12 +980,15 @@ xsd:date rdf:type rdfs:Datatype .
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Orange> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Pink> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver> ,
+                                                                                                                                                       <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White> ,
                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Yellow> ;
                                                                     <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/NeutralUndertone> ;
@@ -1188,6 +1221,25 @@ xsd:date rdf:type rdfs:Datatype .
                                                                           rdfs:label "Red Silk Scarf"@en .
 
 
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver
+<http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver> rdf:type owl:NamedIndividual ,
+                                                                               <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color> ;
+                                                                      <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Beige> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Pink> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise> ,
+                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White> ;
+                                                                      <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/NeutralUndertone> ;
+                                                                      rdfs:label "Silver"@en .
+
+
 ###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver_Watch
 <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver_Watch> rdf:type owl:NamedIndividual ,
                                                                                      <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Watch> ;
@@ -1247,6 +1299,25 @@ xsd:date rdf:type rdfs:Datatype .
                                                                        rdfs:label "Triadic"@en .
 
 
+###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise
+<http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise> rdf:type owl:NamedIndividual ,
+                                                                                  <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color> ;
+                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Beige> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Pink> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver> ,
+                                                                                                                                                            <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White> ;
+                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Cool> ;
+                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isComplementaryTo> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Orange> ;
+                                                                         rdfs:label "Turquoise"@en .
+
+
 ###  http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Unisex
 <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Unisex> rdf:type owl:NamedIndividual ,
                                                                                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gender> ;
@@ -1257,7 +1328,6 @@ xsd:date rdf:type rdfs:Datatype .
 <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/User_Demo> rdf:type owl:NamedIndividual ,
                                                                                   <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/User> ;
                                                                          <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasBodyType> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Athletic> ;
-                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isSuitableFor> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Unisex> ;
                                                                          <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ownsItem> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue_Cotton_Shirt> ,
                                                                                                                                                  <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue_Jeans> ,
                                                                                                                                                  <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White_Sneakers> ,
@@ -1286,6 +1356,7 @@ xsd:date rdf:type rdfs:Datatype .
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown> ,
+                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy> ,
@@ -1293,6 +1364,8 @@ xsd:date rdf:type rdfs:Datatype .
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Pink> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red> ,
+                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver> ,
+                                                                                                                                                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise> ,
                                                                                                                                                         <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Yellow> ;
                                                                      <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/NeutralUndertone> ;
                                                                      rdfs:label "White"@en .
@@ -1393,41 +1466,41 @@ xsd:date rdf:type rdfs:Datatype .
                                                                       rdfs:label "Yellow"@en .
 
 
-_:genid4 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "ct"
-                                                    ] ;
-         <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "cb"
-                                                    ] ;
-         <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith> .
-
-_:genid7 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "b"
+_:genid10 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "o"
                                                      ] ;
-          <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "cb"
+          <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "t"
                                                      ] ;
-          <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasColor> .
+          <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasTop> .
 
-_:genid10 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "t"
+_:genid13 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "o"
+                                                      ] ;
+           <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit> .
+
+_:genid15 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "t"
                                                       ] ;
            <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "b"
                                                       ] ;
            <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/pairsWellWith> .
 
-_:genid13 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "o"
+_:genid18 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "b"
+                                                      ] ;
+           <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "cb"
+                                                      ] ;
+           <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasColor> .
+
+_:genid21 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "ct"
+                                                      ] ;
+           <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "cb"
+                                                      ] ;
+           <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith> .
+
+_:genid24 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "o"
                                                       ] ;
            <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "b"
                                                       ] ;
            <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasBottom> .
 
-_:genid16 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "o"
-                                                      ] ;
-           <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "t"
-                                                      ] ;
-           <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasTop> .
-
-_:genid19 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "o"
-                                                      ] ;
-           <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit> .
-
-_:genid21 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "t"
+_:genid27 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "t"
                                                       ] ;
            <http://www.w3.org/2003/11/swrl#argument2> [ rdfs:label "ct"
                                                       ] ;
@@ -1439,6 +1512,50 @@ _:genid21 <http://www.w3.org/2003/11/swrl#argument1> [ rdfs:label "t"
 
 <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/R1_ColorHarmonyPairing> <http://www.w3.org/2003/11/swrl#body> [ ] ;
 <http://www.w3.org/2003/11/swrl#head> [ ] .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Accessory>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Bottom>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Footwear>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outerwear>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Top>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/User>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ColorScheme>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ColorUndertone>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/FormalityLevel>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gender>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Material>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Occasion>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Season>
+                <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Size>
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Female>
+                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Male>
+                        <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Unisex>
+                      )
+] .
 
 
 #################################################################

@@ -1,11 +1,12 @@
 [ {
   "@id" : "_:genid1",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasBottom"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Bottom"
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit"
+    } ]
   } ]
 }, {
   "@id" : "_:genid10",
@@ -16,28 +17,25 @@
     "@id" : "_:genid12"
   } ],
   "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/pairsWellWith"
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasTop"
   } ]
 }, {
   "@id" : "_:genid11",
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "t"
+    "@value" : "o"
   } ]
 }, {
   "@id" : "_:genid12",
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "b"
+    "@value" : "t"
   } ]
 }, {
   "@id" : "_:genid13",
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "_:genid14"
   } ],
-  "http://www.w3.org/2003/11/swrl#argument2" : [ {
-    "@id" : "_:genid15"
-  } ],
-  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasBottom"
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit"
   } ]
 }, {
   "@id" : "_:genid14",
@@ -46,51 +44,45 @@
   } ]
 }, {
   "@id" : "_:genid15",
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "b"
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "_:genid16"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "_:genid17"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/pairsWellWith"
   } ]
 }, {
   "@id" : "_:genid16",
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "_:genid17"
-  } ],
-  "http://www.w3.org/2003/11/swrl#argument2" : [ {
-    "@id" : "_:genid18"
-  } ],
-  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasTop"
-  } ]
-}, {
-  "@id" : "_:genid17",
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "o"
-  } ]
-}, {
-  "@id" : "_:genid18",
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "t"
   } ]
 }, {
-  "@id" : "_:genid19",
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "_:genid20"
-  } ],
-  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit"
+  "@id" : "_:genid17",
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "b"
   } ]
 }, {
-  "@id" : "_:genid2",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasFootwear"
+  "@id" : "_:genid18",
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "_:genid19"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Footwear"
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "_:genid20"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasColor"
+  } ]
+}, {
+  "@id" : "_:genid19",
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "b"
   } ]
 }, {
   "@id" : "_:genid20",
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "o"
+    "@value" : "cb"
   } ]
 }, {
   "@id" : "_:genid21",
@@ -101,20 +93,136 @@
     "@id" : "_:genid23"
   } ],
   "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasColor"
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith"
   } ]
 }, {
   "@id" : "_:genid22",
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "t"
+    "@value" : "ct"
   } ]
 }, {
   "@id" : "_:genid23",
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "ct"
+    "@value" : "cb"
+  } ]
+}, {
+  "@id" : "_:genid24",
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "_:genid25"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "_:genid26"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasBottom"
+  } ]
+}, {
+  "@id" : "_:genid25",
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "o"
   } ]
 }, {
   "@id" : "_:genid26",
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "b"
+  } ]
+}, {
+  "@id" : "_:genid27",
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "_:genid28"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "_:genid29"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasColor"
+  } ]
+}, {
+  "@id" : "_:genid28",
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "t"
+  } ]
+}, {
+  "@id" : "_:genid29",
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "ct"
+  } ]
+}, {
+  "@id" : "_:genid32",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Accessory"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Bottom"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Footwear"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outerwear"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Top"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid38",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/User"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid4",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid42",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ColorScheme"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ColorUndertone"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/FormalityLevel"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gender"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Material"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Occasion"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Season"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Size"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid52",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDifferent" ],
+  "http://www.w3.org/2002/07/owl#distinctMembers" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Female"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Male"
+    }, {
+      "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Unisex"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid56",
   "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -131,55 +239,31 @@
     "@list" : [ ]
   } ]
 }, {
-  "@id" : "_:genid3",
+  "@id" : "_:genid7",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasBottom"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Bottom"
+  } ]
+}, {
+  "@id" : "_:genid8",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasFootwear"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Footwear"
+  } ]
+}, {
+  "@id" : "_:genid9",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasTop"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Top"
-  } ]
-}, {
-  "@id" : "_:genid4",
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "_:genid5"
-  } ],
-  "http://www.w3.org/2003/11/swrl#argument2" : [ {
-    "@id" : "_:genid6"
-  } ],
-  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith"
-  } ]
-}, {
-  "@id" : "_:genid5",
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "ct"
-  } ]
-}, {
-  "@id" : "_:genid6",
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "cb"
-  } ]
-}, {
-  "@id" : "_:genid7",
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "_:genid8"
-  } ],
-  "http://www.w3.org/2003/11/swrl#argument2" : [ {
-    "@id" : "_:genid9"
-  } ],
-  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasColor"
-  } ]
-}, {
-  "@id" : "_:genid8",
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "b"
-  } ]
-}, {
-  "@id" : "_:genid9",
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "cb"
   } ]
 }, {
   "@id" : "http://purl.org/dc/terms/creator",
@@ -225,7 +309,7 @@
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2026-05-14"
+    "@value" : "2026-06-16"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
@@ -397,6 +481,8 @@
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown"
   }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold"
+  }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey"
@@ -410,6 +496,10 @@
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White"
   }, {
@@ -1075,6 +1165,45 @@
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Attribute"
   } ]
 }, {
+  "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Beige"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Orange"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White"
+  } ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Warm"
+  } ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isComplementaryTo" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Gold"
+  } ]
+}, {
   "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone" : [ {
@@ -1099,6 +1228,8 @@
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown"
   }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold"
+  }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy"
@@ -1110,6 +1241,10 @@
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White"
   }, {
@@ -1506,11 +1641,11 @@
     "@value" : "Outfit"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "_:genid1"
+    "@id" : "_:genid7"
   }, {
-    "@id" : "_:genid2"
+    "@id" : "_:genid8"
   }, {
-    "@id" : "_:genid3"
+    "@id" : "_:genid9"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Outfit_Casual_Summer",
@@ -1661,10 +1796,10 @@
 }, {
   "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/R1_ColorHarmonyPairing",
   "http://www.w3.org/2003/11/swrl#body" : [ {
-    "@id" : "_:genid24"
+    "@id" : "_:genid30"
   } ],
   "http://www.w3.org/2003/11/swrl#head" : [ {
-    "@id" : "_:genid25"
+    "@id" : "_:genid31"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red",
@@ -1788,6 +1923,44 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "Red Silk Scarf"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Beige"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Pink"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White"
+  } ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/NeutralUndertone"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Silver"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver_Watch",
@@ -2005,6 +2178,45 @@
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Bottom"
   } ]
 }, {
+  "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/colorHarmonizesWith" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Beige"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Black"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Navy"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Pink"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/White"
+  } ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasUndertone" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Cool"
+  } ],
+  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isComplementaryTo" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Orange"
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Color"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Turquoise"
+  } ]
+}, {
   "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Unisex",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
@@ -2034,9 +2246,6 @@
   } ],
   "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/hasBodyType" : [ {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Athletic"
-  } ],
-  "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/isSuitableFor" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Unisex"
   } ],
   "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ownsItem" : [ {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Blue_Cotton_Shirt"
@@ -2108,6 +2317,8 @@
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Brown"
   }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Gold"
+  }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Green"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Grey"
@@ -2121,6 +2332,10 @@
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Purple"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Red"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Silver"
+  }, {
+    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Turquoise"
   }, {
     "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/Yellow"
   } ],
@@ -2651,10 +2866,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "States that a clothing item or outfit is suitable for a particular social occasion."
+    "@value" : "States that a clothing item or an outfit is suitable for a particular social occasion. The domain is the union of ClothingItem and Outfit because both individual garments and whole outfits carry an occasion."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"
+    "@id" : "_:genid1"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2668,10 +2883,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "States that a clothing item or outfit is suitable for a particular season."
+    "@value" : "States that a clothing item or an outfit is suitable for a particular season. The domain is the union of ClothingItem and Outfit because both individual garments and whole outfits carry a season."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/ClothingItem"
+    "@id" : "_:genid4"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",

@@ -9,6 +9,7 @@ from typing import Any
 import rdflib
 from flask import Flask, abort, redirect, render_template, request, send_file, url_for
 
+import nl2sparql
 from recommend import COLORS, ROLES, get_recommendations, parse_phrase
 from scripts.run_pipeline import (
     ARTIFACTS,
@@ -32,6 +33,15 @@ GENERATED_GRAPHS = [
 ]
 
 _graph: rdflib.Graph | None = None
+_vocab: dict[str, list[str]] | None = None
+
+ASK_EXAMPLES = [
+    "How many blue items are there?",
+    "Show me items suitable for women that are tops",
+    "What is the average price per category?",
+    "Show the formality distribution",
+    "Which materials are common in winter?",
+]
 
 _RECOMMEND_FORMALITIES = [
     ("CasualLevel", "Casual"),
@@ -72,6 +82,13 @@ def get_graph() -> rdflib.Graph:
     if _graph is None:
         _graph = _load_graph()
     return _graph
+
+
+def get_vocab() -> dict[str, list[str]]:
+    global _vocab
+    if _vocab is None:
+        _vocab = nl2sparql.collect_vocabulary(get_graph())
+    return _vocab
 
 
 def get_materials(graph: rdflib.Graph) -> list[str]:
@@ -171,7 +188,7 @@ def dashboard() -> str:
 
 @app.post("/run")
 def run() -> Any:
-    global _graph
+    global _graph, _vocab
     llm_mode = request.form.get("llm_mode", "mock")
     summary = run_pipeline(
         llm_mode=llm_mode,
@@ -181,6 +198,7 @@ def run() -> Any:
         limit=int(request.form.get("limit", "100")),
     )
     _graph = None  # invalidate cache so next request re-loads fresh artifacts
+    _vocab = None  # vocabulary is derived from the graph; refresh it too
     return redirect(url_for("dashboard", status="ok" if summary["ok"] else "failed"))
 
 
@@ -244,6 +262,43 @@ def recommend_post() -> str:
     }
     results = get_recommendations(graph, seed)
     return render_template("recommend.html", step="results", phrase=phrase, seed=seed, results=results, **ctx)
+
+
+@app.get("/ask")
+def ask_get() -> str:
+    return render_template(
+        "ask.html",
+        examples=ASK_EXAMPLES,
+        ollama_endpoint="http://localhost:11434",
+        ollama_model="llama3.1",
+    )
+
+
+@app.post("/ask")
+def ask_post() -> str:
+    question = request.form.get("question", "").strip()
+    use_llm = bool(request.form.get("use_llm"))
+    ollama_endpoint = request.form.get("ollama_endpoint", "http://localhost:11434")
+    ollama_model = request.form.get("ollama_model", "llama3.1")
+    result = None
+    if question:
+        result = nl2sparql.answer(
+            question,
+            get_graph(),
+            get_vocab(),
+            use_llm=use_llm,
+            ollama_endpoint=ollama_endpoint,
+            ollama_model=ollama_model,
+        )
+    return render_template(
+        "ask.html",
+        examples=ASK_EXAMPLES,
+        question=question,
+        use_llm=use_llm,
+        ollama_endpoint=ollama_endpoint,
+        ollama_model=ollama_model,
+        result=result,
+    )
 
 
 @app.get("/artifacts/<name>")

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Ask (NL → SPARQL) - Clothing Ontology{% endblock %}
+{% block content %}
+
+<section class="header-row">
+  <div>
+    <h1>Ask the Knowledge Graph</h1>
+    <p class="muted">
+      Ask a question in plain English. It is translated into SPARQL, the query is
+      <strong>validated against the ontology</strong> (read-only, parses, no
+      hallucinated terms), then executed over the knowledge graph.
+    </p>
+  </div>
+</section>
+
+<section class="panel">
+  <form method="post" action="{{ url_for('ask_post') }}">
+    <div class="run-form">
+      <label style="flex:1;">Your question
+        <input name="question" value="{{ question or '' }}"
+               placeholder="e.g. How many blue items are there?" autofocus>
+      </label>
+      <button type="submit" class="primary">Ask</button>
+    </div>
+    <div class="field-grid" style="grid-template-columns: auto 1fr 1fr; gap:12px; margin-top:12px; align-items:end;">
+      <label style="flex-direction:row; align-items:center; gap:8px;">
+        <input type="checkbox" name="use_llm" value="1" {% if use_llm %}checked{% endif %}>
+        Use local LLM (Ollama)
+      </label>
+      <label>Ollama endpoint
+        <input name="ollama_endpoint" value="{{ ollama_endpoint or 'http://localhost:11434' }}">
+      </label>
+      <label>Model
+        <input name="ollama_model" value="{{ ollama_model or 'llama3.1' }}">
+      </label>
+    </div>
+    <p class="muted" style="margin-top:10px; font-size:13px;">
+      If Ollama is unavailable or returns an invalid query, the system falls back
+      to a deterministic, grounded translator so the demo always works.
+    </p>
+  </form>
+
+  <div style="margin-top:14px;">
+    <span class="muted" style="font-size:12px; text-transform:uppercase;">Try:</span>
+    {% for ex in examples %}
+      <form method="post" action="{{ url_for('ask_post') }}" style="display:inline;">
+        <input type="hidden" name="question" value="{{ ex }}">
+        <button type="submit" class="chip">{{ ex }}</button>
+      </form>
+    {% endfor %}
+  </div>
+</section>
+
+{% if result %}
+<section class="panel">
+  <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <h2 style="margin:0;">Result</h2>
+    {% if result.source == "llm" %}
+      <span class="badge badge-ok">Translated by LLM</span>
+    {% else %}
+      <span class="badge">Deterministic fallback{% if result.intent %}: {{ result.intent }}{% endif %}</span>
+    {% endif %}
+  </div>
+
+  {% if result.llm_error %}
+    <div class="notice" style="margin-top:10px;">LLM path not used: {{ result.llm_error }}</div>
+  {% endif %}
+
+  <p class="muted" style="margin-top:10px;"><strong>Validation:</strong> {{ result.validation }}</p>
+
+  <h3 style="margin-bottom:6px;">Generated SPARQL</h3>
+  <pre style="background:#0f172a; color:#e2e8f0; padding:14px; border-radius:8px; overflow:auto; font-size:13px;">{{ result.sparql }}</pre>
+
+  {% if result.error %}
+    <div class="notice">{{ result.error }}</div>
+  {% else %}
+    <h3 style="margin-bottom:6px;">Answer ({{ result.rows | length }} row{{ '' if result.rows|length == 1 else 's' }})</h3>
+    {% if result.rows %}
+      <div class="table-panel">
+        <table>
+          <thead>
+            <tr>{% for col in result.columns %}<th>{{ col }}</th>{% endfor %}</tr>
+          </thead>
+          <tbody>
+            {% for row in result.rows %}
+              <tr>{% for col in result.columns %}<td>{{ row.get(col, "") }}</td>{% endfor %}</tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if result.rows | length >= 200 %}
+        <p class="muted" style="font-size:12px;">Showing the first 200 rows.</p>
+      {% endif %}
+    {% else %}
+      <p class="muted">No matching results.</p>
+    {% endif %}
+  {% endif %}
+</section>
+{% endif %}
+
+{% endblock %}

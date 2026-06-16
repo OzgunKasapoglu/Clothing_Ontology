@@ -1,0 +1,16 @@
+# Category: AGGREGATION (two-dimensional)
+# Competency question CQ8 (season/material facet): For each season, which
+# materials dominate the catalogue? Joins the LLM-enriched material and season
+# annotations and groups on both dimensions.
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?seasonLabel ?materialLabel (COUNT(DISTINCT ?item) AS ?itemCount)
+WHERE {
+  ?item clo:hasMaterial ?material ;
+        clo:isAppropriateForSeason ?season .
+  ?material rdfs:label ?materialLabel .
+  ?season   rdfs:label ?seasonLabel .
+}
+GROUP BY ?seasonLabel ?materialLabel
+ORDER BY ?seasonLabel DESC(?itemCount)

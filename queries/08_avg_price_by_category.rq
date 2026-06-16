@@ -1,0 +1,19 @@
+# Category: REASONING + AGGREGATION
+# Competency question CQ8: For each garment category, how many items are in the
+# catalogue and what is their average price? Uses the class hierarchy
+# (rdf:type/rdfs:subClassOf*) so that, e.g., :T-Shirt and :Hoodie both count
+# under :Top.
+PREFIX clo: <http://www.semanticweb.org/g911/ontologies/2026/3/Clothing-o/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?category ?categoryLabel (COUNT(DISTINCT ?item) AS ?itemCount)
+       (ROUND(AVG(?price)) AS ?avgPrice)
+WHERE {
+  VALUES ?category { clo:Top clo:Bottom clo:Outerwear clo:Footwear clo:Accessory }
+  ?category rdfs:label ?categoryLabel .
+  ?item rdf:type/rdfs:subClassOf* ?category ;
+        clo:hasPrice ?price .
+}
+GROUP BY ?category ?categoryLabel
+ORDER BY DESC(?avgPrice)
