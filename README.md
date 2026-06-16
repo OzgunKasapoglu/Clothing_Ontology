@@ -128,3 +128,9 @@ served at `https://OzgunKasapoglu.github.io/Clothing_Ontology/`.
 
 Modular Ontology Modeling (MOMo) with four modules — **Item, Attribute, Outfit, User**.
 See `docs/Final_Report.md` (Ontology Design) and `docs/Specification_v2.md`.
+
+## Team Members
+- Özgün Kasapoğlu, 230315012
+- Mert Durgun, 220315076
+- Sedat Çelik, 230315040
+- Özgür Arslan, 220315064
