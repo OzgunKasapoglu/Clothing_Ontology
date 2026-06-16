@@ -37,9 +37,7 @@ def test_validate_blocks_update(vocab):
 
 
 def test_validate_blocks_hallucinated_term(vocab):
-    ok, reason = nl.validate_query(
-        "SELECT ?x WHERE { ?x clo:hasMadeUpProperty ?y }", vocab
-    )
+    ok, reason = nl.validate_query("SELECT ?x WHERE { ?x clo:hasMadeUpProperty ?y }", vocab)
     assert not ok and "hallucination" in reason.lower()
 
 
@@ -49,9 +47,7 @@ def test_validate_blocks_unparseable(vocab):
 
 
 def test_validate_accepts_grounded_query(vocab):
-    ok, _ = nl.validate_query(
-        "SELECT ?i WHERE { ?i clo:hasColor clo:Blue }", vocab
-    )
+    ok, _ = nl.validate_query("SELECT ?i WHERE { ?i clo:hasColor clo:Blue }", vocab)
     assert ok
 
 

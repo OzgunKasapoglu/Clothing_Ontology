@@ -78,7 +78,7 @@ Clothing_Ontology/
 ├── app.py                       # Flask web app (dashboard, products, recommend, ask)
 ├── recommend.py                 # Rule-based outfit recommendation engine
 ├── nl2sparql.py                 # Natural-language → SPARQL (LLM + grounded fallback)
-├── pyproject.toml / setup.py    # Packaging & tooling config
+├── pyproject.toml               # Packaging & tooling config (deps, pytest, black, mypy)
 ├── Makefile                     # Convenience targets (test, lint, pipeline, web, …)
 ├── requirements.txt
 ├── shapes/

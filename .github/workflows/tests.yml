@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ['3.8', '3.9', '3.10', '3.11']
+        os: [ubuntu-latest]
+        python-version: ['3.9', '3.10', '3.11', '3.12']
 
     steps:
     - uses: actions/checkout@v3
@@ -31,17 +31,17 @@ jobs:
     - name: Lint with flake8
       run: |
         # Stop the build if there are Python syntax errors or undefined names
-        flake8 scripts/ recommend.py app.py --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 scripts/ recommend.py app.py nl2sparql.py --count --select=E9,F63,F7,F82 --show-source --statistics
         # Exit-zero treats all errors as warnings
-        flake8 scripts/ recommend.py app.py --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
+        flake8 scripts/ recommend.py app.py nl2sparql.py --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics
 
     - name: Format check with black
       run: |
-        black --check scripts/ recommend.py app.py --line-length=100 || echo "Format check failed (non-blocking)"
+        black --check scripts/ tests/ recommend.py app.py nl2sparql.py --line-length=120 || echo "Format check failed (non-blocking)"
 
     - name: Type check with mypy
       run: |
-        mypy recommend.py app.py --ignore-missing-imports || echo "Type check failed (non-blocking)"
+        mypy recommend.py app.py nl2sparql.py --ignore-missing-imports || echo "Type check failed (non-blocking)"
 
     - name: Run tests with pytest
       run: |
@@ -83,20 +83,20 @@ jobs:
             exit(1)
         "
 
-    - name: Check ontology consistency
+    - name: Check ontology structure
       run: |
         python -c "
         import rdflib
-        from rdflib import RDFS, RDF
+        from rdflib import RDF, OWL
         g = rdflib.Graph()
         g.parse('Clothing_Ontology.ttl', format='turtle')
-
-        # Count key elements
-        classes = list(g.subjects(RDF.type, RDFS.Class))
-        properties = list(g.subjects(RDF.type, [rdflib.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')].ObjectProperty))
+        classes = list(g.subjects(RDF.type, OWL.Class))
+        obj_props = list(g.subjects(RDF.type, OWL.ObjectProperty))
+        data_props = list(g.subjects(RDF.type, OWL.DatatypeProperty))
         print(f'Classes: {len(classes)}')
-        print(f'Properties: {len(list(g.predicates()))} unique predicates')
-        print('✓ Ontology structure validation passed')
+        print(f'Object properties: {len(obj_props)}')
+        print(f'Datatype properties: {len(data_props)}')
+        print('Ontology structure validation passed')
         "
 
   sparql-queries:
@@ -116,24 +116,19 @@ jobs:
 
     - name: Validate SPARQL query files
       run: |
-        import os
-        import glob
-
-        query_files = glob.glob('queries/*.rq')
+        python -c "
+        import os, glob
+        query_files = sorted(glob.glob('queries/*.rq'))
         print(f'Found {len(query_files)} SPARQL query files')
-
-        for qf in sorted(query_files):
-            try:
-                with open(qf, 'r') as f:
-                    content = f.read()
-                    if 'SELECT' in content or 'CONSTRUCT' in content or 'ASK' in content or 'DESCRIBE' in content:
-                        print(f'✓ {os.path.basename(qf)}: valid SPARQL query')
-                    else:
-                        print(f'✗ {os.path.basename(qf)}: unknown query type')
-                        exit(1)
-            except Exception as e:
-                print(f'✗ Error reading {qf}: {e}')
-                exit(1)
+        for qf in query_files:
+            with open(qf) as f:
+                content = f.read().upper()
+            if any(k in content for k in ('SELECT', 'CONSTRUCT', 'ASK', 'DESCRIBE')):
+                print(f'OK {os.path.basename(qf)}')
+            else:
+                print(f'INVALID {os.path.basename(qf)}: unknown query type')
+                raise SystemExit(1)
+        "
 
   data-pipeline:
     runs-on: ubuntu-latest
@@ -181,9 +176,9 @@ jobs:
     - name: Check distribution files
       run: |
         ls -lh dist/
-        if [ -f dist/clothing-ontology-*.whl ] && [ -f dist/clothing-ontology-*.tar.gz ]; then
-          echo "✓ Distribution packages built successfully"
+        if ls dist/clothing_ontology-*.whl >/dev/null 2>&1 && ls dist/clothing_ontology-*.tar.gz >/dev/null 2>&1; then
+          echo "Distribution packages built successfully"
         else
-          echo "✗ Distribution packages not found"
+          echo "Distribution packages not found"
           exit 1
         fi

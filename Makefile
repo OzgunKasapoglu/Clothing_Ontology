@@ -31,19 +31,19 @@ test:
 	pytest tests/ -v
 
 test-cov:
-	pytest tests/ -v --cov=scripts --cov=recommend --cov-report=html --cov-report=term-missing
+	pytest tests/ -v --cov=scripts --cov=recommend --cov=nl2sparql --cov-report=html --cov-report=term-missing
 
 lint:
-	flake8 scripts/ recommend.py app.py --max-line-length=120
+	flake8 scripts/ recommend.py app.py nl2sparql.py --max-line-length=120
 
 format:
-	black scripts/ tests/ recommend.py app.py --line-length=120
+	black scripts/ tests/ recommend.py app.py nl2sparql.py --line-length=120
 
 format-check:
-	black --check scripts/ tests/ recommend.py app.py --line-length=120
+	black --check scripts/ tests/ recommend.py app.py nl2sparql.py --line-length=120
 
 type-check:
-	mypy recommend.py app.py --ignore-missing-imports
+	mypy recommend.py app.py nl2sparql.py --ignore-missing-imports
 
 validate-ontology:
 	python -c "import rdflib; g=rdflib.Graph(); g.parse('Clothing_Ontology.ttl', format='turtle'); print(f'✓ Valid ontology: {len(g)} triples')"

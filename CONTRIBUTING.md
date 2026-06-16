@@ -24,8 +24,8 @@ Found a bug or have a feature request? Please create an issue on GitHub with:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/clothing-ontology.git
-cd clothing-ontology
+git clone https://github.com/OzgunKasapoglu/Clothing_Ontology.git
+cd Clothing_Ontology
 
 # Create virtual environment
 python -m venv venv

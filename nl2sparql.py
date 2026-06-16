@@ -42,14 +42,26 @@ PREFIXES = (
 )
 
 COLORS = [
-    "Red", "Orange", "Yellow", "Brown", "Blue", "Green", "Purple", "Pink",
-    "Black", "White", "Grey", "Beige", "Navy", "Gold", "Silver", "Turquoise",
+    "Red",
+    "Orange",
+    "Yellow",
+    "Brown",
+    "Blue",
+    "Green",
+    "Purple",
+    "Pink",
+    "Black",
+    "White",
+    "Grey",
+    "Beige",
+    "Navy",
+    "Gold",
+    "Silver",
+    "Turquoise",
 ]
 
 # Update/management keywords are rejected outright: the endpoint is read-only.
-_FORBIDDEN = re.compile(
-    r"\b(INSERT|DELETE|DROP|CLEAR|CREATE|LOAD|ADD|MOVE|COPY|WITH)\b", re.IGNORECASE
-)
+_FORBIDDEN = re.compile(r"\b(INSERT|DELETE|DROP|CLEAR|CREATE|LOAD|ADD|MOVE|COPY|WITH)\b", re.IGNORECASE)
 _CLO_TERM = re.compile(r"\bclo:([A-Za-z0-9_\-]+)")
 _MAX_ROWS = 200
 
@@ -93,6 +105,7 @@ def vocabulary_terms(vocab: dict[str, list[str]]) -> set[str]:
 # LLM path (Ollama)
 # --------------------------------------------------------------------------- #
 
+
 def build_prompt(question: str, vocab: dict[str, list[str]]) -> str:
     return (
         "You translate a user question into ONE SPARQL query for an OWL "
@@ -119,9 +132,9 @@ def call_ollama(
     timeout: float = 30.0,
 ) -> str:
     """Call a local Ollama /api/generate endpoint. Raises on any failure."""
-    payload = json.dumps(
-        {"model": model, "prompt": prompt, "stream": False, "options": {"temperature": 0.0}}
-    ).encode("utf-8")
+    payload = json.dumps({"model": model, "prompt": prompt, "stream": False, "options": {"temperature": 0.0}}).encode(
+        "utf-8"
+    )
     request = urllib.request.Request(
         endpoint.rstrip("/") + "/api/generate",
         data=payload,
@@ -139,12 +152,13 @@ def extract_query(text: str) -> str:
         text = fenced.group(1)
     # Keep from the first PREFIX/SELECT/ASK onward.
     match = re.search(r"(PREFIX|SELECT|ASK)\b", text, re.IGNORECASE)
-    return text[match.start():].strip() if match else text.strip()
+    return text[match.start() :].strip() if match else text.strip()
 
 
 # --------------------------------------------------------------------------- #
 # Validation (hallucination mitigation)
 # --------------------------------------------------------------------------- #
+
 
 def validate_query(query: str, vocab: dict[str, list[str]]) -> tuple[bool, str]:
     if _FORBIDDEN.search(query):
@@ -195,6 +209,7 @@ def _compact(value: Any) -> str:
 # Deterministic fallback translator
 # --------------------------------------------------------------------------- #
 
+
 def _detect_color(text: str) -> str | None:
     for color in COLORS:
         if re.search(r"\b" + color.lower() + r"\b", text):
@@ -210,8 +225,7 @@ def deterministic_translate(question: str) -> tuple[str, str]:
 
     if color and counting:
         return (
-            PREFIXES
-            + "\nSELECT ?colorLabel (COUNT(DISTINCT ?item) AS ?itemCount)\nWHERE {\n"
+            PREFIXES + "\nSELECT ?colorLabel (COUNT(DISTINCT ?item) AS ?itemCount)\nWHERE {\n"
             f"  ?item clo:hasColor clo:{color} .\n"
             "  clo:" + color + " rdfs:label ?colorLabel .\n"
             "}\nGROUP BY ?colorLabel",
@@ -219,8 +233,7 @@ def deterministic_translate(question: str) -> tuple[str, str]:
         )
     if color:
         return (
-            PREFIXES
-            + "\nSELECT ?item ?label ?class\nWHERE {\n"
+            PREFIXES + "\nSELECT ?item ?label ?class\nWHERE {\n"
             f"  ?item clo:hasColor clo:{color} ;\n"
             "        rdfs:label ?label ;\n"
             "        rdf:type ?class .\n"
@@ -240,19 +253,15 @@ def deterministic_translate(question: str) -> tuple[str, str]:
         )
     if "formal" in q or "formality" in q or "dress code" in q:
         return (
-            PREFIXES
-            + "\nSELECT ?formalityLabel (COUNT(DISTINCT ?item) AS ?itemCount)\nWHERE {\n"
+            PREFIXES + "\nSELECT ?formalityLabel (COUNT(DISTINCT ?item) AS ?itemCount)\nWHERE {\n"
             "  ?item clo:hasFormality ?formality .\n"
             "  ?formality rdfs:label ?formalityLabel .\n"
             "}\nGROUP BY ?formalityLabel\nORDER BY DESC(?itemCount)",
             "formality distribution",
         )
-    if any(s in q for s in ("season", "winter", "summer", "spring", "autumn")) and (
-        "material" in q or "fabric" in q
-    ):
+    if any(s in q for s in ("season", "winter", "summer", "spring", "autumn")) and ("material" in q or "fabric" in q):
         return (
-            PREFIXES
-            + "\nSELECT ?seasonLabel ?materialLabel (COUNT(DISTINCT ?item) AS ?itemCount)\nWHERE {\n"
+            PREFIXES + "\nSELECT ?seasonLabel ?materialLabel (COUNT(DISTINCT ?item) AS ?itemCount)\nWHERE {\n"
             "  ?item clo:hasMaterial ?material ; clo:isAppropriateForSeason ?season .\n"
             "  ?material rdfs:label ?materialLabel .\n  ?season rdfs:label ?seasonLabel .\n"
             "}\nGROUP BY ?seasonLabel ?materialLabel\nORDER BY ?seasonLabel DESC(?itemCount)",
@@ -260,8 +269,7 @@ def deterministic_translate(question: str) -> tuple[str, str]:
         )
     if ("female" in q or "women" in q or "woman" in q) and "top" in q:
         return (
-            PREFIXES
-            + "\nSELECT ?item ?label ?class\nWHERE {\n"
+            PREFIXES + "\nSELECT ?item ?label ?class\nWHERE {\n"
             "  ?item rdf:type ?class ; clo:isSuitableFor clo:Female ; rdfs:label ?label .\n"
             "  ?class rdfs:subClassOf* clo:Top .\n"
             "}\nORDER BY ?label\nLIMIT 100",
@@ -269,8 +277,7 @@ def deterministic_translate(question: str) -> tuple[str, str]:
         )
     if any(w in q for w in ("harmon", "match", "pair", "go together", "go with")):
         return (
-            PREFIXES
-            + "\nSELECT ?outfitLabel ?topLabel ?topColor ?bottomLabel ?bottomColor\nWHERE {\n"
+            PREFIXES + "\nSELECT ?outfitLabel ?topLabel ?topColor ?bottomLabel ?bottomColor\nWHERE {\n"
             "  ?outfit rdf:type clo:Outfit ; rdfs:label ?outfitLabel ; clo:hasTop ?top ; clo:hasBottom ?bottom .\n"
             "  ?top clo:hasColor ?topColor ; rdfs:label ?topLabel .\n"
             "  ?bottom clo:hasColor ?bottomColor ; rdfs:label ?bottomLabel .\n"
@@ -282,10 +289,9 @@ def deterministic_translate(question: str) -> tuple[str, str]:
         )
     if "outfit" in q:
         return (
-            PREFIXES
-            + "\nSELECT ?outfitLabel ?role ?componentLabel\nWHERE {\n"
-            "  VALUES (?property ?role) { (clo:hasTop \"top\") (clo:hasBottom \"bottom\") "
-            "(clo:hasFootwear \"footwear\") (clo:hasOuterwear \"outerwear\") (clo:hasAccessory \"accessory\") }\n"
+            PREFIXES + "\nSELECT ?outfitLabel ?role ?componentLabel\nWHERE {\n"
+            '  VALUES (?property ?role) { (clo:hasTop "top") (clo:hasBottom "bottom") '
+            '(clo:hasFootwear "footwear") (clo:hasOuterwear "outerwear") (clo:hasAccessory "accessory") }\n'
             "  ?outfit rdf:type clo:Outfit ; rdfs:label ?outfitLabel ; ?property ?component .\n"
             "  OPTIONAL { ?component rdfs:label ?componentLabel . }\n"
             "}\nORDER BY ?outfitLabel ?role",
@@ -293,8 +299,7 @@ def deterministic_translate(question: str) -> tuple[str, str]:
         )
     # Default: list clothing items.
     return (
-        PREFIXES
-        + "\nSELECT ?item ?label ?class\nWHERE {\n"
+        PREFIXES + "\nSELECT ?item ?label ?class\nWHERE {\n"
         "  ?item rdf:type/rdfs:subClassOf* clo:ClothingItem ; rdfs:label ?label ; rdf:type ?class .\n"
         "  FILTER(?class != <http://www.w3.org/2002/07/owl#NamedIndividual>)\n"
         "}\nORDER BY ?label\nLIMIT 50",
@@ -305,6 +310,7 @@ def deterministic_translate(question: str) -> tuple[str, str]:
 # --------------------------------------------------------------------------- #
 # Orchestration
 # --------------------------------------------------------------------------- #
+
 
 def answer(
     question: str,

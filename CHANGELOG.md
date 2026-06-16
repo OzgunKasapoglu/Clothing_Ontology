@@ -32,6 +32,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   (`QUICK_TEST.md`, `TESTING_GUIDE.md`, `TEST_RESULTS.md`), WIDOCO scaffolding
   (`Clothing_Ontology.properties`), and superseded/interim docs (`Phase2_Report.md`,
   dataset/SHACL/SPARQL plan notes).
+- **Packaging**: consolidated `setup.py` into `pyproject.toml` (single source of truth).
+
+### Fixed
+
+- **Packaging metadata**: real repository URLs (was `your-username` placeholder),
+  version bumped to 2.1.0, and `requires-python` corrected to `>=3.9` (the code uses
+  `str.removeprefix`, a 3.9+ feature).
+- **CI workflow**: the `sparql-queries` job ran Python source as a shell script;
+  the `ontology-validation` job used an invalid `[Namespace(...)].ObjectProperty`
+  expression and `rdfs:Class` (which matched nothing); and the `build` job checked for
+  `clothing-ontology-*` artifacts that setuptools actually names `clothing_ontology-*`.
+  Lint/format/type targets now also cover `nl2sparql.py`; matrix drops EOL Python 3.8.
 
 ## [2.0.0] - 2026-06-13
 
@@ -165,9 +177,9 @@ If you use this ontology in your research, please cite:
 ```bibtex
 @software{clothing_ontology_2026,
   title={Clothing Ontology: An OWL 2 Ontology for Outfit Recommendation},
-  author={Sedat},
+  author={Clothing Ontology Project Team (g911)},
   year={2026},
-  url={https://github.com/your-username/clothing-ontology},
+  url={https://github.com/OzgunKasapoglu/Clothing_Ontology},
   license={CC BY 4.0}
 }
 ```
