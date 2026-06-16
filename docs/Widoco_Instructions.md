@@ -1,9 +1,15 @@
 # Widoco Instructions
 
-Use this command from the repository root to regenerate the ontology documentation after changing `Clothing_Ontology.ttl`:
+WIDOCO is a build tool and is **not committed** to the repository. Download the
+`widoco-x.y.z-jar-with-dependencies_JDK-17.jar` from the
+[WIDOCO releases page](https://github.com/dgarijo/Widoco/releases) and place it at the
+repository root (it is git-ignored). Requires Java 17.
+
+Use this command from the repository root to regenerate the ontology documentation after
+changing `Clothing_Ontology.ttl`:
 
 ```bash
-java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+java -jar widoco-*-jar-with-dependencies_JDK-17.jar \
   -ontFile Clothing_Ontology.ttl \
   -outFolder docs/widoco/ \
   -rewriteAll \

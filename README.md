@@ -78,6 +78,8 @@ Clothing_Ontology/
 ├── app.py                       # Flask web app (dashboard, products, recommend, ask)
 ├── recommend.py                 # Rule-based outfit recommendation engine
 ├── nl2sparql.py                 # Natural-language → SPARQL (LLM + grounded fallback)
+├── pyproject.toml / setup.py    # Packaging & tooling config
+├── Makefile                     # Convenience targets (test, lint, pipeline, web, …)
 ├── requirements.txt
 ├── shapes/
 │   └── clothing_shapes.ttl      # SHACL shapes
@@ -94,8 +96,10 @@ Clothing_Ontology/
 ├── tests/                       # pytest suite (pipeline, recommender, nl2sparql)
 └── docs/
     ├── Final_Report.md          # Project report (course template)
+    ├── Presentation_Outline.md  # Slide outline + narration script
     ├── Specification_v2.md      # Ontology specification (v1→v2 changelog)
     ├── LLM_Integration_Plan.md
+    ├── Widoco_Instructions.md
     ├── Data_Acquisition_Mapping.csv
     └── widoco/doc/              # WIDOCO-generated HTML documentation
 ```
@@ -103,10 +107,12 @@ Clothing_Ontology/
 ## Documentation (WIDOCO)
 
 HTML documentation is generated with [WIDOCO](https://github.com/dgarijo/Widoco) under
-`docs/widoco/doc/`. To regenerate (see `docs/Widoco_Instructions.md`):
+`docs/widoco/doc/`. The WIDOCO jar is a build tool and is **not committed** — download it
+from the [releases page](https://github.com/dgarijo/Widoco/releases) (Java 17), then
+regenerate (see `docs/Widoco_Instructions.md`):
 
 ```bash
-java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+java -jar widoco-*-jar-with-dependencies_JDK-17.jar \
   -ontFile Clothing_Ontology.ttl -outFolder docs/widoco/ \
   -rewriteAll -getOntologyMetadata -webVowl -includeAnnotationProperties -lang en
 ```

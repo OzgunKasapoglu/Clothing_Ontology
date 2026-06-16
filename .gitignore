@@ -57,3 +57,6 @@ htmlcov/
 last_instructions.txt
 ProjectPresentation_rubric.pdf
 KnowledgeEngineeringandOntologies_20252026_ProjectReport.docx
+
+# Large external tools — download separately, do not commit (see docs/Widoco_Instructions.md)
+*.jar

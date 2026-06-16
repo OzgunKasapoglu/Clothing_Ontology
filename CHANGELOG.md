@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-06-16
+
+### Added
+
+- **NL→SPARQL endpoint** (`nl2sparql.py`, `/ask`): natural-language questions translated
+  to SPARQL, grounded in the ontology vocabulary, with read-only/parse/term validation
+  (hallucination mitigation) and a deterministic fallback. Tests in `tests/test_nl2sparql.py`.
+- **3 new SPARQL queries** (avg price per category, formality distribution, material×season)
+  → 10 total, categorized and mapped to 8 competency questions.
+- **Final project report** (`docs/Final_Report.md`) and presentation outline.
+- **GitHub Pages workflow** to publish WIDOCO documentation.
+
+### Changed
+
+- **Ontology correctness**: generalized `isAppropriateForSeason`/`isAppropriateForOccasion`
+  domain to `(ClothingItem ⊔ Outfit)`; added disjointness (`AllDisjointClasses`) and
+  `AllDifferent` axioms; removed an invalid `isSuitableFor` assertion on the demo user.
+- Regenerated the RDF/XML mirror and WIDOCO documentation.
+
+### Removed
+
+- **Repository cleanup**: dead LODE doc-generator assets (`clothing-ontology-design-project/`),
+  the 39 MB WIDOCO jar (now downloaded separately and git-ignored), tracked `__pycache__`
+  bytecode, the duplicate `test_all.py` runner, redundant testing docs
+  (`QUICK_TEST.md`, `TESTING_GUIDE.md`, `TEST_RESULTS.md`), WIDOCO scaffolding
+  (`Clothing_Ontology.properties`), and superseded/interim docs (`Phase2_Report.md`,
+  dataset/SHACL/SPARQL plan notes).
+
 ## [2.0.0] - 2026-06-13
 
 ### Added
