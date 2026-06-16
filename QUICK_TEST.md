@@ -160,7 +160,7 @@ python app.py
 | **Code Quality** | ✓ | PEP 8 compliant, properly formatted |
 | **Unit Tests** | ✓ | 20+ tests passing |
 | **SHACL** | ✓ | 0 violations |
-| **SPARQL** | ✓ | 7 queries, all executable |
+| **SPARQL** | ✓ | 10 queries, all executable |
 | **Data** | ✓ | 1,962 items, 1,638 enriched |
 | **Package** | ✓ | setup.py, pyproject.toml, LICENSE |
 | **CI/CD** | ✓ | GitHub Actions workflow configured |

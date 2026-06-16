@@ -52,3 +52,8 @@ htmlcov/
 # Cache
 .cache/
 *.cache
+
+# Course-provided materials (instructions, rubric, report template) — not for the public repo
+last_instructions.txt
+ProjectPresentation_rubric.pdf
+KnowledgeEngineeringandOntologies_20252026_ProjectReport.docx

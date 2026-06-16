@@ -1,5 +1,5 @@
 {
-  "validated_at_utc": "2026-06-13T19:55:17.128433+00:00",
+  "validated_at_utc": "2026-06-16T09:23:05.157765+00:00",
   "graphs": [
     "Clothing_Ontology.ttl",
     "data/generated/hm_sample_catalog.ttl",
@@ -7,7 +7,7 @@
   ],
   "shapes": "shapes/clothing_shapes.ttl",
   "inference": "rdfs",
-  "data_triples": 11191,
+  "data_triples": 24725,
   "shape_triples": 166,
   "conforms": true,
   "validation_result_count": 0,

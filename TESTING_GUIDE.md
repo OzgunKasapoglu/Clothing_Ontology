@@ -975,7 +975,7 @@ python -c "exec(open('.integration_test.py').read())"
 - [ ] Ontology validates (4000+ triples)
 - [ ] Unit tests pass (20+ tests)
 - [ ] SHACL validation passes (0 violations)
-- [ ] SPARQL queries work (7 queries)
+- [ ] SPARQL queries work (10 queries)
 - [ ] Pipeline executes (mock mode)
 - [ ] Flask web UI responds
 - [ ] Package configs valid (setup.py, pyproject.toml)

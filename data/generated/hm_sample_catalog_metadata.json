@@ -1,24 +1,24 @@
 {
-  "generated_at_utc": "2026-06-13T19:55:09.289440+00:00",
+  "generated_at_utc": "2026-06-16T09:22:57.083649+00:00",
   "input": "data/samples/hm_articles_sample.csv",
   "output": "data/generated/hm_sample_catalog.ttl",
-  "rows_read": 1000,
-  "items_generated": 982,
-  "items_skipped": 18,
+  "rows_read": 2000,
+  "items_generated": 1962,
+  "items_skipped": 38,
   "counters": {
-    "class:broad_fallback": 205,
-    "class:exact": 528,
-    "class:needs_ontology_extension": 130,
-    "class:normalized": 119,
-    "class_source:product_type": 982,
-    "color:exact": 416,
-    "color:normalized": 398,
-    "color:unmapped": 168,
-    "gender:broad_fallback": 154,
-    "gender:normalized": 496,
-    "gender:unmapped": 332,
-    "items:generated": 982,
-    "items:skipped": 18
+    "class:broad_fallback": 465,
+    "class:exact": 1047,
+    "class:needs_ontology_extension": 221,
+    "class:normalized": 229,
+    "class_source:product_type": 1962,
+    "color:exact": 819,
+    "color:normalized": 768,
+    "color:unmapped": 375,
+    "gender:broad_fallback": 314,
+    "gender:normalized": 984,
+    "gender:unmapped": 664,
+    "items:generated": 1962,
+    "items:skipped": 38
   },
   "skipped": [
     {
@@ -146,6 +146,146 @@
       "product_type_name": "Bag",
       "product_group_name": "Accessories",
       "reason": "out_of_scope"
+    },
+    {
+      "article_id": "701738008",
+      "prod_name": "ENZO BELT BAG",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "712594001",
+      "prod_name": "Beauty Small Cross Bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "728844001",
+      "prod_name": "BB Onsie own fancy",
+      "product_type_name": "Costumes",
+      "product_group_name": "Garment Full body",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "731324001",
+      "prod_name": "Embark bucket",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "741387001",
+      "prod_name": "Sunglasses Rory",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "746344002",
+      "prod_name": "PQ Mendez sunglasses",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "749297007",
+      "prod_name": "Ben bumbag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "756433001",
+      "prod_name": "SL Quick sunglasses",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "765308007",
+      "prod_name": "Taylor shopper",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "798889002",
+      "prod_name": "MICHAELA small wallet",
+      "product_type_name": "Wallet",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "816233006",
+      "prod_name": "WAYFARERS",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "822354001",
+      "prod_name": "Clearglasses Claudio",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "823679001",
+      "prod_name": "Ringcard 3pk",
+      "product_type_name": "Giftbox",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "824130001",
+      "prod_name": "Sunglasses Anna",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "835296002",
+      "prod_name": "Matteo cross bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "837956001",
+      "prod_name": "Sunglasses Cathy",
+      "product_type_name": "Sunglasses",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "877534001",
+      "prod_name": "Betsy bag",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "883684002",
+      "prod_name": "Miffi cross",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "885490002",
+      "prod_name": "Kevin Fur Shopper",
+      "product_type_name": "Bag",
+      "product_group_name": "Accessories",
+      "reason": "out_of_scope"
+    },
+    {
+      "article_id": "894221001",
+      "prod_name": "MAJSAN SMALL BAG",
+      "product_type_name": "Unknown",
+      "product_group_name": "Unknown",
+      "reason": "skip"
     }
   ]
 }

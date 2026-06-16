@@ -143,7 +143,7 @@ def test_suite() -> None:
     total_tests += 1
     try:
         query_files = list(Path('queries').glob('*.rq'))
-        expected = 7
+        expected = 10
         print_test(8, f"SPARQL queries ({len(query_files)}/{expected})",
                   len(query_files) == expected, f"{len(query_files)} query files found")
         if len(query_files) == expected: passed_tests += 1

@@ -59,7 +59,7 @@
 ### ✅ Core Components (100%)
 - Ontology files (.ttl, .rdf, .owl)
 - RDF/Turtle data files
-- SPARQL queries (7 queries)
+- SPARQL queries (10 queries)
 - SHACL validation shapes
 - Source code (app.py, recommend.py, scripts)
 - Test suite (26 tests, all passing)
